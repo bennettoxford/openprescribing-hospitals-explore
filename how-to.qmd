@@ -1,0 +1,53 @@
+---
+title: "How to add an analysis"
+---
+
+## Folder layout
+
+Copy `analyses/_template/` to a new folder under `analyses/` with this name form:
+
+`YYYY-MM-short-name`
+
+Example: `2026-08-scmd-unit-dose-columns`
+
+Quarto does not render folders that start with an underscore, so the template stays out of the site.
+
+Inside the folder:
+
+- `index.qmd` — the report and main analysis
+
+## Report sections
+
+Each report should include:
+
+1. Question
+2. Data
+3. Method
+4. Findings
+5. Limitations
+
+## Shared environment
+
+Use the repository `uv` environment. Do not create a separate environment for each report.
+
+```shell
+uv sync
+uv run ruff check .
+uv run pytest
+```
+
+## Rendering
+
+Render the full site from the repository root:
+
+```shell
+quarto render
+```
+
+The project sets `freeze: true`. A full project render never executes code.
+To refresh results, render the report directly:
+
+```shell
+quarto render analyses/YYYY-MM-short-name/index.qmd
+```
+

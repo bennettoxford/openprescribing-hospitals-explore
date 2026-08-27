@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "OpenPrescribing Hospitals Explore"
+  site-url: "https://github.com/bennettoxford/openprescribing-hospitals-explore"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: how-to.qmd
+        text: How to
+      - href: analyses/index.qmd
+        text: Analyses
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+
+# freeze: true means a project render never executes code. Render a report
+# directly (quarto render analyses/<name>/index.qmd) to refresh its results,
+# then commit _freeze/. CI only assembles the committed results.
+execute:
+  freeze: true
+  echo: true
+  warning: false
