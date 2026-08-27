@@ -1,0 +1,23 @@
+{
+  "name": "openprescribing-hospitals-explore",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainer-community/devcontainer-features/astral.sh-uv:1": {},
+    "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
+      "version": "1.9.38"
+    }
+  },
+  "postCreateCommand": "uv sync",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "quarto.quarto",
+        "charliermarsh.ruff",
+        "ms-python.python"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python"
+      }
+    }
+  }
+}
