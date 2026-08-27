@@ -1,0 +1,11 @@
+---
+title: "Analyses"
+listing:
+  contents: .
+  type: default
+  sort: "date desc"
+  categories: true
+  fields: [date, title, description, categories]
+---
+
+Reports of OpenPrescribing Hospitals analyses.
