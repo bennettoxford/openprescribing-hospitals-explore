@@ -41,13 +41,13 @@ uv run pytest
 Render the full site from the repository root:
 
 ```shell
-quarto render
+uv run quarto render
 ```
 
 The project sets `freeze: true`. A full project render never executes code.
 To refresh results, render the report directly:
 
 ```shell
-quarto render analyses/YYYY-MM-short-name/index.qmd
+uv run quarto render analyses/YYYY-MM-short-name/index.qmd
 ```
 

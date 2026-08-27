@@ -30,5 +30,5 @@ To be completed.
 ```shell
 uv sync
 uv run pytest analyses/YYYY-MM-short-name/
-quarto render analyses/YYYY-MM-short-name/index.qmd
+uv run quarto render analyses/YYYY-MM-short-name/index.qmd
 ```

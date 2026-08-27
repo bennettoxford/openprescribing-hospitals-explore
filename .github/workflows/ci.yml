@@ -45,9 +45,7 @@ jobs:
         run: uv run pytest
 
       - name: Render frozen site
-        env:
-          QUARTO_PYTHON: ${{ github.workspace }}/.venv/bin/python
-        run: quarto render
+        run: uv run quarto render
 
       - name: Upload Pages artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
