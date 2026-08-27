@@ -1,0 +1,34 @@
+---
+title: "Replace with the report title"
+date: 2026-01-01
+categories: [draft]
+description: "Short description of this analysis."
+---
+
+## Question
+
+What question does this analysis answer?
+
+## Data
+
+Describe the data source, any committed extracts, and how to obtain larger inputs.
+
+## Method
+
+Describe the planned analysis steps.
+
+## Findings
+
+To be completed.
+
+## Limitations
+
+To be completed.
+
+## Reproduction
+
+```shell
+uv sync
+uv run pytest analyses/YYYY-MM-short-name/
+quarto render analyses/YYYY-MM-short-name/index.qmd
+```
