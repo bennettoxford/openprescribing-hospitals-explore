@@ -2,9 +2,8 @@ from io import BytesIO
 from pathlib import Path
 from unittest.mock import MagicMock
 
-import pytest
-
 import fetch_data as fetch
+import pytest
 
 PAYLOAD = b"vmp_snomed_code,unit_dose_uom\n123,tablet\n"
 
