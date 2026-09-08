@@ -2,5 +2,5 @@
 /_site/
 **/*.quarto_ipynb
 __pycache__/
-*data/
+analyses/**/data/
 bq-service-account.json
