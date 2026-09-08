@@ -1,0 +1,777 @@
+---
+title: "Comparing the unit dose reported in the SCMD to the unit dose calculated using the dm+d"
+date: 2026-09-01
+categories: [draft]
+description: "A comparison of the unit dose quantity newly reported in the provisional Secondary Care Medicines Data (SCMD) extract with the unit dose calculated from the dm+d in  the OpenPrescribing Hospitals data."
+jupyter: python3
+execute:
+  echo: false
+---
+
+```{python}
+from pathlib import Path
+
+import polars as pl
+from IPython.display import Markdown, display
+
+comparison = pl.read_csv(Path("data") / "unit_dose_comparison.csv")
+
+status_labels = {
+    "agree": "Agree",
+    "disagree": "values different",
+    "vmp_udfs_uom_missing": "UDFS unit missing in OpenPrescribing Hospitals",
+    "provisional_udfs_uom_missing": "UDFS unit missing in the provisional extract",
+    "missing_from_vmp_data": "VMP not in OpenPrescribing Hospitals",
+}
+unit_dose_uom_status_labels = {
+    "agree": "Agree",
+    "disagree": "values different",
+    "vmp_unit_dose_uom_missing": (
+        "Unit dose unit missing in OpenPrescribing Hospitals"
+    ),
+    "provisional_unit_dose_uom_missing": (
+        "Unit dose unit missing in the provisional extract"
+    ),
+    "missing_from_vmp_data": "VMP not in OpenPrescribing Hospitals",
+}
+total_vmps = comparison.height
+status_counts = {
+    row["status"]: row["VMPs"]
+    for row in comparison.group_by("status").len(name="VMPs").iter_rows(named=True)
+}
+
+
+unit_dose_uom_status_counts = {
+    row["unit_dose_uom_status"]: row["VMPs"]
+    for row in comparison.group_by("unit_dose_uom_status")
+    .len(name="VMPs")
+    .iter_rows(named=True)
+}
+
+
+def count(status: str) -> int:
+    return status_counts.get(status, 0)
+
+
+def count_unit_dose_uom(status: str) -> int:
+    return unit_dose_uom_status_counts.get(status, 0)
+
+
+def percentage(numerator: int, denominator: int) -> str:
+    if denominator == 0:
+        return "0.0%"
+    return f"{numerator / denominator:.1%}"
+
+
+def format_udfs(value: float | None) -> str:
+    if value is None:
+        return ""
+    if abs(value - int(value)) < 1e-6:
+        return str(int(value))
+    return f"{value:g}"
+
+
+def show_table(rows: list[dict[str, str]]) -> None:
+    if not rows:
+        display(Markdown("No rows."))
+        return
+
+    headers = list(rows[0])
+    lines = [
+        "| " + " | ".join(headers) + " |",
+        "| " + " | ".join("---" for _ in headers) + " |",
+    ]
+    lines.extend(
+        "| " + " | ".join(str(row[header]) for header in headers) + " |"
+        for row in rows
+    )
+    display(Markdown("\n".join(lines)))
+
+
+status_rows = [
+    {
+        "Status": status_labels[status],
+        "VMPs": f"{count(status):,}",
+        "Share": percentage(count(status), total_vmps),
+    }
+    for status in status_labels
+]
+
+both_values = comparison.filter(
+    pl.col("provisional_udfs_uom_norm").is_not_null()
+    & pl.col("vmp_udfs_uom_norm").is_not_null()
+)
+both_values_total = both_values.height
+both_values_agree = both_values.filter(pl.col("status") == "agree").height
+both_values_disagree = both_values.filter(pl.col("status") == "disagree").height
+
+disagreements = comparison.filter(pl.col("status") == "disagree")
+disagreement_counts = (
+    disagreements.group_by(
+        "provisional_udfs_uom",
+        "udfs_uom",
+    )
+    .len(name="VMPs")
+    .sort("VMPs", descending=True)
+)
+most_common_disagreement = (
+    disagreement_counts.row(0, named=True) if disagreement_counts.height else None
+)
+disagreement_rows = [
+    {
+        "Provisional UDFS unit of measure": row["provisional_udfs_uom"],
+        "OpenPrescribing Hospitals UDFS unit of measure": row["udfs_uom"],
+        "VMPs": f"{row['VMPs']:,}",
+    }
+    for row in disagreement_counts.iter_rows(named=True)
+]
+uom_disagree_udfs_agree = disagreements.filter(pl.col("udfs_status") == "agree")
+uom_disagree_udfs_disagree = disagreements.filter(
+    pl.col("udfs_status") == "disagree"
+).sort("vmp_product_name")
+uom_disagree_udfs_disagree_rows = [
+    {
+        "Product": row["vmp_product_name"],
+        "Provisional UDFS unit of measure": row["provisional_udfs_uom"],
+        "OpenPrescribing Hospitals UDFS unit of measure": row["udfs_uom"],
+        "Provisional UDFS": format_udfs(row["provisional_udfs"]),
+        "OpenPrescribing Hospitals UDFS": format_udfs(row["udfs"]),
+    }
+    for row in uom_disagree_udfs_disagree.iter_rows(named=True)
+]
+
+missing_provisional_udfs_uom = comparison.filter(
+    pl.col("status") == "provisional_udfs_uom_missing"
+)
+missing_provisional_rows = [
+    {
+        "VMP code": row["vmp_code"],
+        "OpenPrescribing Hospitals UDFS unit of measure": row["udfs_uom"],
+        "`df_ind`": row["df_ind"],
+    }
+    for row in missing_provisional_udfs_uom.iter_rows(named=True)
+]
+
+missing_from_oph = comparison.filter(
+    pl.col("status") == "missing_from_vmp_data"
+).sort("vmp_product_name")
+missing_from_oph_rows = [
+    {
+        "Product": row["vmp_product_name"],
+        "Provisional UDFS unit of measure": row["provisional_udfs_uom"],
+    }
+    for row in missing_from_oph.iter_rows(named=True)
+]
+
+missing_vmp_udfs_uom = comparison.filter(
+    pl.col("status") == "vmp_udfs_uom_missing"
+)
+missing_uom_counts = (
+    missing_vmp_udfs_uom.group_by("provisional_udfs_uom")
+    .len(name="VMPs")
+    .sort("VMPs", descending=True)
+)
+shown_uom_counts = missing_uom_counts.head(9)
+other_uom_counts = missing_uom_counts.slice(9)
+missing_uom_rows = [
+    {
+        "Provisional UDFS unit of measure": row["provisional_udfs_uom"],
+        "VMPs": f"{row['VMPs']:,}",
+    }
+    for row in shown_uom_counts.iter_rows(named=True)
+]
+if other_uom_counts.height:
+    missing_uom_rows.append(
+        {
+            "Provisional UDFS unit of measure": f"Other ({other_uom_counts.height} values)",
+            "VMPs": f"{other_uom_counts.get_column('VMPs').sum():,}",
+        }
+    )
+
+df_counts = {
+    row["df_ind"]: row["VMPs"]
+    for row in (
+        missing_vmp_udfs_uom.group_by("df_ind")
+        .len(name="VMPs")
+        .iter_rows(named=True)
+    )
+}
+df_order = ["Continuous", "Not applicable", "Discrete"]
+df_rows = [
+    {
+        "`df_ind`": df_ind,
+        "VMPs": f"{df_counts.get(df_ind, 0):,}",
+        "Share": percentage(
+            df_counts.get(df_ind, 0),
+            missing_vmp_udfs_uom.height,
+        ),
+    }
+    for df_ind in df_order
+]
+missing_df_ind = missing_vmp_udfs_uom.get_column("df_ind").null_count()
+discrete_count = df_counts.get("Discrete", 0)
+missing_oph_units_match = missing_vmp_udfs_uom.filter(
+    pl.col("provisional_units_match")
+)
+missing_oph_udfs_is_one = missing_vmp_udfs_uom.filter(
+    pl.col("provisional_udfs_consistent")
+    & pl.col("provisional_udfs").is_not_null()
+    & ((pl.col("provisional_udfs") - 1).abs() <= 1e-3)
+)
+
+combination_counts = (
+    missing_vmp_udfs_uom.group_by(
+        "df_ind",
+        "provisional_udfs_uom",
+    )
+    .len(name="VMPs")
+    .sort("VMPs", descending=True)
+    .head(10)
+)
+combination_rows = [
+    {
+        "`df_ind`": row["df_ind"],
+        "Provisional UDFS unit of measure": row["provisional_udfs_uom"],
+        "VMPs": f"{row['VMPs']:,}",
+    }
+    for row in combination_counts.iter_rows(named=True)
+]
+
+uom_agree = comparison.filter(pl.col("status") == "agree")
+udfs_agree_when_uom_agrees = uom_agree.filter(pl.col("udfs_status") == "agree")
+udfs_disagree_when_uom_agrees = uom_agree.filter(
+    pl.col("udfs_status") == "disagree"
+).sort("vmp_product_name")
+udfs_disagree_when_uom_agrees_rows = [
+    {
+        "Product": row["vmp_product_name"],
+        "UDFS unit of measure": row["provisional_udfs_uom"],
+        "Provisional UDFS": format_udfs(row["provisional_udfs"]),
+        "OpenPrescribing Hospitals UDFS": format_udfs(row["udfs"]),
+    }
+    for row in udfs_disagree_when_uom_agrees.iter_rows(named=True)
+]
+udfs_value_disagreement_counts = (
+    udfs_disagree_when_uom_agrees.group_by(
+        "provisional_udfs",
+        "udfs",
+        "provisional_udfs_uom",
+    )
+    .len(name="VMPs")
+    .sort("VMPs", descending=True)
+)
+most_common_udfs_value_disagreement = (
+    udfs_value_disagreement_counts.row(0, named=True)
+    if udfs_value_disagreement_counts.height
+    else None
+)
+
+udfs_inconsistent = comparison.filter(
+    ~pl.col("provisional_udfs_consistent")
+).sort("vmp_product_name")
+udfs_inconsistent_rows = [
+    {
+        "Product": row["vmp_product_name"],
+        "Minimum UDFS": format_udfs(row["provisional_udfs_min"]),
+        "Maximum UDFS": format_udfs(row["provisional_udfs_max"]),
+    }
+    for row in udfs_inconsistent.iter_rows(named=True)
+]
+udfs_consistent_count = total_vmps - udfs_inconsistent.height
+
+unit_dose_uom_status_rows = [
+    {
+        "Status": unit_dose_uom_status_labels[status],
+        "VMPs": f"{count_unit_dose_uom(status):,}",
+        "Share": percentage(count_unit_dose_uom(status), total_vmps),
+    }
+    for status in unit_dose_uom_status_labels
+]
+both_unit_dose_uom = comparison.filter(
+    pl.col("provisional_unit_dose_uom_norm").is_not_null()
+    & pl.col("vmp_unit_dose_uom_norm").is_not_null()
+)
+both_unit_dose_uom_total = both_unit_dose_uom.height
+both_unit_dose_uom_agree = both_unit_dose_uom.filter(
+    pl.col("unit_dose_uom_status") == "agree"
+).height
+both_unit_dose_uom_disagree = both_unit_dose_uom.filter(
+    pl.col("unit_dose_uom_status") == "disagree"
+).height
+unit_dose_uom_disagreements = comparison.filter(
+    pl.col("unit_dose_uom_status") == "disagree"
+)
+unit_dose_uom_disagreement_counts = (
+    unit_dose_uom_disagreements.group_by(
+        "provisional_unit_dose_uom",
+        "unit_dose_uom",
+    )
+    .len(name="VMPs")
+    .sort("VMPs", descending=True)
+)
+most_common_unit_dose_uom_disagreement = (
+    unit_dose_uom_disagreement_counts.row(0, named=True)
+    if unit_dose_uom_disagreement_counts.height
+    else None
+)
+unit_dose_uom_disagreement_rows = [
+    {
+        "Provisional unit dose unit of measure": row["provisional_unit_dose_uom"],
+        "OpenPrescribing Hospitals unit dose unit of measure": row["unit_dose_uom"],
+        "VMPs": f"{row['VMPs']:,}",
+    }
+    for row in unit_dose_uom_disagreement_counts.iter_rows(named=True)
+]
+missing_vmp_unit_dose_uom = comparison.filter(
+    pl.col("unit_dose_uom_status") == "vmp_unit_dose_uom_missing"
+)
+missing_provisional_unit_dose_uom = comparison.filter(
+    pl.col("unit_dose_uom_status") == "provisional_unit_dose_uom_missing"
+)
+missing_provisional_unit_dose_rows = [
+    {
+        "VMP code": row["vmp_code"],
+        "OpenPrescribing Hospitals unit dose unit of measure": row["unit_dose_uom"],
+        "`df_ind`": row["df_ind"],
+    }
+    for row in missing_provisional_unit_dose_uom.iter_rows(named=True)
+]
+```
+
+## Background
+
+The following notice was added to the [provisional Secondary Care Medicines Data (SCMD)](https://opendata.nhsbsa.net/dataset/secondary-care-medicines-data-indicative-price) on the NHS Business Services Authority (NHSBSA) Open Data Portal on 25/08/2026:
+
+> Changes have now been introduced to the Secondary Care Medicines Dataset (SCMD) with the\
+> June 2026 Provisional data release.
+>
+> The changes include updates to existing column names and the addition of new columns relating to Virtual Medicinal Product (VMP) unit of measure and quantity.
+>
+> Column name changes
+>
+> UNIT_OF_MEASURE_NAME → VMP_UDFS_UNIT_OF_MEASURE_NAME
+>
+> UNIT_OF_MEASURE_IDENTIFIER → VMP_UDFS_UNIT_OF_MEASURE_IDENTIFIER
+>
+> TOTAL_QUANITY_IN_VMP_UNIT → TOTAL_QUANTITY_IN_VMP_UDFS_UNIT_OF_MEASURE New columns
+>
+> VMP_UNIT_DOSE_UNIT_OF_MEASURE_NAME – Virtual Medicinal Product (VMP) Unit Dose Unit of Measure name
+>
+> TOTAL_QUANTITY_IN_VMP_UNIT_DOSE_UNIT_OF_MEASURE – Total quantity in Virtual Medicinal \>Product (VMP) Unit Dose Unit of Measure SNOMED code and unit of measure identifier fields are also now provided as string data types.
+>
+> The Finalised SCMD dataset is published annually and will next be updated in July 2027,\
+> covering data for April 2026 to March 2027. The changes introduced to the Provisional dataset will therefore be reflected in the Finalised dataset as part of this annual update.
+
+The unit dose quantity is a quantity that we have previously had to calculate by linking the SCMD to the dm+d, identifying the UDFS value and unit of measure in the dm+d, and converting the quantity reported in the SCMD to the unit dose quantity. We have described how we do this in our blog post, [Calculating unit dose quantity in the Secondary Care Medicines Data](https://www.bennett.ox.ac.uk/blog/2025/06/calculating-unit-dose-quantity-in-the-secondary-care-medicines-data/).
+
+Inclusion of the unit dose quantity in the raw SCMD will allow us to simplify the processing required for use of the data by OpenPrescribing Hospitals. But before we replace the current unit dose quantity calculation, we need to check that the unit doses now reported in the SCMD agrees with the unit doses we have determined using the extra information available through the dm+d.
+
+Below, we describe this comparison.
+
+## Methods
+
+The analysis uses two data sources:
+
+1.  The June 2026 provisional SCMD extract (the only data extract with the additional columns at the time of analysis).
+2.  The product information used by OpenPrescribing Hospitals, taken from the dm+d.
+
+To make the comparison, we first identify all of the unique Virtual Medicinal Products (VMPs) that are reported in the June 2026 provisional SCMD extract. For these products, we identify the UDFS unit of measure from the renamed `VMP_UDFS_UNIT_OF_MEASURE_NAME` column and the unit dose unit of measure from the `VMP_UNIT_DOSE_UNIT_OF_MEASURE_NAME` column.
+
+For all of the identified VMPs, we then find the UDFS unit of measure, the UDFS value, and the unit dose unit of measure that are currently used in OpenPrescribing Hospitals.
+
+We compare the UDFS unit of measure and the unit dose unit of measure in the provisional extract with the equivalent fields in the OpenPrescribing Hospitals data.
+
+We count the number of VMPs for which these values agree and for which they do not. Where they do not, we split this count out into:
+
+- **values different** - both sources have a UDFS unit of measure, and the values are different
+- **UDFS unit missing in OpenPrescribing Hospitals** - the VMP has a UDFS unit of measure in the provisional extract, but not in OpenPrescribing Hospitals
+- **UDFS unit missing in the provisional extract** - the VMP has a UDFS unit of measure in the OpenPrescribing Hospitals data, but not in the provisional extract
+
+Where the UDFS units of measure are different, we also report whether the UDFS values are different.
+
+We also identify any VMPs which are reported in the provisional extract, but not in the OpenPrescribing Hospitals data.
+
+We then compare unit dose form size (UDFS). The provisional extract does not include a UDFS value column, so we have to back-calculate it from the two reported quantity fields. For each organisation row we calculate:
+
+```         
+Quantity in the UDFS unit of measure / quantity in the unit dose unit of measure
+```
+
+(We've described the differences between unit dose and unit dose form in our blog post, [Getting more from the Secondary Care Medicines Data using the Dictionary of Medicines and Devices](https://www.bennett.ox.ac.uk/blog/2025/03/getting-more-from-the-secondary-care-medicines-data-using-the-dictionary-of-medicines-and-devices/#virtual-medicinal-product-vmp).)
+
+We first check that this value is the same for all organisation rows of a VMP. A relative difference of 0.1% or less between the minimum and maximum counts as the same.
+
+We then compare that UDFS with UDFS in the OpenPrescribing Hospitals data. We restrict this comparison to VMPs where the UDFS unit of measure already agrees.
+
+We also compare the unit dose unit of measure in the new `VMP_UNIT_DOSE_UNIT_OF_MEASURE_NAME` column with `unit_dose_uom` in OpenPrescribing Hospitals. We use the same agreement categories as for the UDFS unit of measure.
+
+## Findings
+
+```{python}
+agree_count = count("agree")
+mismatch_count = (
+    count("disagree")
+    + count("vmp_udfs_uom_missing")
+    + count("provisional_udfs_uom_missing")
+)
+display(
+    Markdown(
+        f"The provisional extract has **{total_vmps:,}** unique VMP codes. "
+        f"Of these, the UDFS units of measure agree for **{agree_count:,} ({percentage(agree_count, total_vmps)})**. "
+        f"**{mismatch_count:,} ({percentage(mismatch_count, total_vmps)})** "
+        "do not agree. "
+        f"**{count('missing_from_vmp_data'):,} "
+        f"({percentage(count('missing_from_vmp_data'), total_vmps)})** "
+        "are in the provisional extract, but not in the data used by OpenPrescribing Hospitals (there will be newly introduced VMPs only reported in the June 2026 provisional extract)."
+    )
+)
+```
+
+```{python}
+show_table(status_rows)
+```
+
+```{python}
+display(
+    Markdown(
+        "Where both sources have a UDFS unit of measure "
+        f"({both_values_total:,} VMPs), **{both_values_agree:,} agree "
+        f"({percentage(both_values_agree, both_values_total)})** and "
+        f"**{both_values_disagree:,} have differing UDFS units of measure "
+        f"({percentage(both_values_disagree, both_values_total)})**."
+    )
+)
+```
+
+### Products with differing UDFS units of measure
+
+```{python}
+if most_common_disagreement is None:
+    display(Markdown("No VMPs have different UDFS units of measure in both sources."))
+else:
+    display(
+        Markdown(
+            f"**{disagreements.height:,}** VMPs have a UDFS unit of measure in "
+            "both sources, and the values are different. The most common "
+            "pair is "
+            f"{most_common_disagreement['provisional_udfs_uom']} in the "
+            "provisional extract and "
+            f"{most_common_disagreement['udfs_uom']} in "
+            "OpenPrescribing Hospitals "
+            f"({most_common_disagreement['VMPs']:,} VMPs)."
+        )
+    )
+```
+
+```{python}
+show_table(disagreement_rows)
+```
+
+```{python}
+if disagreements.height == 0:
+    display(
+        Markdown(
+            "No VMPs have different UDFS units of measure in both sources, "
+            "so there are no UDFS value differences to report for this group."
+        )
+    )
+else:
+    display(
+        Markdown(
+            f"Among these **{disagreements.height:,}** VMPs, the UDFS value "
+            f"agrees for **{uom_disagree_udfs_agree.height:,}** and differs "
+            f"for **{uom_disagree_udfs_disagree.height:,}**."
+        )
+    )
+    if uom_disagree_udfs_disagree.height:
+        show_table(uom_disagree_udfs_disagree_rows)
+```
+
+### Products with UDFS unit missing in OpenPrescribing Hospitals
+
+```{python}
+display(
+    Markdown(
+        f"**{missing_vmp_udfs_uom.height:,}** VMPs have a UDFS unit of measure "
+        "in the provisional extract, but not in OpenPrescribing Hospitals."
+    )
+)
+```
+
+The UDFS units of measure for these products are shown below.
+
+```{python}
+show_table(missing_uom_rows)
+```
+
+The dose form indicators for these VMPs is shown below.
+
+```{python}
+show_table(df_rows)
+
+# The prose below claims that all of these products have a `Continuous` or
+# `Not applicable` dose form indicator. Stop the render if that is not true.
+assert missing_df_ind == 0, (
+    f"{missing_df_ind} VMPs with a missing dose form indicator"
+)
+assert discrete_count == 0, (
+    f"{discrete_count} VMPs with a Discrete dose form indicator"
+)
+assert set(df_counts) <= {"Continuous", "Not applicable"}, (
+    f"Unexpected dose form indicators: {sorted(df_counts)}"
+)
+```
+
+All of the products with a UDFS unit reported in the provisional extract but not in OpenPrescribing Hospitals have a `Continuous` or `Not applicable` dose form indicator. In the processing pipeline for OpenPrescribing Hospitals, these products are excluded from the unit dose quantity calculations as unit doses are not applicable to these products.
+
+```{python}
+display(
+    Markdown(
+        f"For **{missing_oph_units_match.height:,} of "
+        f"{missing_vmp_udfs_uom.height:,}** of these VMPs, "
+        "the provisional UDFS unit of measure is the same as the provisional "
+        "unit dose unit of measure. The implied UDFS is 1 on every "
+        f"organisation row for **{missing_oph_udfs_is_one.height:,} of "
+        f"{missing_vmp_udfs_uom.height:,}** VMPs. "
+        "This is consistent with treating the UDFS units as unit dose units "
+        "for these products."
+    )
+)
+```
+
+The UDFS units of measure for these cases are shown below.
+
+```{python}
+show_table(combination_rows)
+```
+
+### Products with UDFS unit missing in the provisional extract
+
+```{python}
+display(
+    Markdown(
+        f"**{missing_provisional_udfs_uom.height:,}** VMPs have a "
+        "UDFS unit of measure in OpenPrescribing Hospitals, but not in the "
+        "provisional extract."
+    )
+)
+```
+
+```{python}
+show_table(missing_provisional_rows)
+```
+
+### VMPs not in OpenPrescribing Hospitals
+
+```{python}
+display(
+    Markdown(
+        f"**{missing_from_oph.height:,}** VMPs are in the provisional "
+        "extract, but not in the OpenPrescribing Hospitals data."
+    )
+)
+```
+
+```{python}
+show_table(missing_from_oph_rows)
+```
+
+### Unit dose form size (UDFS)
+
+```{python}
+display(
+    Markdown(
+        f"For **{udfs_consistent_count:,} of {total_vmps:,}** VMPs "
+        f"({percentage(udfs_consistent_count, total_vmps)}), the implied "
+        "UDFS is the same on every organisation row. "
+    )
+)
+```
+
+```{python}
+if udfs_inconsistent.height == 0:
+    display(
+        Markdown(
+            "No VMPs have a different implied UDFS across organisation rows."
+        )
+    )
+else:
+    display(
+        Markdown(
+            "The VMPs where implied UDFS is not the same on every "
+            "organisation row are shown below."
+        )
+    )
+    show_table(udfs_inconsistent_rows)
+```
+
+```{python}
+display(
+    Markdown(
+        f"Among the **{uom_agree.height:,}** VMPs where the UDFS "
+        "unit of measure agrees, UDFS agrees for "
+        f"**{udfs_agree_when_uom_agrees.height:,}**. "
+        f"**{udfs_disagree_when_uom_agrees.height:,}** have different "
+        "UDFS values."
+    )
+)
+```
+
+```{python}
+if udfs_disagree_when_uom_agrees.height == 0:
+    display(
+        Markdown(
+            "No VMPs have the same UDFS unit of measure and a different UDFS."
+        )
+    )
+else:
+    display(
+        Markdown(
+            "The VMPs with the same UDFS unit of measure and a different "
+            "UDFS are shown below."
+        )
+    )
+    show_table(udfs_disagree_when_uom_agrees_rows)
+```
+
+### Unit dose unit of measure
+
+```{python}
+unit_dose_uom_agree_count = count_unit_dose_uom("agree")
+unit_dose_uom_mismatch_count = (
+    count_unit_dose_uom("disagree")
+    + count_unit_dose_uom("vmp_unit_dose_uom_missing")
+    + count_unit_dose_uom("provisional_unit_dose_uom_missing")
+)
+display(
+    Markdown(
+        f"The unit dose units of measure agree for "
+        f"**{unit_dose_uom_agree_count:,} "
+        f"({percentage(unit_dose_uom_agree_count, total_vmps)})**. "
+        f"**{unit_dose_uom_mismatch_count:,} "
+        f"({percentage(unit_dose_uom_mismatch_count, total_vmps)})** "
+        "do not agree. "
+        f"**{count_unit_dose_uom('missing_from_vmp_data'):,} "
+        f"({percentage(count_unit_dose_uom('missing_from_vmp_data'), total_vmps)})** "
+        "are in the provisional extract, but not in the data used by "
+        "OpenPrescribing Hospitals."
+    )
+)
+```
+
+```{python}
+show_table(unit_dose_uom_status_rows)
+```
+
+```{python}
+display(
+    Markdown(
+        "Where both sources have a unit dose unit of measure "
+        f"({both_unit_dose_uom_total:,} VMPs), "
+        f"**{both_unit_dose_uom_agree:,} agree "
+        f"({percentage(both_unit_dose_uom_agree, both_unit_dose_uom_total)})** "
+        "and "
+        f"**{both_unit_dose_uom_disagree:,} have differing unit dose units "
+        f"of measure ({percentage(both_unit_dose_uom_disagree, both_unit_dose_uom_total)})**."
+    )
+)
+```
+
+```{python}
+if most_common_unit_dose_uom_disagreement is None:
+    display(
+        Markdown(
+            "No VMPs have different unit dose units of measure in both sources."
+        )
+    )
+else:
+    display(
+        Markdown(
+            f"**{unit_dose_uom_disagreements.height:,}** VMPs have a unit "
+            "dose unit of measure in both sources, and the values are "
+            "different. The most common pair is "
+            f"{most_common_unit_dose_uom_disagreement['provisional_unit_dose_uom']} "
+            "in the provisional extract and "
+            f"{most_common_unit_dose_uom_disagreement['unit_dose_uom']} in "
+            "OpenPrescribing Hospitals "
+            f"({most_common_unit_dose_uom_disagreement['VMPs']:,} VMPs)."
+        )
+    )
+```
+
+```{python}
+show_table(unit_dose_uom_disagreement_rows)
+```
+
+```{python}
+display(
+    Markdown(
+        f"**{missing_vmp_unit_dose_uom.height:,}** VMPs have a unit dose "
+        "unit of measure in the provisional extract, but not in "
+        "OpenPrescribing Hospitals. "
+        f"**{missing_provisional_unit_dose_uom.height:,}** VMPs have a "
+        "unit dose unit of measure in OpenPrescribing Hospitals, but not "
+        "in the provisional extract."
+    )
+)
+```
+
+```{python}
+if missing_provisional_unit_dose_uom.height:
+    show_table(missing_provisional_unit_dose_rows)
+```
+
+## Conclusions
+
+```{python}
+# The conclusion below claims that, for every VMP with a UDFS unit missing in
+# OpenPrescribing Hospitals, the provisional UDFS unit equals the provisional
+# unit dose unit and the implied UDFS is 1. Stop the render if that is not true.
+assert missing_oph_units_match.height == missing_vmp_udfs_uom.height, (
+    f"UDFS unit equals unit dose unit for only "
+    f"{missing_oph_units_match.height} of {missing_vmp_udfs_uom.height} VMPs"
+)
+assert missing_oph_udfs_is_one.height == missing_vmp_udfs_uom.height, (
+    f"Implied UDFS is 1 for only "
+    f"{missing_oph_udfs_is_one.height} of {missing_vmp_udfs_uom.height} VMPs"
+)
+
+display(
+    Markdown(
+        f"For all **{both_values_total:,}** VMPs where both sources have a "
+        f"UDFS unit of measure, the units agree for **{both_values_agree:,}**. "
+        f"OpenPrescribing Hospitals has no UDFS unit for "
+        f"**{missing_vmp_udfs_uom.height:,}** VMPs. All of these products "
+        "have a `Continuous` or `Not applicable` dose form indicator, for "
+        "which unit doses are not applicable. For all of these products, "
+        "the provisional UDFS unit is the same as the provisional unit dose "
+        "unit and the implied UDFS is 1 on every organisation row. This is "
+        "consistent with treating the UDFS units as unit dose units for "
+        "these products."
+    )
+)
+display(
+    Markdown(
+        f"For the **{uom_agree.height:,}** VMPs with matching UDFS units, "
+        f"the implied UDFS value agrees for "
+        f"**{udfs_agree_when_uom_agrees.height:,}**. "
+        f"**{udfs_disagree_when_uom_agrees.height:,}** have different UDFS "
+        "values."
+        + (
+            " The most common pair is an implied UDFS of "
+            f"{format_udfs(most_common_udfs_value_disagreement['provisional_udfs'])} "
+            f"{most_common_udfs_value_disagreement['provisional_udfs_uom']} "
+            "in the provisional extract and a UDFS of "
+            f"{format_udfs(most_common_udfs_value_disagreement['udfs'])} "
+            f"{most_common_udfs_value_disagreement['provisional_udfs_uom']} "
+            "in OpenPrescribing Hospitals "
+            f"({most_common_udfs_value_disagreement['VMPs']:,} VMPs). "
+            "These differences need further investigation."
+            if most_common_udfs_value_disagreement is not None
+            else ""
+        )
+    )
+)
+
+
+```
