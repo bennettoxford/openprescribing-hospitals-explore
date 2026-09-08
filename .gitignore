@@ -3,3 +3,4 @@
 **/*.quarto_ipynb
 __pycache__/
 *data/
+bq-service-account.json
