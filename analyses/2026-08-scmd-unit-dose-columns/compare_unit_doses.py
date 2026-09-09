@@ -80,9 +80,7 @@ def load_provisional_vmps(csv_path: Path) -> pl.DataFrame:
                 "VMP_SNOMED_CODE": "vmp_code",
                 "VMP_PRODUCT_NAME": "vmp_product_name",
                 "VMP_UDFS_UNIT_OF_MEASURE_NAME": "provisional_udfs_uom",
-                "VMP_UNIT_DOSE_UNIT_OF_MEASURE_NAME": (
-                    "provisional_unit_dose_uom"
-                ),
+                "VMP_UNIT_DOSE_UNIT_OF_MEASURE_NAME": ("provisional_unit_dose_uom"),
                 "TOTAL_QUANTITY_IN_VMP_UDFS_UNIT_OF_MEASURE": "quantity_udfs",
                 "TOTAL_QUANTITY_IN_VMP_UNIT_DOSE_UNIT_OF_MEASURE": (
                     "quantity_unit_dose"
@@ -105,9 +103,7 @@ def load_provisional_vmps(csv_path: Path) -> pl.DataFrame:
             pl.col("provisional_udfs").drop_nulls().max().alias("provisional_udfs_max"),
             pl.col("provisional_udfs").drop_nulls().len().alias("provisional_udfs_n"),
         )
-        .with_columns(
-            udfs_consistent_expr().alias("provisional_udfs_consistent")
-        )
+        .with_columns(udfs_consistent_expr().alias("provisional_udfs_consistent"))
         .drop("provisional_udfs_n")
     )
 
@@ -158,9 +154,7 @@ def compare_unit_doses(provisional: pl.DataFrame, vmp: pl.DataFrame) -> pl.DataF
     vmp_marked = vmp.with_columns(pl.lit(True).alias("in_vmp_data"))
     joined = provisional.join(vmp_marked, on="vmp_code", how="left")
     return joined.with_columns(
-        normalised_uom_expr("provisional_udfs_uom").alias(
-            "provisional_udfs_uom_norm"
-        ),
+        normalised_uom_expr("provisional_udfs_uom").alias("provisional_udfs_uom_norm"),
         normalised_uom_expr("provisional_unit_dose_uom").alias(
             "provisional_unit_dose_uom_norm"
         ),

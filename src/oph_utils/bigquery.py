@@ -20,9 +20,7 @@ QueryParameter = (
 
 
 def get_bigquery_client() -> bigquery.Client:
-    credentials = Credentials.from_service_account_file(
-        DEFAULT_CREDENTIALS_PATH
-    )
+    credentials = Credentials.from_service_account_file(DEFAULT_CREDENTIALS_PATH)
     return bigquery.Client(
         project=PROJECT_ID, credentials=credentials, location=LOCATION
     )

@@ -96,8 +96,7 @@ def test_load_provisional_vmps_ignores_null_uom_rows(tmp_path: Path) -> None:
 def test_load_provisional_vmps_flags_inconsistent_udfs(tmp_path: Path) -> None:
     csv_path = write_provisional_csv(
         tmp_path / "scmd.csv",
-        "202606,RDE,111,Alpha,ML,VIAL,10,2\n"
-        "202606,RYJ,111,Alpha,ML,VIAL,20,5\n",
+        "202606,RDE,111,Alpha,ML,VIAL,10,2\n202606,RYJ,111,Alpha,ML,VIAL,20,5\n",
     )
 
     vmps = compare.load_provisional_vmps(csv_path)
