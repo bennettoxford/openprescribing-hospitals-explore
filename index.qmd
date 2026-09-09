@@ -1,8 +1,13 @@
 ---
 title: "OpenPrescribing Hospitals Explore"
+listing:
+  contents: analyses
+  type: default
+  sort: "date desc"
+  categories: true
+  fields: [date, title, description, categories]
 ---
 
 Short, reproducible analyses of OpenPrescribing Hospitals work.
 
 Each analysis is a Quarto report with optional Python code.
-Browse the [analyses index](analyses/index.qmd).

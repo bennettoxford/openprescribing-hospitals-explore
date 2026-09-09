@@ -7,11 +7,6 @@ website:
   site-url: "https://bennettoxford.github.io/openprescribing-hospitals-explore"
   repo-url: "https://github.com/bennettoxford/openprescribing-hospitals-explore"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: analyses/index.qmd
-        text: Analyses
     right:
       - icon: github
         href: https://github.com/bennettoxford/openprescribing-hospitals-explore
