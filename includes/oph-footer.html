@@ -1,0 +1,64 @@
+<footer class="oph-footer">
+  <div class="oph-footer-inner">
+    <div class="oph-footer-bottom">
+      <div class="oph-footer-logos">
+        <a
+          href="https://www.bennett.ox.ac.uk/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            data-src="assets/bennett-logo.svg"
+            alt="Bennett Institute logo"
+          />
+        </a>
+        <a
+          href="https://www.phc.ox.ac.uk/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            data-src="assets/footer-nuffield.png"
+            alt="Nuffield Department of Primary Care Health Sciences logo"
+          />
+        </a>
+        <a
+          href="https://www.ox.ac.uk/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            data-src="assets/oxford_logo.png"
+            alt="University of Oxford logo"
+          />
+        </a>
+      </div>
+      <p class="oph-footer-copyright">
+        © University of Oxford for the Bennett Institute for Applied Data
+        Science 2026.<br />
+        This work may be copied freely for non-commercial research and study.
+      </p>
+    </div>
+  </div>
+</footer>
+<script>
+  (function () {
+    var offsetMeta = document.querySelector('meta[name="quarto:offset"]');
+    var offset = offsetMeta ? offsetMeta.getAttribute("content") : "./";
+    document.querySelectorAll(".oph-footer img[data-src]").forEach(function (img) {
+      img.src = offset + img.dataset.src;
+    });
+    document.querySelectorAll(".navbar-title").forEach(function (el) {
+      if (el.querySelector(".navbar-title-hospitals")) {
+        return;
+      }
+      el.innerHTML = el.textContent.replace(
+        "Hospitals",
+        '<span class="navbar-title-hospitals">Hospitals</span>'
+      ).replace(
+        "Explore",
+        '<span class="navbar-title-explore">Explore</span>'
+      );
+    });
+  })();
+</script>

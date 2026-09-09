@@ -1,0 +1,266 @@
+/*-- scss:defaults --*/
+$oxford: #002147;
+$oxford-50: #f1f7ff;
+$oxford-200: #9ccaff;
+$oxford-600: #0058be;
+$oxford-700: #00397a;
+$oxford-900: #001936;
+$bn-roman-200: #e6d4f9;
+$bn-roman-600: #5066da;
+$bn-strawberry-50: #fff5fa;
+$bn-strawberry-200: #ffcde6;
+$bn-strawberry-600: #e6318c;
+$bn-strawberry-700: #bf2975;
+$slate-600: #475569;
+$slate-900: #0f172a;
+$gray-50: #f9fafb;
+
+$primary: $oxford;
+$link-color: $oxford-600;
+$link-hover-color: $oxford-700;
+$font-family-sans-serif: "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+$body-color: $slate-900;
+$headings-color: $oxford-900;
+$headings-font-weight: 700;
+$navbar-bg: #f6f0fa;
+$navbar-fg: $oxford;
+$navbar-hl: $bn-strawberry-700;
+$navbar-brand-font-size: 1.25rem;
+$toc-color: $oxford;
+$footer-bg: transparent;
+$footer-fg: $oxford;
+
+$header-gradient: linear-gradient(
+  to right,
+  rgba($oxford-200, 0.2),
+  rgba($bn-roman-200, 0.35),
+  rgba($bn-strawberry-200, 0.25)
+);
+$accent-bar: linear-gradient(
+  to right,
+  rgba($oxford-600, 0.6),
+  rgba($bn-roman-600, 0.7),
+  rgba($bn-strawberry-600, 0.6)
+);
+
+/*-- scss:rules --*/
+body {
+  background-color: $gray-50;
+  font-family: $font-family-sans-serif;
+}
+
+.navbar-brand-container {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.navbar {
+  position: relative;
+  font-family: $font-family-sans-serif;
+  background-image: $header-gradient;
+  background-color: $navbar-bg !important;
+  border-bottom: 0;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    background-image: $accent-bar;
+  }
+}
+
+.navbar-brand {
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 1.25rem !important;
+  line-height: 1;
+}
+
+.navbar-logo {
+  max-height: 2rem;
+  width: 2rem;
+}
+
+.navbar-title {
+  color: $oxford;
+  font-family: $font-family-sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.navbar-title-hospitals {
+  color: $oxford-600;
+}
+
+.navbar-title-explore {
+  color: $bn-strawberry-600;
+}
+
+.navbar .nav-link {
+  color: $oxford !important;
+  font-weight: 600;
+
+  &:hover,
+  &:focus {
+    color: $bn-strawberry-700 !important;
+  }
+}
+
+.navbar .bi-github {
+  font-size: 1.25rem;
+}
+
+main.content {
+  font-size: 1.05rem;
+  color: $slate-600;
+}
+
+main.content > p {
+  max-width: 42rem;
+}
+
+main.content a {
+  font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $oxford-900;
+  letter-spacing: -0.025em;
+}
+
+#title-block-header {
+  display: none;
+}
+
+#analyses h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.quarto-listing-default .quarto-post {
+  background: #fff;
+  border: 0;
+  border-radius: 0.75rem;
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.06),
+    0 1px 3px rgb(15 23 42 / 0.08);
+  padding: 1.35rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.quarto-listing-default .listing-title a {
+  color: $oxford-900;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    color: $bn-strawberry-700;
+  }
+}
+
+.listing-category {
+  background: $oxford-50 !important;
+  color: $oxford-700 !important;
+  border: 0 !important;
+  border-radius: 9999px !important;
+}
+
+.listing-description,
+.listing-date {
+  color: $slate-600;
+}
+
+.nav-footer {
+  display: none;
+}
+
+.oph-footer {
+  background-image: $header-gradient;
+  color: $oxford;
+  font-family: $font-family-sans-serif;
+  position: relative;
+  margin-top: 3rem;
+  padding: 2rem 1rem 2.5rem;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 4px;
+    background-image: $accent-bar;
+  }
+}
+
+.oph-footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.oph-footer a {
+  color: $oxford-600;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $oxford-700;
+  }
+}
+
+.oph-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.oph-footer-logos {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.oph-footer-logos a {
+  display: inline-flex;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+}
+
+.oph-footer-logos img {
+  height: 4rem;
+  width: auto;
+  max-width: none;
+}
+
+.oph-footer-copyright {
+  margin: 0;
+  color: $slate-600;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: left;
+
+  @media (min-width: 992px) {
+    text-align: right;
+  }
+}
