@@ -42,3 +42,4 @@ execute:
 
 filters:
   - filters/report-code-link.lua
+  - filters/draft-warning.lua

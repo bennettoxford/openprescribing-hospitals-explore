@@ -160,6 +160,16 @@ h4 {
   border-radius: 9999px;
 }
 
+.callout-warning {
+  max-width: 42rem;
+  border-left-color: $bn-strawberry-600 !important;
+}
+
+.callout-warning > .callout-header {
+  background-color: $bn-strawberry-50;
+  color: $oxford-900;
+}
+
 #analyses h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;
