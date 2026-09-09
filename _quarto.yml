@@ -4,7 +4,8 @@ project:
 
 website:
   title: "OpenPrescribing Hospitals Explore"
-  site-url: "https://github.com/bennettoxford/openprescribing-hospitals-explore"
+  site-url: "https://bennettoxford.github.io/openprescribing-hospitals-explore"
+  repo-url: "https://github.com/bennettoxford/openprescribing-hospitals-explore"
   navbar:
     left:
       - href: index.qmd
@@ -13,6 +14,10 @@ website:
         text: How to
       - href: analyses/index.qmd
         text: Analyses
+    right:
+      - icon: github
+        href: https://github.com/bennettoxford/openprescribing-hospitals-explore
+        aria-label: GitHub repository
 
 format:
   html:
