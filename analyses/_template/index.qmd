@@ -24,11 +24,3 @@ To be completed.
 ## Limitations
 
 To be completed.
-
-## Reproduction
-
-```shell
-uv sync
-uv run pytest analyses/YYYY-MM-short-name/
-uv run quarto render analyses/YYYY-MM-short-name/index.qmd
-```
