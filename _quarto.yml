@@ -1,23 +1,36 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - assets
 
 website:
   title: "OpenPrescribing Hospitals Explore"
-  site-url: "https://github.com/bennettoxford/openprescribing-hospitals-explore"
+  site-url: "https://bennettoxford.github.io/openprescribing-hospitals-explore"
+  repo-url: "https://github.com/bennettoxford/openprescribing-hospitals-explore"
+  search: true
+  favicon: assets/favicon.ico
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: how-to.qmd
-        text: How to
-      - href: analyses/index.qmd
-        text: Analyses
+    title: "OpenPrescribing Hospitals Explore"
+    logo: assets/op-logo-colour.svg
+    logo-alt: "OpenPrescribing"
+    right:
+      - icon: github
+        href: https://github.com/bennettoxford/openprescribing-hospitals-explore
+        aria-label: GitHub repository
 
 format:
   html:
-    theme: cosmo
+    theme: styles/theme.scss
     toc: true
+    mainfont: Public Sans
+    include-after-body:
+      file: includes/oph-footer.html
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
 # freeze: true means a project render never executes code. Render a report
 # directly (uv run quarto render analyses/<name>/index.qmd) to refresh its results,
@@ -26,3 +39,6 @@ execute:
   freeze: true
   echo: true
   warning: false
+
+filters:
+  - filters/report-code-link.lua

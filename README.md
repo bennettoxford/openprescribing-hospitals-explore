@@ -10,6 +10,9 @@ rendered into a website and deployed to GitHub Pages by CI.
 The project uses [uv](https://docs.astral.sh/uv/) for package management and
 [Quarto](https://quarto.org/) for rendering.
 
+Use the repository `uv` environment. Do not create a separate environment for
+each report.
+
 ```shell
 uv sync
 ```
@@ -18,7 +21,17 @@ uv sync
 
 Copy `analyses/_template/` to a new folder under `analyses/` named
 `YYYY-MM-short-name`, for example `2026-08-explore-data`.
-See the "How to" page (`how-to.qmd`) for the full instructions.
+
+Quarto does not render folders that start with an underscore, so the template
+stays out of the site.
+
+The report lives in `index.qmd`. Each report should include:
+
+1. Question
+2. Data
+3. Method
+4. Findings
+5. Limitations
 
 ## Render
 
@@ -41,4 +54,3 @@ uv run ruff check .
 uv run ruff format --check .
 uv run pytest
 ```
-
