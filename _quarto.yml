@@ -10,8 +10,6 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: how-to.qmd
-        text: How to
       - href: analyses/index.qmd
         text: Analyses
     right:

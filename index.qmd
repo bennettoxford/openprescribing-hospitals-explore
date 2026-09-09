@@ -5,4 +5,4 @@ title: "OpenPrescribing Hospitals Explore"
 Short, reproducible analyses of OpenPrescribing Hospitals work.
 
 Each analysis is a Quarto report with optional Python code.
-Browse the [analyses index](analyses/index.qmd) or read [how to add an analysis](how-to.qmd).
+Browse the [analyses index](analyses/index.qmd).
