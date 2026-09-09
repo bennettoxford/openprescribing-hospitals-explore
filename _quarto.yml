@@ -39,3 +39,6 @@ execute:
   freeze: true
   echo: true
   warning: false
+
+filters:
+  - filters/report-code-link.lua
