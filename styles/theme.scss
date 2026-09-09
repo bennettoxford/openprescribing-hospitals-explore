@@ -139,8 +139,35 @@ h4 {
   letter-spacing: -0.025em;
 }
 
-#title-block-header {
-  display: none;
+#title-block-header.default {
+  margin-bottom: 1.5rem;
+}
+
+#title-block-header.default .title {
+  margin-bottom: 0.75rem;
+}
+
+#title-block-header.default .description {
+  max-width: 42rem;
+  color: $slate-600;
+  margin-bottom: 1rem;
+}
+
+#title-block-header.default .quarto-category {
+  background: $oxford-50;
+  color: $oxford-700;
+  border: 0;
+  border-radius: 9999px;
+}
+
+.callout-warning {
+  max-width: 42rem;
+  border-left-color: $bn-strawberry-600 !important;
+}
+
+.callout-warning > .callout-header {
+  background-color: $bn-strawberry-50;
+  color: $oxford-900;
 }
 
 #analyses h2 {
