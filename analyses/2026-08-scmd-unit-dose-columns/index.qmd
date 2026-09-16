@@ -339,6 +339,13 @@ missing_provisional_unit_dose_rows = [
     }
     for row in missing_provisional_unit_dose_uom.iter_rows(named=True)
 ]
+dmd_browser_url = (
+    "https://dmd-browser.nhsbsa.nhs.uk/vmp/view/1667"
+    "?ref=YW1wTmFtZT1BY2ljbG92aXIrMjAwbWclMkY1bWwrb3JhbCtzdXNwZW5zaW9u"
+    "K3N1Z2FyK2ZyZWUmc2VhcmNoVHlwZT1WTVAmc2hvd0ludmFsaWRJdGVtcz1mYWxzZS"
+    "ZoaWRlUGFyYWxsZWxJbXBvcnQ9ZmFsc2UmaGlkZVNwZWNpYWxPcmRlcj1mYWxzZS"
+    "ZoaWRlRGlzY29udGludWVkSXRlbXM9ZmFsc2U%3D"
+)
 ```
 
 ## Summary
@@ -356,10 +363,19 @@ display(
         f"products ({udfs_disagree_when_uom_agrees.height:,}) are not "
         "reported consistently. This is because the BSA data deviates from "
         "the unit dose information in the dm+d "
-        "([products with different UDFS values](#udfs-value-disagreements))."
+        "([products with different UDFS values](#udfs-value-disagreements)). "
+        "For example, "
+        f"[Aciclovir 200mg/5ml oral suspension sugar free]({dmd_browser_url}) "
+        "has a UDFS of `5 ml` and a unit dose unit of `spoonful` in the dm+d. "
+        "OpenPrescribing Hospitals holds the same values. The BSA "
+        "provisional SCMD reports an implied UDFS of `1 ml`."
     )
 )
 ```
+
+![Unit dose and form information for Aciclovir 200mg/5ml oral suspension sugar free in the BSA dm+d browser](aciclovir-200mg-5ml-dmd-browser.png)
+
+![Unit dose and form information for Aciclovir 200mg/5ml oral suspension sugar free in OpenPrescribing Hospitals](aciclovir-200mg-5ml-oph.png)
 
 ## Background
 
@@ -659,6 +675,20 @@ else:
         table_id="udfs-value-disagreements",
     )
 ```
+
+```{python}
+display(
+    Markdown(
+        f"[Aciclovir 200mg/5ml oral suspension sugar free]({dmd_browser_url}) "
+        "is one of these products. The dm+d and OpenPrescribing Hospitals "
+        "both record a UDFS of `5 ml` and a unit dose unit of `spoonful`."
+    )
+)
+```
+
+![Unit dose and form information for Aciclovir 200mg/5ml oral suspension sugar free in the BSA dm+d browser](aciclovir-200mg-5ml-dmd-browser.png)
+
+![Unit dose and form information for Aciclovir 200mg/5ml oral suspension sugar free in OpenPrescribing Hospitals](aciclovir-200mg-5ml-oph.png)
 
 ### Unit dose unit of measure
 
