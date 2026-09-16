@@ -24,6 +24,7 @@ format:
     theme: styles/theme.scss
     toc: true
     mainfont: Public Sans
+    author-title: Authors
     include-after-body:
       file: includes/oph-footer.html
     include-in-header:

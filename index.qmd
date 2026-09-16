@@ -7,7 +7,7 @@ listing:
   type: default
   sort: "date desc"
   categories: true
-  fields: [date, title, description, categories]
+  fields: [date, title, author, description, categories]
 ---
 
 This site publishes short, one-off analyses that support the development of [OpenPrescribing Hospitals](https://hospitals.openprescribing.net/). It is a public notebook for exploratory questions, methods, and findings.
