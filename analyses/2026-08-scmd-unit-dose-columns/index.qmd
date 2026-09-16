@@ -71,7 +71,7 @@ def format_udfs(value: float | None) -> str:
     return f"{value:g}"
 
 
-def show_table(rows: list[dict[str, str]]) -> None:
+def show_table(rows: list[dict[str, str]], table_id: str | None = None) -> None:
     if not rows:
         display(Markdown("No rows."))
         return
@@ -85,7 +85,10 @@ def show_table(rows: list[dict[str, str]]) -> None:
         "| " + " | ".join(str(row[header]) for header in headers) + " |"
         for row in rows
     )
-    display(Markdown("\n".join(lines)))
+    markdown = "\n".join(lines)
+    if table_id:
+        markdown = f'<div id="{table_id}">\n\n{markdown}\n\n</div>'
+    display(Markdown(markdown))
 
 
 status_rows = [
@@ -338,6 +341,26 @@ missing_provisional_unit_dose_rows = [
 ]
 ```
 
+## Summary
+
+```{python}
+display(
+    Markdown(
+        "The BSA provisional SCMD reports unit dose information for more "
+        "products than OpenPrescribing Hospitals. This is because the BSA "
+        "reports unit dose information for products with a `Continuous` or "
+        "`Not applicable` dose form indicator, for which unit doses are not "
+        "applicable "
+        "([dose form indicators](#dose-form-indicators)).\n\n"
+        "Where both datasets report the unit dose, a small number of "
+        f"products ({udfs_disagree_when_uom_agrees.height:,}) are not "
+        "reported consistently. This is because the BSA data deviates from "
+        "the unit dose information in the dm+d "
+        "([products with different UDFS values](#udfs-value-disagreements))."
+    )
+)
+```
+
 ## Background
 
 The following notice was added to the [BSA provisional SCMD](https://opendata.nhsbsa.net/dataset/secondary-care-medicines-data-indicative-price) on the NHS Business Services Authority (NHSBSA) Open Data Portal on 25/08/2026:
@@ -507,7 +530,7 @@ show_table(missing_uom_rows)
 The dose form indicators for these VMPs is shown below.
 
 ```{python}
-show_table(df_rows)
+show_table(df_rows, table_id="dose-form-indicators")
 
 # The prose below claims that all of these products have a `Continuous` or
 # `Not applicable` dose form indicator. Stop the render if that is not true.
@@ -631,7 +654,10 @@ else:
             "UDFS are shown below."
         )
     )
-    show_table(udfs_disagree_when_uom_agrees_rows)
+    show_table(
+        udfs_disagree_when_uom_agrees_rows,
+        table_id="udfs-value-disagreements",
+    )
 ```
 
 ### Unit dose unit of measure
