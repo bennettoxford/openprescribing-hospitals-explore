@@ -567,6 +567,15 @@ wheels = [
 ]
 
 [[package]]
+name = "itables"
+version = "2.9.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ae/2d/aa4700aeda35684c3a75f56e63e5499c4a86e5e9be2c0e350c2934198208/itables-2.9.1.tar.gz", hash = "sha256:b547f0882b56e5e37ed6a88450b3e34492aa03f5aaa4cf0fe00b54933b9eb7e9", size = 1543197, upload-time = "2026-07-22T21:08:31.523Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f5/3b/3a8bce7568cf568ab108fdfa41017169efc5650a4091bb6de2ae2441e5ec/itables-2.9.1-py3-none-any.whl", hash = "sha256:8342ceaa10a074d4623916875fd7390dccd703bf2cb29386ab20034e188e50cb", size = 1568923, upload-time = "2026-07-22T21:08:29.642Z" },
+]
+
+[[package]]
 name = "jedi"
 version = "0.20.0"
 source = { registry = "https://pypi.org/simple" }
@@ -693,6 +702,7 @@ source = { editable = "." }
 dependencies = [
     { name = "google-cloud-bigquery" },
     { name = "ipykernel" },
+    { name = "itables" },
     { name = "nbclient" },
     { name = "nbformat" },
     { name = "polars" },
@@ -709,6 +719,7 @@ dev = [
 requires-dist = [
     { name = "google-cloud-bigquery", specifier = ">=3.27.0" },
     { name = "ipykernel", specifier = ">=6.29.0" },
+    { name = "itables", specifier = ">=2.9.1" },
     { name = "nbclient", specifier = ">=0.11.0" },
     { name = "nbformat", specifier = ">=5.11.1" },
     { name = "polars", specifier = ">=1.29.0" },

@@ -24,6 +24,7 @@ format:
     theme: styles/theme.scss
     toc: true
     mainfont: Public Sans
+    author-title: Authors
     include-after-body:
       file: includes/oph-footer.html
     include-in-header:
@@ -43,3 +44,4 @@ execute:
 filters:
   - filters/report-code-link.lua
   - filters/draft-warning.lua
+  - filters/contact-section.lua

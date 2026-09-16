@@ -1,6 +1,8 @@
 ---
 title: "Replace with the report title"
 date: 2026-01-01
+author:
+  - First Last
 categories: [draft]
 description: "Short description of this analysis."
 ---

@@ -25,7 +25,15 @@ Copy `analyses/_template/` to a new folder under `analyses/` named
 Quarto does not render folders that start with an underscore, so the template
 stays out of the site.
 
-The report lives in `index.qmd`. Each report should include:
+The report lives in `index.qmd`. Set these fields in the YAML header:
+
+- `title`
+- `date`
+- `author` (a list of names; use one item when there is a single author)
+- `description`
+- `categories`
+
+Each report should include:
 
 1. Question
 2. Data

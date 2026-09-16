@@ -153,6 +153,14 @@ h4 {
   margin-bottom: 1rem;
 }
 
+#title-block-header.default .quarto-title-meta-heading {
+  color: $oxford-700;
+}
+
+#title-block-header.default .quarto-title-meta-contents {
+  color: $slate-600;
+}
+
 #title-block-header.default .quarto-category {
   background: $oxford-50;
   color: $oxford-700;
@@ -170,7 +178,8 @@ h4 {
   color: $oxford-900;
 }
 
-#analyses h2 {
+#analyses h2,
+h2#contact {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -204,7 +213,8 @@ h4 {
 }
 
 .listing-description,
-.listing-date {
+.listing-date,
+.listing-author {
   color: $slate-600;
 }
 
@@ -278,6 +288,11 @@ h4 {
   height: 4rem;
   width: auto;
   max-width: none;
+}
+
+.dt-container,
+table.dataTable {
+  font-size: 0.875em;
 }
 
 .oph-footer-copyright {

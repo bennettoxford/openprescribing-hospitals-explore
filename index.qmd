@@ -3,11 +3,12 @@ pagetitle: "OpenPrescribing Hospitals Explore"
 title-block-style: none
 toc: false
 listing:
+  id: analyses
   contents: analyses
   type: default
   sort: "date desc"
   categories: true
-  fields: [date, title, description, categories]
+  fields: [date, title, author, description, categories]
 ---
 
 This site publishes short, one-off analyses that support the development of [OpenPrescribing Hospitals](https://hospitals.openprescribing.net/). It is a public notebook for exploratory questions, methods, and findings.
@@ -15,3 +16,10 @@ This site publishes short, one-off analyses that support the development of [Ope
 Each item in the list below is a standalone report answering a specific question. Open a report to read more about the question, methods, findings, and conclusions. The code for each report is available in the [GitHub repository](https://github.com/bennettoxford/openprescribing-hospitals-explore).
 
 ## Analyses
+
+::: {#analyses}
+:::
+
+## Contact
+
+If you have any questions or feedback about any of the reports, please contact us at [bennett@phc.ox.ac.uk](mailto:bennett@phc.ox.ac.uk).
