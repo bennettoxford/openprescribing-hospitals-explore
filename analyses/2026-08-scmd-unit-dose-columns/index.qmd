@@ -13,6 +13,9 @@ from pathlib import Path
 
 import polars as pl
 from IPython.display import Markdown, display
+from itables import init_notebook_mode, show
+
+init_notebook_mode(all_interactive=False)
 
 comparison = pl.read_csv(Path("data") / "unit_dose_comparison.csv")
 
@@ -71,9 +74,34 @@ def format_udfs(value: float | None) -> str:
     return f"{value:g}"
 
 
-def show_table(rows: list[dict[str, str]], table_id: str | None = None) -> None:
+def show_table(
+    rows: list[dict[str, str]],
+    table_id: str | None = None,
+    page_length: int | None = None,
+) -> None:
     if not rows:
         display(Markdown("No rows."))
+        return
+
+    if page_length is not None:
+        show(
+            pl.DataFrame(rows),
+            paging=True,
+            searching=False,
+            layout={
+                "topStart": "pageLength",
+                "topEnd": None,
+                "bottomStart": "info",
+                "bottomEnd": "paging",
+            },
+            pageLength=page_length,
+            lengthMenu=[10, 25, 50, 100],
+            classes="display compact stripe table table-sm small",
+            showIndex=False,
+            show_dtypes=False,
+            maxBytes=0,
+            table_id=table_id,
+        )
         return
 
     headers = list(rows[0])
@@ -673,6 +701,7 @@ else:
     show_table(
         udfs_disagree_when_uom_agrees_rows,
         table_id="udfs-value-disagreements",
+        page_length=10,
     )
 ```
 

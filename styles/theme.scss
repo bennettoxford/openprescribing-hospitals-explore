@@ -280,6 +280,11 @@ h4 {
   max-width: none;
 }
 
+.dt-container,
+table.dataTable {
+  font-size: 0.875em;
+}
+
 .oph-footer-copyright {
   margin: 0;
   color: $slate-600;
