@@ -1,0 +1,932 @@
+dmd,Antibiotic,Class,atccode,route,VmpUnit,WHO_AWaRe_2023,UK_AWaRe_2024,Include,Notes
+Amikacin 100mg/2ml solution for injection vials,Amikacin,Aminoglycosides,J01GB06,P,ml,a,w,1,
+Amikacin 1165mg/100ml solution for injection vials,Amikacin,Aminoglycosides,J01GB06,P,ml,a,w,1,
+Amikacin 1200mg solution for injection vials,Amikacin,Aminoglycosides,J01GB06,P,ml,a,w,1,
+Amikacin 1300mg/50ml solution for injection vials,Amikacin,Aminoglycosides,J01GB06,P,ml,a,w,1,
+Amikacin 250mg/2ml injection,Amikacin,Aminoglycosides,J01GB06,P,ml,a,w,1,
+Amikacin 25mg/5ml solution for injection vials,Amikacin,Aminoglycosides,J01GB06,P,ml,a,w,1,
+Amikacin 500mg/100ml infusion polyethylene bottles,Amikacin,Aminoglycosides,J01GB06,P,ml,a,w,1,
+Amikacin 500mg/2ml solution for injection vials,Amikacin,Aminoglycosides,J01GB06,P,ml,a,w,1,
+Amikacin 500mg/2ml solution for injection ampoules,Amikacin,Aminoglycosides,J01GB06,P,ml,a,w,1,
+Amikacin liposomal 590mg nebuliser dispersion vials with device,Amikacin,Aminoglycosides,J01GB06,INH,vial,a,w,1,
+Amoxicillin 125mg/1.25ml oral suspension paediatric,Amoxicillin,Penicillins,J01CA04,O,ml,a,a,1,
+Amoxicillin 125mg/5ml oral suspension,Amoxicillin,Penicillins,J01CA04,O,ml,a,a,1,
+Amoxicillin 125mg/5ml oral suspension sugar free,Amoxicillin,Penicillins,J01CA04,O,ml,a,a,1,
+Amoxicillin 1g dispersible tablets sugar free,Amoxicillin,Penicillins,J01CA04,O,tablet,a,a,1,
+Amoxicillin 1g powder for solution for injection vials,Amoxicillin,Penicillins,J01CA04,P,vial,a,a,1,
+Amoxicillin 250mg capsules,Amoxicillin,Penicillins,J01CA04,O,capsule,a,a,1,
+Amoxicillin 250mg powder for solution for injection vials,Amoxicillin,Penicillins,J01CA04,P,vial,a,a,1,
+Amoxicillin 250mg/5ml oral suspension,Amoxicillin,Penicillins,J01CA04,O,ml,a,a,1,
+Amoxicillin 250mg/5ml oral suspension sugar free,Amoxicillin,Penicillins,J01CA04,O,ml,a,a,1,
+Amoxicillin 3g oral powder sachets sugar free,Amoxicillin,Penicillins,J01CA04,O,sachet,a,a,1,
+Amoxicillin 500mg capsules,Amoxicillin,Penicillins,J01CA04,O,capsule,a,a,1,
+Amoxicillin 500mg powder for solution for injection vials,Amoxicillin,Penicillins,J01CA04,P,vial,a,a,1,
+Amoxicillin 500mg/50ml infusion bags,Amoxicillin,Penicillins,J01CA04,P,vial,a,a,1,
+Amoxicillin 500mg/5ml oral suspension sugar free,Amoxicillin,Penicillins,J01CA04,O,ml,a,a,1,
+Ampicillin 125mg/5ml oral suspension,Ampicillin,Penicillins,J01CA01,O,ml,a,a,1,
+Ampicillin 250mg capsules,Ampicillin,Penicillins,J01CA01,O,capsule,a,a,1,
+Ampicillin 250mg/5ml oral suspension,Ampicillin,Penicillins,J01CA01,O,ml,a,a,1,
+Ampicillin 500mg capsules,Ampicillin,Penicillins,J01CA01,O,capsule,a,a,1,
+Ampicillin 500mg powder for solution for injection vials,Ampicillin,Penicillins,J01CA01,P,vial,a,a,1,
+Azithromycin 200mg/5ml oral suspension,Azithromycin,Macrolides,J01FA10,O,ml,w,w,1,
+Azithromycin 200mg/5ml oral suspension sugar free,Azithromycin,Macrolides,J01FA10,O,ml,w,w,1,
+Azithromycin 250mg capsules,Azithromycin,Macrolides,J01FA10,O,capsule,w,w,1,
+Azithromycin 250mg tablets,Azithromycin,Macrolides,J01FA10,O,tablet,w,w,1,
+Azithromycin 500mg powder for solution for infusion vials,Azithromycin,Macrolides,J01FA10,P,vial,w,w,1,
+Azithromycin 500mg tablets,Azithromycin,Macrolides,J01FA10,O,tablet,w,w,1,
+Aztreonam 1.5g / Avibactam 500mg powder for solution for infusion vials,Aztreonam/avibactam,Beta-lactam/beta-lactamase-inhibitors,J01DF51,P,vial,r,r,1,
+Aztreonam 1g powder for solution for injection vials,Aztreonam,Monobactams,J01DF01,P,vial,r,r,1,
+Aztreonam 2g powder for solution for injection vials,Aztreonam,Monobactams,J01DF01,P,vial,r,r,1,
+Aztreonam 3g powder for solution for injection vials,Aztreonam,Monobactams,J01DF01,P,vial,r,r,1,
+Aztreonam 500mg powder for solution for injection vials,Aztreonam,Monobactams,J01DF01,P,vial,r,r,1,
+Aztreonam 75mg powder and solvent for nebuliser solution vials,Aztreonam,Monobactams,J01DF01,INH,vial,r,r,1,
+Aztreonam 75mg powder and solvent for nebuliser solution vials with device,Aztreonam,Monobactams,J01DF01,INH,vial,r,r,1,
+Bedaquiline 100mg tablets,Bedaquiline,Antimycobacterials,J04AK05,O,tablet,o,o,0,anti-TB
+Benzathine benzylpenicillin 1.2million unit powder and solvent for suspension for injection vials,Benzathine-benzylpenicillin,Penicillins,J01CE08,P,vial,a,a,1,
+Benzathine benzylpenicillin 1.2million unit powder for suspension for injection vials,Benzathine-benzylpenicillin,Penicillins,J01CE08,P,vial,a,a,1,
+Benzathine benzylpenicillin 2.4million unit powder and solvent for suspension for injection vials,Benzathine-benzylpenicillin,Penicillins,J01CE08,P,vial,a,a,1,
+Benzathine benzylpenicillin 2.4million unit powder for suspension for injection vials,Benzathine-benzylpenicillin,Penicillins,J01CE08,P,vial,a,a,1,
+Benzathine benzylpenicillin 600000unit powder and solvent for suspension for injection vials,Benzathine-benzylpenicillin,Penicillins,J01CE08,P,vial,a,a,1,
+Benzathine benzylpenicllin 900mg injection,Benzathine-benzylpenicillin,Penicillins,J01CE08,P,vial,a,a,1,
+Benzylpenicillin 1.2g powder for solution for injection vials,Benzylpenicillin,Penicillins,J01CE01,P,vial,a,a,1,
+Benzylpenicillin 1.2g/50ml infusion bags,Benzylpenicillin,Penicillins,J01CE01,P,ml,a,a,1,
+Benzylpenicillin 2.4g/100ml infusion bags,Benzylpenicillin,Penicillins,J01CE01,P,ml,a,a,1,
+Benzylpenicillin 600mg powder for solution for injection vials,Benzylpenicillin,Penicillins,J01CE01,P,vial,a,a,1,
+Benzylpenicillin 600mg/50ml infusion bags,Benzylpenicillin,Penicillins,J01CE01,P,ml,a,a,1,
+Benzylpenicillin sodium 1.2g powder for solution for injection vials,Benzylpenicillin,Penicillins,J01CE01,P,vial,a,a,1,
+Benzylpenicillin sodium 1.2g/50ml infusion bags,Benzylpenicillin,Penicillins,J01CE02,P,ml,a,a,1,
+Benzylpenicillin sodium 600mg powder for solution for injection vials,Benzylpenicillin,Penicillins,J01CE01,P,vial,a,a,1,
+Benzylpenicillin sodium 600mg/50ml infusion bags,Benzylpenicillin,Penicillins,J01CE00,P,ml,a,a,1,
+Capreomycin 1g powder for solution for injection vials,Capreomycin,Aminoglycosides,J04AB30,P,vial,o,o,0,anti-TB
+Cefaclor 125mg/5ml oral suspension,Cefaclor,Second-generation-cephalosporins,J01DC04,O,ml,w,w,1,
+Cefaclor 125mg/5ml oral suspension sugar free,Cefaclor,Second-generation-cephalosporins,J01DC04,O,ml,w,w,1,
+Cefaclor 250mg capsules,Cefaclor,Second-generation-cephalosporins,J01DC04,O,capsule,w,w,1,
+Cefaclor 250mg/5ml oral suspension,Cefaclor,Second-generation-cephalosporins,J01DC04,O,ml,w,w,1,
+Cefaclor 250mg/5ml oral suspension sugar free,Cefaclor,Second-generation-cephalosporins,J01DC04,O,ml,w,w,1,
+Cefaclor 375mg modified-release tablets,Cefaclor,Second-generation-cephalosporins,J01DC04,O,tablet,w,w,1,
+Cefaclor 500mg capsules,Cefaclor,Second-generation-cephalosporins,J01DC04,O,capsule,w,w,1,
+Cefadroxil 125mg/5ml oral suspension,Cefadroxil,First-generation-cephalosporins,J01DB05,O,ml,a,a,1,
+Cefadroxil 250mg/5ml oral suspension,Cefadroxil,First-generation-cephalosporins,J01DB05,O,ml,a,a,1,
+Cefadroxil 500mg capsules,Cefadroxil,First-generation-cephalosporins,J01DB05,O,capsule,a,a,1,
+Cefadroxil 500mg/5ml oral suspension,Cefadroxil,First-generation-cephalosporins,J01DB05,O,ml,a,a,1,
+Cefalexin 125mg/5ml oral suspension,Cefalexin,First-generation-cephalosporins,J01DB01,O,ml,a,a,1,
+Cefalexin 125mg/5ml oral suspension sugar free,Cefalexin,First-generation-cephalosporins,J01DB01,O,ml,a,a,1,
+Cefalexin 250mg capsules,Cefalexin,First-generation-cephalosporins,J01DB01,O,capsule,a,a,1,
+Cefalexin 250mg tablets,Cefalexin,First-generation-cephalosporins,J01DB01,O,tablet,a,a,1,
+Cefalexin 250mg/5ml oral suspension,Cefalexin,First-generation-cephalosporins,J01DB01,O,ml,a,a,1,
+Cefalexin 250mg/5ml oral suspension sugar free,Cefalexin,First-generation-cephalosporins,J01DB01,O,ml,a,a,1,
+Cefalexin 500mg capsules,Cefalexin,First-generation-cephalosporins,J01DB01,O,capsule,a,a,1,
+Cefalexin 500mg tablets,Cefalexin,First-generation-cephalosporins,J01DB01,O,tablet,a,a,1,
+Cefalexin 500mg/5ml oral suspension,Cefalexin,First-generation-cephalosporins,J01DB01,O,ml,a,a,1,
+Cefalotin,Cefalotin,First-generation-cephalosporins,J01DB03,P,,a,a,1,
+Cefamandole 1g powder for solution for injection vials,Cefamandole,Second-generation-cephalosporins,J01DC03,P,vial,w,w,1,
+Cefazolin 1g powder for solution for injection vials,Cefazolin,First-generation-cephalosporins,J01DB04,P,vial,a,a,1,
+Cefazolin 2g powder for solution for injection vials,Cefazolin,First-generation-cephalosporins,J01DB04,P,vial,a,a,1,
+Cefazolin 500mg powder for solution for injection vials,Cefazolin,First-generation-cephalosporins,J01DB04,P,vial,a,a,1,
+Cefepime 1g powder for solution for injection vials,Cefepime,Fourth-generation-cephalosporins,J01DE01,P,vial,w,w,1,
+Cefepime 2g powder for solution for injection vials,Cefepime,Fourth-generation-cephalosporins,J01DE01,P,vial,w,w,1,
+Cefiderocol 1g powder for solution for infusion vials,Cefiderocol,Other-cephalosporins,J01DI04,P,vial,r,r,1,
+Cefixime 100mg/5ml oral suspension,Cefixime,Third-generation-cephalosporins,J01DD08,O,ml,w,w,1,
+Cefixime 200mg tablets,Cefixime,Third-generation-cephalosporins,J01DD08,O,tablet,w,w,1,
+Cefixime 400mg tablets,Cefixime,Third-generation-cephalosporins,J01DD08,O,tablet,w,w,1,
+Cefotaxime 1g powder for solution for injection vials,Cefotaxime,Third-generation-cephalosporins,J01DD01,P,vial,w,w,1,
+Cefotaxime 2g powder for solution for injection vials,Cefotaxime,Third-generation-cephalosporins,J01DD01,P,vial,w,w,1,
+Cefotaxime 500mg powder for solution for injection vials,Cefotaxime,Third-generation-cephalosporins,J01DD01,P,vial,w,w,1,
+Cefoxitin 1g powder for solution for injection vials,Cefoxitin,Second-generation-cephalosporins,J01DC01,P,vial,w,w,1,
+Cefoxitin 2g powder for solution for injection vials,Cefoxitin,Second-generation-cephalosporins,J01DC01,P,vial,w,w,1,
+Cefpirome 1g powder for solution for injection vials,Cefpirome,Fourth-generation-cephalosporins,J01DE02,P,vial,w,r,1,
+Cefpirome 2g powder for solution for injection vials,Cefpirome,Fourth-generation-cephalosporins,J01DE02,P,vial,w,r,1,
+Cefpodoxime 100mg tablets,Cefpodoxime,Third-generation-cephalosporins,J01DD13,O,tablet,w,w,1,
+Cefpodoxime 40mg/5ml oral suspension,Cefpodoxime,Third-generation-cephalosporins,J01DD13,O,ml,w,w,1,
+Cefprozil 250mg tablets,Cefprozil,Second-generation-cephalosporins,J01DC10,O,tablet,w,w,1,
+Cefprozil 250mg/5ml oral suspension,Cefprozil,Second-generation-cephalosporins,J01DC10,O,ml,w,w,1,
+Cefprozil 500mg tablets,Cefprozil,Second-generation-cephalosporins,J01DC10,O,tablet,w,w,1,
+Cefradine 1g powder for solution for injection vials,Cefradine,First-generation-cephalosporins,J01DB09,P,vial,a,a,1,
+Cefradine 250mg capsules,Cefradine,First-generation-cephalosporins,J01DB09,O,capsule,a,a,1,
+Cefradine 250mg/5ml oral solution,Cefradine,First-generation-cephalosporins,J01DB09,O,ml,a,a,1,
+Cefradine 500mg capsules,Cefradine,First-generation-cephalosporins,J01DB09,O,capsule,a,a,1,
+Cefradine 500mg powder for solution for injection vials,Cefradine,First-generation-cephalosporins,J01DB09,P,vial,a,a,1,
+Ceftaroline fosamil 600mg powder for solution for infusion vials,Ceftaroline-fosamil,Fifth-generation cephalosporins,J01DI02,P,vial,r,r,1,
+Ceftazidime 1.09g/50ml solution for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 1.2g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 1.46g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 1.5g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 1.65g/50ml solution for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 1.77g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 1.7g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 1.875g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 1.8g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 1.8g/30ml solution for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 1.9g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 1g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 1g/25ml solution for infusion pre-filled syringes,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 1g/50ml infusion bags,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 1g/50ml solution for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 2.2g/50ml solution for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 2.5g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 2.9g intravenous infusion vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 250mg powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 2g / Avibactam 500mg powder for solution for infusion vials,Ceftazidime/avibactam,Third-generation-cephalosporins,J01DD52,P,vial,r,r,1,
+Ceftazidime 2g / avibactam 500mg powder for solution for infusion vials,Ceftazidime/avibactam,Third-generation-cephalosporins,J01DD52,P,vial,r,r,1,
+Ceftazidime 2g intravenous infusion vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 2g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 2g/50ml solution for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 3.1g intravenous infusion vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 3.22g intravenous infusion vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 3.36g intravenous infusion vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 3.3g intravenous infusion vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 3.5g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 3.6g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 3.75g intravenous infusion vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 3.7g intravenous infusion vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 3.9g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 3000mg/250ml for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 3g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 3g/250ml solution for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 3g/50ml solution for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 4000mg/250ml for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 4g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 4mg/0.2ml solution for infusion pre-filled syringes,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 500mg powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftazidime 6000mg/250ml for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 620mg/50ml solution for infusion pre-filled injection devices,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,ml,w,w,1,
+Ceftazidime 6g powder for solution for injection vials,Ceftazidime,Third-generation-cephalosporins,J01DD02,P,vial,w,w,1,
+Ceftobiprole 500mg powder for solution for infusion vials,Ceftobiprole-medocaril,Fifth-generation cephalosporins,J01DI01,P,vial,r,r,1,
+Ceftolozane 1g / Tazobactam 500mg powder for solution for infusion vials,Ceftolozane/tazobactam,Fifth-generation cephalosporins,J01DI54,P,vial,r,r,1,
+Ceftolozane 1g / tazobactam 500mg powder for solution for infusion vials,Ceftolozane/tazobactam,Fifth-generation cephalosporins,J01DI54,P,vial,r,r,1,
+Ceftriaxone 1g powder for solution for injection vials,Ceftriaxone,Third-generation-cephalosporins,J01DD04,P,vial,w,w,1,
+Ceftriaxone 1g/50ml infusion bags,Ceftriaxone,Third-generation-cephalosporins,J01DD04,P,ml,w,w,1,
+Ceftriaxone 2.8g powder for solution for infusion vials,Ceftriaxone,Third-generation-cephalosporins,J01DD04,P,ml,w,w,1,
+Ceftriaxone 250mg powder for solution for injection vials,Ceftriaxone,Third-generation-cephalosporins,J01DD04,P,vial,w,w,1,
+Ceftriaxone 2g powder for solution for infusion vials,Ceftriaxone,Third-generation-cephalosporins,J01DD04,P,ml,w,w,1,
+Ceftriaxone 2g powder for solution for injection vials,Ceftriaxone,Third-generation-cephalosporins,J01DD04,P,vial,w,w,1,
+Ceftriaxone 2g/100ml infusion bags,Ceftriaxone,Third-generation-cephalosporins,J01DD04,P,ml,w,w,1,
+Ceftriaxone 3g powder for solution for infusion vials,Ceftriaxone,Third-generation-cephalosporins,J01DD04,P,ml,w,w,1,
+Cefuroxime 1.5g powder for injection vials,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,vial,w,w,1,
+Cefuroxime 1.5g powder for solution for injection vials,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,vial,w,w,1,
+Cefuroxime 1.5g/100ml infusion bags,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,ml,w,w,1,
+Cefuroxime 1.5g/50ml infusion bags,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,ml,w,w,1,
+Cefuroxime 125mg granules sachets,Cefuroxime,Second-generation-cephalosporins,J01DC02,O,sachet,w,w,1,
+Cefuroxime 125mg tablets,Cefuroxime,Second-generation-cephalosporins,J01DC02,O,tablet,w,w,1,
+Cefuroxime 125mg/5ml oral suspension,Cefuroxime,Second-generation-cephalosporins,J01DC02,O,ml,w,w,1,
+Cefuroxime 1mg/0.1ml solution for injection pre-filled syringes,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,ml,w,w,1,
+Cefuroxime 200micrograms/0.2ml solution for injection pre-filled syringes,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,ml,w,w,1,
+Cefuroxime 250mg powder for injection vials,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,vial,w,w,1,
+Cefuroxime 250mg powder for solution for injection vials,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,vial,w,w,1,
+Cefuroxime 250mg tablets,Cefuroxime,Second-generation-cephalosporins,J01DC02,O,tablet,w,w,1,
+Cefuroxime 2mg/0.2ml solution for injection pre-filled syringes,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,ml,w,w,1,
+Cefuroxime 300micrograms/0.3ml solution for injection pre-filled syringes,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,ml,w,w,1,
+Cefuroxime 3mg in 0.3ml  solution for injection pre-filled syringes,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,ml,w,w,1,
+Cefuroxime 3mg/0.3ml solution for injection pre-filled syringes,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,ml,w,w,1,
+Cefuroxime 50mg powder for solution for injection vials,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,vial,w,w,1,
+Cefuroxime 750mg powder for injection vials,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,vial,w,w,1,
+Cefuroxime 750mg powder for solution for injection vials,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,vial,w,w,1,
+Cefuroxime 750mg/50ml infusion bags,Cefuroxime,Second-generation-cephalosporins,J01DC02,P,ml,w,w,1,
+Chloramphenicol 1g powder for solution for injection vials,Chloramphenicol,Amphenicols,J01BA01,P,vial,a,w,1,
+Chloramphenicol 250mg capsules,Chloramphenicol,Amphenicols,J01BA01,O,capsule,a,w,1,
+Ciprofloxacin 100mg tablets,Ciprofloxacin,Fluoroquinolones,J01MA02,O,tablet,w,w,1,
+Ciprofloxacin 100mg/50ml solution for infusion bottles,Ciprofloxacin,Fluoroquinolones,J01MA02,P,ml,w,w,1,
+Ciprofloxacin 100mg/50ml solution for infusion vials,Ciprofloxacin,Fluoroquinolones,J01MA02,P,ml,w,w,1,
+Ciprofloxacin 100mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 125mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 150mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 165mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 170mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 175mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 200mg/100ml infusion bags,Ciprofloxacin,Fluoroquinolones,J01MA02,P,ml,w,w,1,
+Ciprofloxacin 200mg/100ml solution for infusion bottles,Ciprofloxacin,Fluoroquinolones,J01MA02,P,ml,w,w,1,
+Ciprofloxacin 200mg/100ml solution for infusion vials,Ciprofloxacin,Fluoroquinolones,J01MA02,P,ml,w,w,1,
+Ciprofloxacin 20mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 250mg tablets,Ciprofloxacin,Fluoroquinolones,J01MA02,O,tablet,w,w,1,
+Ciprofloxacin 250mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 375mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 390mg/50ml solution for injection vials,Ciprofloxacin,Fluoroquinolones,J01MA02,P,ml,w,w,1,
+Ciprofloxacin 400mg/200ml infusion bags,Ciprofloxacin,Fluoroquinolones,J01MA02,P,ml,w,w,1,
+Ciprofloxacin 400mg/200ml solution for infusion bottles,Ciprofloxacin,Fluoroquinolones,J01MA02,P,ml,w,w,1,
+Ciprofloxacin 400mg/200ml solution for infusion vials,Ciprofloxacin,Fluoroquinolones,J01MA02,P,ml,w,w,1,
+Ciprofloxacin 400mg/50ml solution for injection vials,Ciprofloxacin,Fluoroquinolones,J01MA02,P,ml,w,w,1,
+Ciprofloxacin 500mg tablets,Ciprofloxacin,Fluoroquinolones,J01MA02,O,tablet,w,w,1,
+Ciprofloxacin 500mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 50mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 60mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 750mg tablets,Ciprofloxacin,Fluoroquinolones,J01MA02,O,tablet,w,w,1,
+Ciprofloxacin 75mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Ciprofloxacin 80mg/5ml oral suspension,Ciprofloxacin,Fluoroquinolones,J01MA02,O,ml,w,w,1,
+Clarithromycin 125mg granules sachets,Clarithromycin,Macrolides,J01FA09,O,sachet,w,w,1,
+Clarithromycin 125mg granules straws,Clarithromycin,Macrolides,J01FA09,O,straw,w,w,1,
+Clarithromycin 125mg/5ml oral suspension,Clarithromycin,Macrolides,J01FA09,O,ml,w,w,1,
+Clarithromycin 187.5mg granules straws,Clarithromycin,Macrolides,J01FA09,O,straw,w,w,1,
+Clarithromycin 250mg granules for oral suspension sachets,Clarithromycin,Macrolides,J01FA09,O,sachet,w,w,1,
+Clarithromycin 250mg granules sachets,Clarithromycin,Macrolides,J01FA09,O,sachet,w,w,1,
+Clarithromycin 250mg granules straws,Clarithromycin,Macrolides,J01FA09,O,straw,w,w,1,
+Clarithromycin 250mg tablets,Clarithromycin,Macrolides,J01FA09,O,tablet,w,w,1,
+Clarithromycin 250mg/5ml oral suspension,Clarithromycin,Macrolides,J01FA09,O,ml,w,w,1,
+Clarithromycin 500mg modified-release tablets,Clarithromycin,Macrolides,J01FA09,O,tablet,w,w,1,
+Clarithromycin 500mg powder for solution for infusion vials,Clarithromycin,Macrolides,J01FA09,P,vial,w,w,1,
+Clarithromycin 500mg tablets,Clarithromycin,Macrolides,J01FA09,O,tablet,w,w,1,
+Clarithromycin 500mg/250ml infusion bags,Clarithromycin,Macrolides,J01FA09,P,ml,w,w,1,
+Clindamycin 100mg/5ml oral suspension,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 100mg/5ml suspension,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 120mg/5ml oral solution,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 150mg capsules,Clindamycin,Lincosamides,J01FF01,O,capsule,a,w,1,
+Clindamycin 150mg/5ml oral solution,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 150mg/5ml oral suspension,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 200mg/5ml oral suspension,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 20mg/5ml oral solution,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 300mg capsules,Clindamycin,Lincosamides,J01FF01,O,capsule,a,w,1,
+Clindamycin 300mg/2ml solution for injection ampoules,Clindamycin,Lincosamides,J01FF01,P,ml,a,w,1,
+Clindamycin 300mg/50ml infusion bags,Clindamycin,Lincosamides,J01FF01,P,ml,a,w,1,
+Clindamycin 300mg/5ml oral solution,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 400mg/5ml oral solution,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 450mg/5ml oral solution,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 50mg in 5ml sugar-free suspension,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 50mg/5ml oral suspension,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 600mg/4ml solution for injection ampoules,Clindamycin,Lincosamides,J01FF01,P,ml,a,w,1,
+Clindamycin 600mg/50ml infusion bags,Clindamycin,Lincosamides,J01FF01,P,ml,a,w,1,
+Clindamycin 60mg/5ml oral solution,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 75mg capsules,Clindamycin,Lincosamides,J01FF01,O,capsule,a,w,1,
+Clindamycin 75mg/5ml oral solution,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clindamycin 75mg/5ml oral suspension,Clindamycin,Lincosamides,J01FF01,O,ml,a,w,1,
+Clofazimine 100mg capsules,Clofazimine,Antimycobacterials,J04BA01,O,capsule,o,o,0,anti-leprotic
+Clofazimine 50mg capsules,Clofazimine,Antimycobacterials,J04BA01,O,capsule,o,o,0,anti-leprotic
+Co-amoxiclav 1000mg/200mg powder for solution for injection vials,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,P,vial,a,w,1,
+Co-amoxiclav 1000mg/200mg/100ml infusion bags,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,P,ml,a,w,1,
+Co-amoxiclav 1000mg/200mg/50ml infusion bags,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,P,ml,a,w,1,
+Co-amoxiclav 125mg/31mg/5ml oral suspension,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,O,ml,a,w,1,
+Co-amoxiclav 125mg/31mg/5ml oral suspension sugar free,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,O,ml,a,w,1,
+Co-amoxiclav 250mg/125mg dispersible tablets sugar free,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,O,tablet,a,w,1,
+Co-amoxiclav 250mg/125mg tablets,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,O,tablet,a,w,1,
+Co-amoxiclav 250mg/62mg/5ml oral suspension,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,O,ml,a,w,1,
+Co-amoxiclav 250mg/62mg/5ml oral suspension sugar free,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,O,ml,a,w,1,
+Co-amoxiclav 400mg/57mg/5ml oral suspension,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,O,ml,a,w,1,
+Co-amoxiclav 400mg/57mg/5ml oral suspension sugar free,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,O,ml,a,w,1,
+Co-amoxiclav 500mg/100mg powder for solution for injection vials,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,P,vial,a,w,1,
+Co-amoxiclav 500mg/100mg/50ml infusion bags,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,P,ml,a,w,1,
+Co-amoxiclav 500mg/125mg tablets,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,O,tablet,a,w,1,
+Co-amoxiclav 875mg/125mg tablets,Amoxicillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR02,O,tablet,a,w,1,
+Co-fluampicil 125mg/125mg/5ml oral suspension,Flucloxacillin/ampicillin,Penicillins,J01CA51,O,ml,NR,o,1,no WHO DDDs; WHO does not recommend (NR) use in clinical practice
+Co-fluampicil 250mg/250mg capsules,Flucloxacillin/ampicillin,Penicillins,J01CA51,O,capsule,NR,o,1,no WHO DDDs; WHO does not recommend (NR) use in clinical practice
+Co-fluampicil 250mg/250mg powder for solution for injection vials,Flucloxacillin/ampicillin,Penicillins,J01CA51,P,vial,NR,o,1,no WHO DDDs; WHO does not recommend (NR) use in clinical practice
+Colistimethate (colomycin)  (nebulisation only) vial  1million units inj,Colistin_INH,Polymyxins,J01XB01,INH,vial,r,r,1,
+"Colistimethate 1,662,500unit inhalation powder capsules",Colistin_INH,Polymyxins,J01XB01,INH,capsule,r,r,1,
+Colistimethate 1.2million unit powder for solution for injection vials,Colistin_IV,Polymyxins,J01XB01,P,vial,r,r,1,
+Colistimethate 1.5million unit powder for solution for injection vials,Colistin_IV,Polymyxins,J01XB01,P,vial,r,r,1,
+Colistimethate 125mg capsules for inhalation,Colistin_INH,Polymyxins,J01XB01,INH,capsule,r,r,1,
+Colistimethate 1662500 units  inhalation powder capsules,Colistin_INH,Polymyxins,J01XB01,INH,capsule,r,r,1,
+Colistimethate 1million unit powder for nebuliser solution unit dose vials,Colistin_INH,Polymyxins,J01XB01,INH,vial,r,r,1,
+Colistimethate 1million unit powder for solution for injection vials,Colistin_IV,Polymyxins,J01XB01,P,vial,r,r,1,
+Colistimethate 2million unit powder for nebuliser solution unit dose vials,Colistin_INH,Polymyxins,J01XB01,INH,vial,r,r,1,
+Colistimethate 2million unit powder for solution for injection vials,Colistin_IV,Polymyxins,J01XB01,P,vial,r,r,1,
+"Colistimethate 500,000unit powder for solution for injection vials",Colistin_IV,Polymyxins,J01XB01,P,vial,r,r,1,
+Colistin 1.5million unit tablets,Colistin_PO,Polymyxins,A07AA10,O,tablet,r,r,0,"excl, not available in UK"
+"Colistin 10,000,000units/5ml oral solution",Colistin_PO,Polymyxins,A07AA10,O,ml,r,r,0,"excl, not available in UK"
+"Colistin 15,000,000units/5ml oral solution",Colistin_PO,Polymyxins,A07AA10,O,ml,r,r,0,"excl, not available in UK"
+Colistin 19.5million unit powder vials,Colistin_IV,Polymyxins,A07AA10,P,vial,r,r,1,
+"Colistin 250,000units/5ml oral solution",Colistin_PO,Polymyxins,A07AA10,O,ml,r,r,0,"excl, not available in UK"
+Colistin 2million unit powder vials,Colistin_IV,Polymyxins,J01XB01,P,vial,r,r,1,
+"Colistin 5,000,000units/5ml oral solution",Colistin_PO,Polymyxins,A07AA10,O,ml,r,r,0,"excl, not available in UK"
+Co-trimoxazole 160mg/800mg tablets,Sulfamethoxazole/trimethoprim,Sulfonamide-trimethoprim-combinations,J01EE01,O,tablet,a,a,1,
+Co-trimoxazole 160mg/800mg/10ml solution for infusion ampoules,Sulfamethoxazole/trimethoprim,Sulfonamide-trimethoprim-combinations,J01EE01,P,ml,a,a,1,
+Co-trimoxazole 40mg/200mg/5ml oral suspension,Sulfamethoxazole/trimethoprim,Sulfonamide-trimethoprim-combinations,J01EE01,O,ml,a,a,1,
+Co-trimoxazole 40mg/200mg/5ml oral suspension sugar free,Sulfamethoxazole/trimethoprim,Sulfonamide-trimethoprim-combinations,J01EE01,O,ml,a,a,1,
+Co-trimoxazole 80mg/400mg tablets,Sulfamethoxazole/trimethoprim,Sulfonamide-trimethoprim-combinations,J01EE01,O,tablet,a,a,1,
+Co-trimoxazole 80mg/400mg/5ml oral suspension,Sulfamethoxazole/trimethoprim,Sulfonamide-trimethoprim-combinations,J01EE01,O,ml,a,a,1,
+Co-trimoxazole 80mg/400mg/5ml solution for infusion ampoules,Sulfamethoxazole/trimethoprim,Sulfonamide-trimethoprim-combinations,J01EE01,P,ml,a,a,1,
+Cycloserine 250mg capsules,Cycloserine,Amino acids,J04AB01,O,capsule,o,o,0,anti-TB
+Dalbavancin 500mg powder for solution for infusion vials,Dalbavancin,Glycopeptides,J01XA04,P,vial,r,r,1,
+Daptomycin 350mg powder for solution for infusion vials,Daptomycin,Lipopeptides,J01XX09,P,vial,r,r,1,
+Daptomycin 500mg powder for solution for infusion vials,Daptomycin,Lipopeptides,J01XX09,P,vial,r,r,1,
+Delafloxacin 300mg powder for solution for infusion vials,Delafloxacin,Fluoroquinolones,J01MA23,P,vial,w,w,1,
+Delafloxacin 450mg tablets,Delafloxacin,Fluoroquinolones,J01MA23,O,tablet,w,w,1,
+Delamanid 50mg tablets,Delamanid,Antimycobacterials,J04AK06,O,tablet,o,o,0,anti-TB
+Demeclocycline 150mg capsules,Demeclocycline,Tetracyclines,J01AA01,O,capsule,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Demeclocycline 150mg tablets,Demeclocycline,Tetracyclines,J01AA01,O,tablet,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Demeclocycline 150mg/5ml oral solution,Demeclocycline,Tetracyclines,J01AA01,O,ml,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Demeclocycline 150mg/5ml oral suspension,Demeclocycline,Tetracyclines,J01AA01,O,ml,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Demeclocycline 300mg capsule,Demeclocycline,Tetracyclines,J01AA01,O,capsule,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Demeclocycline 300mg capsules,Demeclocycline,Tetracyclines,J01AA01,O,capsule,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Demeclocycline 300mg/5ml oral solution,Demeclocycline,Tetracyclines,J01AA01,O,ml,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Demeclocycline 300mg/5ml oral suspension,Demeclocycline,Tetracyclines,J01AA01,O,ml,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Demeclocycline 50mg/5ml suspension,Demeclocycline,Tetracyclines,J01AA01,O,ml,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Demeclocycline 75mg/5ml oral solution,Demeclocycline,Tetracyclines,J01AA01,O,ml,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Demeclocycline 75mg/5ml oral suspension,Demeclocycline,Tetracyclines,J01AA01,O,ml,w,o,0,"used as an antibiotic e.g. for acne, but may be more frequently used as an inhibitor of arginine vasopressin in the therapy of hyponatremia and the syndrome of inappropriate secretion of antidiuretic hormone (SIADH)"
+Doripenem 500mg powder for solution for infusion vials,Doripenem,Carbapenems,J01DH04,P,vial,w,r,1,
+Doxycycline 100mg capsules,Doxycycline,Tetracyclines,J01AA02,O,capsule,a,a,1,
+Doxycycline 100mg dispersible tablets,Doxycycline,Tetracyclines,J01AA02,O,tablet,a,a,1,
+Doxycycline 100mg dispersible tablets sugar free,Doxycycline,Tetracyclines,J01AA02,O,tablet,a,a,1,
+Doxycycline 100mg injection,Doxycycline,Tetracyclines,J01AA02,P,vial,a,a,1,
+Doxycycline 100mg tablets,Doxycycline,Tetracyclines,J01AA02,O,tablet,a,a,1,
+Doxycycline 100mg/5ml oral suspension,Doxycycline,Tetracyclines,J01AA02,O,ml,a,a,1,
+Doxycycline 100mg/5ml solution for injection ampoules,Doxycycline,Tetracyclines,J01AA02,P,ml,a,a,1,
+Doxycycline 20mg tablets,Doxycycline,Tetracyclines,J01AA02,O,tablet,a,a,1,
+Doxycycline 36.4mg/260mg periodontal gel cartridge,Doxycycline,Tetracyclines,A01AB22,TOP,gel,a,a,0,"excl, topical/dental"
+Doxycycline 40mg modified-release capsules,Doxycycline,Tetracyclines,J01AA02,O,capsule,a,a,1,
+Doxycycline 50mg capsules,Doxycycline,Tetracyclines,J01AA02,O,capsule,a,a,1,
+Doxycycline 50mg/5ml oral solution,Doxycycline,Tetracyclines,J01AA02,O,ml,a,a,1,
+Doxycycline 50mg/5ml oral suspension,Doxycycline,Tetracyclines,J01AA02,O,ml,a,a,1,
+Eravacycline 100mg powder for solution for infusion vials,Eravacycline,Tetracyclines,J01AA13,P,vial,r,r,1,
+Ertapenem 1g powder for solution for infusion vials,Ertapenem,Carbapenems,J01DH03,P,vial,w,r,1,
+Erythromycin 0.02 solution,Erythromycin,Macrolides,J01FA01,O,ml,w,w,1,
+Erythromycin 1g powder for solution for infusion vials,Erythromycin,Macrolides,J01FA01,P,vial,w,w,1,
+Erythromycin 250mg gastro-resistant capsules,Erythromycin,Macrolides,J01FA01,O,capsule,w,w,1,
+Erythromycin 250mg gastro-resistant tablets,Erythromycin,Macrolides,J01FA01,O,tablet,w,w,1,
+Erythromycin ethyl succinate 125mg/5ml oral suspension,Erythromycin,Macrolides,J01FA01,O,ml,w,w,1,
+Erythromycin ethyl succinate 125mg/5ml oral suspension sugar free,Erythromycin,Macrolides,J01FA01,O,ml,w,w,1,
+Erythromycin ethyl succinate 250mg/5ml oral suspension,Erythromycin,Macrolides,J01FA01,O,ml,w,w,1,
+Erythromycin ethyl succinate 250mg/5ml oral suspension sugar free,Erythromycin,Macrolides,J01FA01,O,ml,w,w,1,
+Erythromycin ethyl succinate 500mg tablets,Erythromycin,Macrolides,J01FA01,O,tablet,w,w,1,
+Erythromycin ethyl succinate 500mg/5ml oral suspension,Erythromycin,Macrolides,J01FA01,O,ml,w,w,1,
+Erythromycin ethyl succinate 500mg/5ml oral suspension sugar free,Erythromycin,Macrolides,J01FA01,O,ml,w,w,1,
+Erythromycin lactobionate 1g injection,Erythromycin,Macrolides,J01FA01,P,ml,w,w,1,
+Erythromycin stearate 250mg tablets,Erythromycin,Macrolides,J01FA01,O,tablet,w,w,1,
+Erythromycin stearate 500mg tablets,Erythromycin,Macrolides,J01FA01,O,tablet,w,w,1,
+Ethambutol 100mg tablets,Ethambutol,Antimycobacterials,J04AK02,O,tablet,o,o,0,anti-TB
+Ethambutol 100mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 125mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 150mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 150mg/5ml oral suspension,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 1g/10ml solution for infusion vials,Ethambutol,Antimycobacterials,J04AK02,P,ml,o,o,0,anti-TB
+Ethambutol 200mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 200mg/5ml oral suspension,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 240mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 250mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 250mg/5ml oral suspension,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 25mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 300mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 300mg/5ml oral suspension,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 350mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 375mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 400mg tablets,Ethambutol,Antimycobacterials,J04AK02,O,tablet,o,o,0,anti-TB
+Ethambutol 400mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 400mg/5ml oral suspension,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 450mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 500mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 500mg/5ml oral suspension,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 50mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 600mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 600mg/5ml oral suspension,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Ethambutol 700mg/5ml oral solution,Ethambutol,Antimycobacterials,J04AK02,O,ml,o,o,0,anti-TB
+Fidaxomicin 200mg tablets,Fidaxomicin,Macrolides,A07AA12,O,tablet,w,w,1,
+Fidaxomicin 40mg/ml oral suspension sugar free,Fidaxomicin,Macrolides,A07AA12,O,ml,w,w,1,
+Flucloxacillin 125mg / 5ml oral solution sugar free,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Flucloxacillin 125mg/5ml oral elixir,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Flucloxacillin 125mg/5ml oral elixir/suspension,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Flucloxacillin 125mg/5ml oral solution,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Flucloxacillin 125mg/5ml oral solution sugar free,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Flucloxacillin 125mg/5ml oral suspension,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Flucloxacillin 1g powder for solution for injection vials,Flucloxacillin,Penicillins,J01CF05,P,vial,a,a,1,
+Flucloxacillin 1g/50ml infusion bags,Flucloxacillin,Penicillins,J01CF05,P,ml,a,a,1,
+Flucloxacillin 250mg capsules,Flucloxacillin,Penicillins,J01CF05,O,capsule,a,a,1,
+Flucloxacillin 250mg powder for solution for injection vials,Flucloxacillin,Penicillins,J01CF05,P,vial,a,a,1,
+Flucloxacillin 250mg/5ml oral elixir/suspension,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Flucloxacillin 250mg/5ml oral solution,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Flucloxacillin 250mg/5ml oral solution sugar free,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Flucloxacillin 250mg/5ml oral suspension,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Flucloxacillin 2g in 100ml,Flucloxacillin,Penicillins,J01CF05,P,ml,a,a,1,
+Flucloxacillin 2g in sodium chloride 0.9% infusion 100ml,Flucloxacillin,Penicillins,J01CF05,P,ml,a,a,1,
+Flucloxacillin 2g powder for solution for injection vials,Flucloxacillin,Penicillins,J01CF05,P,vial,a,a,1,
+Flucloxacillin 2g/100ml infusion bags,Flucloxacillin,Penicillins,J01CF05,P,ml,a,a,1,
+Flucloxacillin 4g in nacl + buffer (17.4mg/ml) infusion,Flucloxacillin,Penicillins,J01CF05,P,ml,a,a,1,
+Flucloxacillin 500mg capsules,Flucloxacillin,Penicillins,J01CF05,O,capsule,a,a,1,
+Flucloxacillin 500mg powder for solution for injection vials,Flucloxacillin,Penicillins,J01CF05,P,vial,a,a,1,
+Flucloxacillin 500mg/50ml infusion bags,Flucloxacillin,Penicillins,J01CF05,P,ml,a,a,1,
+Flucloxacillin 8000mg/250ml Infusion bags,Flucloxacillin,Penicillins,J01CF05,P,ml,a,a,1,
+Flucloxacillin 8000mg/250ml infusion bags,Flucloxacillin,Penicillins,J01CF05,P,ml,a,a,1,
+Flucloxacillin 8g in nacl + buffer (17.4mg/ml) infusion,Flucloxacillin,Penicillins,J01CF05,P,ml,a,a,1,
+Flucloxacillin in sodium chloride 0.9% 240ml 8000mg elastometric pump (24hr),Flucloxacillin,Penicillins,J01CF05,P,ml,a,a,1,
+Flucloxacillin sodium 125mg/5ml oral suspension,Flucloxacillin,Penicillins,J01CF05,O,ml,a,a,1,
+Fosfomycin 1g powder and solvent for solution for infusion vials,Fosfomycin_IV,Phosphonics,J01XX01,P,vial,r,r,1,
+Fosfomycin 250mg/5ml oral suspension,Fosfomycin_oral,Phosphonics,J01XX01,O,ml,w,a,1,
+Fosfomycin 2g powder for solution for infusion vials,Fosfomycin_IV,Phosphonics,J01XX01,P,vial,r,r,1,
+Fosfomycin 3g granules for oral solution sachets,Fosfomycin_oral,Phosphonics,J01XX01,O,granules,w,a,1,
+Fosfomycin 3g granules sachets,Fosfomycin_oral,Phosphonics,J01XX01,O,sachet,w,a,1,
+Fosfomycin 4g powder for solution for infusion vials,Fosfomycin_IV,Phosphonics,J01XX01,P,vial,r,r,1,
+Fosfomycin 500mg capsules,Fosfomycin_oral,Phosphonics,J01XX01,O,capsule,w,a,1,
+Fosfomycin 5g powder for solution for infusion vials,Fosfomycin_IV,Phosphonics,J01XX01,P,vial,r,r,1,
+Fusidic acid 250mg/5ml oral suspension,Fusidic-acid,Steroid antibacterials,J01XC01,O,ml,w,w,1,
+Generic deteclo 300mg tablets,Chlortetracycline hydrochloride/demeclocycline hydrochloride/tetracycline hydrochloride,Tetracyclines,J01AA20,O,tablet,o,o,0,"excl, discontinued in UK since 2007"
+Generic Recarbrio 500mg/500mg/250mg powder for solution for infusion vials,Imipenem/cilastatin/relebactam,Carbapenems,J01DH56,P,vial,r,r,1,
+Generic voractiv tablets,Ethambutol hydrochloride/isoniazid/pyrazinamide/rifampicin,Antimycobacterials,J04AM06,O,tablet,o,o,0,anti-TB
+Gentamicin 160mg/100ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 20mg/2ml solution for injection ampoules,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 20mg/2ml solution for injection vials,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 240mg/100ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 240mg/106ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 240mg/80ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 240mg/80ml infusion polyethylene bottles,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 300mg/107.5ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 30mg/5ml oral suspension,Gentamicin,Aminoglycosides,J01GB03,O,ml,a,a,0,no WHO DDD
+Gentamicin 35mg/5ml oral suspension,Gentamicin,Aminoglycosides,J01GB03,O,ml,a,a,0,no WHO DDD
+Gentamicin 360mg/100ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 360mg/109ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 360mg/120ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 360mg/120ml infusion polyethylene bottles,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 40mg/1ml solution for injection ampoules,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 440mg/111ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 50mg/5ml oral solution,Gentamicin,Aminoglycosides,J01GB03,O,ml,a,a,0,no WHO DDD
+Gentamicin 5mg/1ml solution for injection ampoules,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 62.5mg/5ml oral solution,Gentamicin,Aminoglycosides,J01GB03,O,ml,a,a,0,no WHO DDD
+Gentamicin 75mg/5ml oral solution,Gentamicin,Aminoglycosides,J01GB03,O,ml,a,a,0,no WHO DDD
+Gentamicin 80mg/2ml solution for injection ampoules,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 80mg/2ml solution for injection vials,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 80mg/50ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 80mg/80ml infusion bags,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Gentamicin 80mg/80ml infusion polyethylene bottles,Gentamicin,Aminoglycosides,J01GB03,P,ml,a,a,1,
+Imipenem 500mg / Cilastatin 500mg powder for solution for infusion vials,Imipenem/cilastatin,Carbapenems,J01DH51,P,vial,w,r,1,
+Imipenem 500mg / cilastatin 500mg powder for solution for infusion vials,Imipenem/cilastatin,Carbapenems,J01DH51,P,vial,w,r,1,
+Imipenem 500mg / Cilastatin 500mg powder for suspension for injection vials,Imipenem/cilastatin,Carbapenems,J01DH51,P,vial,w,r,1,
+Imipenem 500mg / cilastatin 500mg powder for suspension for injection vials,Imipenem/cilastatin,Carbapenems,J01DH51,P,vial,w,r,1,
+Isoniazid 100mg tablets,Isoniazid,Antimycobacterials,J04AC01 ,O,tablet,o,o,0,anti-TB
+Isoniazid 100mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 100mg/5ml oral suspension,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 100mg/5ml solution for injection ampoules,Isoniazid,Antimycobacterials,J04AC01 ,P,ml,o,o,0,anti-TB
+Isoniazid 110mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 119mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 120mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 125mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 130mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 135mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 140mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 150mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 150mg/5ml oral suspension,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 17.5mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 170mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 175mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 180mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 200mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 200mg/5ml oral suspension,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 220mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 250mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 25mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 260mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 270mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 27mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 30.5mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 300mg tablets,Isoniazid,Antimycobacterials,J04AC01 ,O,tablet,o,o,0,anti-TB
+Isoniazid 300mg/5ml Injection,Isoniazid,Antimycobacterials,J04AC01 ,P,ml,o,o,0,anti-TB
+Isoniazid 300mg/5ml injection,Isoniazid,Antimycobacterials,J04AC01 ,P,ml,o,o,0,anti-TB
+Isoniazid 300mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 30mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 375mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 400mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 40mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 500mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 50mg tablets,Isoniazid,Antimycobacterials,J04AC01 ,O,tablet,o,o,0,anti-TB
+Isoniazid 50mg/2ml solution for injection ampoules,Isoniazid,Antimycobacterials,J04AC01 ,P,ml,o,o,0,anti-TB
+Isoniazid 50mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 50mg/5ml oral solution sugar free,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 50mg/5ml oral suspension,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 60mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 75mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 75mg/5ml oral suspension,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 80mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 85mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Isoniazid 87.5mg/5ml oral solution,Isoniazid,Antimycobacterials,J04AC01 ,O,ml,o,o,0,anti-TB
+Levofloxacin 100mg/ml nebuliser liquid ampoules,Levofloxacin,Fluoroquinolones,J01MA12,INH,ml,w,w,1,
+Levofloxacin 125mg/5ml oral solution,Levofloxacin,Fluoroquinolones,J01MA13,O,ml,w,w,1,
+Levofloxacin 250mg tablets,Levofloxacin,Fluoroquinolones,J01MA12,O,tablet,w,w,1,
+Levofloxacin 500mg tablets,Levofloxacin,Fluoroquinolones,J01MA12,O,tablet,w,w,1,
+Levofloxacin 500mg/100ml infusion bags,Levofloxacin,Fluoroquinolones,J01MA12,P,ml,w,w,1,
+Levofloxacin 500mg/100ml solution for infusion bottles,Levofloxacin,Fluoroquinolones,J01MA12,P,ml,w,w,1,
+Levofloxacin 500mg/100ml solution for infusion vials,Levofloxacin,Fluoroquinolones,J01MA12,P,ml,w,w,1,
+Levofloxacin 50mg/5ml oral suspension,Levofloxacin,Fluoroquinolones,J01MA13,O,ml,w,w,1,
+Levofloxacin 5mg in 1ml intravenous infusion,Levofloxacin,Fluoroquinolones,J01MA12,P,ml,w,w,1,
+Linezolid 100mg/5ml oral suspension,Linezolid,Oxazolidinones,J01XX08,O,ml,r,r,1,
+Linezolid 2mg in 1ml intravenous infusion,Linezolid,Oxazolidinones,J01XX08,P,ml,r,r,1,
+Linezolid 600mg tablets,Linezolid,Oxazolidinones,J01XX08,O,tablet,r,r,1,
+Linezolid 600mg/300ml infusion,Linezolid,Oxazolidinones,J01XX08,P,ml,r,r,1,
+Linezolid 600mg/300ml infusion bags,Linezolid,Oxazolidinones,J01XX08,P,ml,r,r,1,
+Linezolid 600mg/300ml solution for infusion bottles,Linezolid,Oxazolidinones,J01XX08,P,ml,r,r,1,
+Lymecycline 408mg capsules,Lymecycline,Tetracyclines,J01AA04,O,capsule,w,w,1,
+Meropenem 1.6g powder for solution for injection vials,Meropenem,Carbapenems,J01DH02,P,vial,w,r,1,
+Meropenem 1g / Vaborbactam 1g powder for solution for infusion vials,Meropenem/vaborbactam,Carbapenems,J01DH52,P,vial,r,r,1,
+Meropenem 1g powder for solution for injection vials,Meropenem,Carbapenems,J01DH02,P,vial,w,r,1,
+Meropenem 2g powder for solution for injection vials,Meropenem,Carbapenems,J01DH02,P,vial,w,r,1,
+Meropenem 500mg powder for solution for injection vials,Meropenem,Carbapenems,J01DH02,P,vial,w,r,1,
+Meropenem 530mg powder for solution for injection vials,Meropenem,Carbapenems,J01DH02,P,vial,w,r,1,
+Meropenem 560mg powder for solution for injection vials,Meropenem,Carbapenems,J01DH02,P,vial,w,r,1,
+Meropenem 570mg powder for solution for injection vials,Meropenem,Carbapenems,J01DH02,P,vial,w,r,1,
+Methenamine hippurate 1g tablets,Methenamine,Triazinanes,J01XX05,O,tablet,o,o,1,
+Metronidazole 100mg/20ml solution for infusion ampoules,Metronidazole_IV,Imidazoles,J01XD01,P,ml,a,a,1,
+Metronidazole 100mg/5ml oral solution,Metronidazole_oral,Imidazoles,P01AB01,O,ml,a,a,1,
+Metronidazole 100mg/5ml oral suspension,Metronidazole_oral,Imidazoles,P01AB01,O,ml,a,a,1,
+Metronidazole 125mg suppositories,Metronidazole,Imidazoles,P01AB01,R,suppository,a,a,1,
+Metronidazole 1g suppositories,Metronidazole,Imidazoles,P01AB01,R,suppository,a,a,1,
+Metronidazole 200mg tablets,Metronidazole_oral,Imidazoles,P01AB01,O,tablet,a,a,1,
+Metronidazole 200mg/5ml oral solution,Metronidazole_oral,Imidazoles,P01AB01,O,ml,a,a,1,
+Metronidazole 200mg/5ml oral suspension,Metronidazole_oral,Imidazoles,P01AB01,O,ml,a,a,1,
+Metronidazole 400mg tablets,Metronidazole_oral,Imidazoles,P01AB01,O,tablet,a,a,1,
+Metronidazole 500mg suppositories,Metronidazole,Imidazoles,P01AB01,R,suppository,a,a,1,
+Metronidazole 500mg tablets,Metronidazole_oral,Imidazoles,P01AB01,O,tablet,a,a,1,
+Metronidazole 500mg/100ml infusion 100ml,Metronidazole_IV,Imidazoles,J01XD01,P,ml,a,a,1,
+Metronidazole 500mg/100ml infusion 100ml bags,Metronidazole_IV,Imidazoles,J01XD01,P,ml,a,a,1,
+Metronidazole 500mg/100ml solution for infusion bottles,Metronidazole_IV,Imidazoles,J01XD01,P,ml,a,a,1,
+Metronidazole 50mg/5ml oral solution,Metronidazole_oral,Imidazoles,P01AB01,O,ml,a,a,1,
+Metronidazole 50mg/5ml oral suspension,Metronidazole_oral,Imidazoles,P01AB01,O,ml,a,a,1,
+Minocycline 100mg capsules,Minocycline_oral,Tetracyclines,J01AA08,O,capsule,w,w,1,
+Minocycline 100mg modified-release capsules,Minocycline_oral,Tetracyclines,J01AA08,O,capsule,w,w,1,
+Minocycline 100mg tablets,Minocycline_oral,Tetracyclines,J01AA08,O,tablet,w,w,1,
+Minocycline 50mg capsules,Minocycline_oral,Tetracyclines,J01AA08,O,capsule,w,w,1,
+Minocycline 50mg tablets,Minocycline_oral,Tetracyclines,J01AA08,O,tablet,w,w,1,
+Minocycline 50mg/5ml oral solution,Minocycline_oral,Tetracyclines,J01AA08,O,ml,w,w,1,
+Minocycline 50mg/5ml oral suspension,Minocycline_oral,Tetracyclines,J01AA08,O,ml,w,w,1,
+Moxifloxacin 0.3mg/0.3ml solution for injection pre-filled syringes,Moxifloxacin,Fluoroquinolones,J01MA14,P,ml,w,w,1,
+Moxifloxacin 100mg in 5ml suspension,Moxifloxacin,Fluoroquinolones,J01MA14,O,ml,w,w,1,
+Moxifloxacin 100mg/1ml oral solution,Moxifloxacin,Fluoroquinolones,J01MA14,O,ml,w,w,1,
+Moxifloxacin 200mg in 5ml suspension,Moxifloxacin,Fluoroquinolones,J01MA14,O,ml,w,w,1,
+Moxifloxacin 400mg tablets,Moxifloxacin,Fluoroquinolones,J01MA14,O,tablet,w,w,1,
+Moxifloxacin 400mg/250ml infusion bags,Moxifloxacin,Fluoroquinolones,J01MA14,P,ml,w,w,1,
+Moxifloxacin 400mg/250ml solution for infusion bottles,Moxifloxacin,Fluoroquinolones,J01MA14,P,ml,w,w,1,
+Moxifloxacin 400mg/5ml oral solution,Moxifloxacin,Fluoroquinolones,J01MA14,O,ml,w,w,1,
+Moxifloxacin 500mg in 5ml liquid,Moxifloxacin,Fluoroquinolones,J01MA14,O,ml,w,w,1,
+Nalidixic acid 300mg/5ml oral suspension,Nalidixic Acid,Quinolones,J01MB02,O,ml,o,o,1,
+Nalidixic acid 300mg/5ml oral suspension sugar free,Nalidixic Acid,Quinolones,J01MB02,O,ml,o,o,1,
+Nalidixic acid 500mg tablets,Nalidixic Acid,Quinolones,J01MB02,O,ml,o,o,1,
+Neomycin 100mg/5ml oral solution,Neomycin,Aminoglycosides,A07AA01,O,ml,w,w,0,considered too toxic for systemic use
+Neomycin 500mg tablets,Neomycin,Aminoglycosides,A07AA01,O,tablet,w,w,0,considered too toxic for systemic use
+Neomycin 500mg/5ml oral solution,Neomycin,Aminoglycosides,A07AA01,O,ml,w,w,0,considered too toxic for systemic use
+Neomycin Sulf_Tab 500mg,Neomycin,Aminoglycosides,J01GB05,O,tablet,w,w,0,considered too toxic for systemic use
+Netilmicin 100mg/1ml solution for injection ampoules,Netilmicin,Aminoglycosides,J01GB07,P,ml,w,o,1,
+Netilmicin 150mg/1.5ml solution for injection ampoules,Netilmicin,Aminoglycosides,J01GB07,P,ml,w,o,1,
+Netilmicin 15mg/1.5ml solution for injection ampoules,Netilmicin,Aminoglycosides,J01GB07,P,ml,w,o,1,
+Netilmicin 200mg/2ml solution for injection ampoules,Netilmicin,Aminoglycosides,J01GB07,P,ml,w,o,1,
+Netilmicin 50mg/1ml solution for injection ampoules,Netilmicin,Aminoglycosides,J01GB07,P,ml,w,o,1,
+Nitrofurantoin 100mg capsules,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,capsule,a,a,1,
+Nitrofurantoin 100mg modified-release capsules,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,capsule,a,a,1,
+Nitrofurantoin 100mg tablets,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,tablet,a,a,1,
+Nitrofurantoin 100mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 100mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 10mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 10mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 11mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 11mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 12.5mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 12.5mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 125mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 125mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 12mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 12mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 13.5mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 13.5mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 13mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 13mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 14mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 14mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 15mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 15mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 16mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 16mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 17.5mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 17.5mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 17mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 17mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 18.75mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 18.75mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 18mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 18mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 1mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 1mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 2.5mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 2.5mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 20mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 20mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 22mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 22mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 24mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 24mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 25mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 25mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 25mg/5ml oral suspension sugar free,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 2mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 2mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 30mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 30mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 32.5mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 32.5mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 35mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 35mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 40mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 40mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 45mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 45mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 4mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 4mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 5.5mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 5.5mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 50mg capsules,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 50mg tablets,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 50mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 50mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 5mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 5mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 6.5mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 6.5mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 6mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 6mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 7.5mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 7.5mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 7.8mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 7.8mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 75mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 75mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 7mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 7mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 8mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 8mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 9.5mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 9.5mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 9mg/5ml oral solution,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Nitrofurantoin 9mg/5ml oral suspension,Nitrofurantoin,Nitrofuran-derivatives,J01XE01,O,ml,a,a,1,
+Norfloxacin 400mg tablets,Norfloxacin,Fluoroquinolones,J01MA06,O,tablet,w,w,1,
+Ofloxacin 100mg/50ml solution for infusion bottles,Ofloxacin,Fluoroquinolones,J01MA01,P,ml,w,w,1,
+Ofloxacin 100mg/5ml oral solution,Ofloxacin,Fluoroquinolones,J01MA01,O,ml,w,w,1,
+Ofloxacin 100mg/5ml oral suspension,Ofloxacin,Fluoroquinolones,J01MA01,O,ml,w,w,1,
+Ofloxacin 200mg tablets,Ofloxacin,Fluoroquinolones,J01MA01,O,tablet,w,w,1,
+Ofloxacin 200mg/100ml solution for infusion bottles,Ofloxacin,Fluoroquinolones,J01MA01,P,ml,w,w,1,
+Ofloxacin 250mg/5ml oral solution,Ofloxacin,Fluoroquinolones,J01MA01,O,ml,w,w,1,
+Ofloxacin 250mg/5ml oral suspension,Ofloxacin,Fluoroquinolones,J01MA01,O,ml,w,w,1,
+Ofloxacin 400mg tablets,Ofloxacin,Fluoroquinolones,J01MA01,O,tablet,w,w,1,
+Ofloxacin 400mg/200ml solution for injection bottles,Ofloxacin,Fluoroquinolones,J01MA01,P,ml,w,w,1,
+Oritavancin 400mg powder for solution for infusion vials,Oritavancin,Glycopeptides,J01XA05,P,vial,r,r,1,
+Oxytetracycline 100mg/5ml oral suspension,Oxytetracycline,Tetracyclines,J01AA06,O,ml,w,w,1,
+Oxytetracycline 250mg tablets,Oxytetracycline,Tetracyclines,J01AA06,O,tablet,w,w,1,
+Penicillin combinations,Penicillin combinations,Penicillins,J01CR50,P,,NR,o,1,no WHO DDDS; Only co-fluampicil formulations dispensed under the ATC code in primary care only; WHO does not recommend (NR) use in clinical practice
+Penicillin combinations,Penicillin combinations,Penicillins,J01CR50,O,,NR,o,1,no WHO DDDS; Only co-fluampicil formulations dispensed under the ATC code in primary care only; WHO does not recommend (NR) use in clinical practice
+Phenoxymethylpenicillin 125mg/5ml oral solution,Phenoxymethylpenicillin,Penicillins,J01CE02,O,ml,a,a,1,
+Phenoxymethylpenicillin 125mg/5ml oral solution sugar free,Phenoxymethylpenicillin,Penicillins,J01CE02,O,ml,a,a,1,
+Phenoxymethylpenicillin 250mg tablets,Phenoxymethylpenicillin,Penicillins,J01CE02,O,tablet,a,a,1,
+Phenoxymethylpenicillin 250mg/5ml oral solution,Phenoxymethylpenicillin,Penicillins,J01CE02,O,ml,a,a,1,
+Phenoxymethylpenicillin 250mg/5ml oral solution sugar free,Phenoxymethylpenicillin,Penicillins,J01CE02,O,ml,a,a,1,
+Phenoxymethylpenicillin 500mg tablets,Phenoxymethylpenicillin,Penicillins,J01CE02,O,tablet,a,a,1,
+Piperacillin,Piperacillin,Penicillins,J01CA12,P,,w,w,1,
+Piperacillin 2g / Tazobactam 250mg powder for solution for infusion vials,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin 2g / tazobactam 250mg powder for solution for injection vials,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin 2g/50ml / Tazobactam 250mg/50ml infusion bags,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,ml,w,w,1,
+Piperacillin 3g / Tazobactam 375mg powder for solution for infusion vials,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin 4g / tazobactam 500mg in 50ml sodium chloride,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,ml,w,w,1,
+Piperacillin 4g / tazobactam 500mg powder and solvent for solution for infusion vials,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin 4g / tazobactam 500mg powder and solvent for solution for injection,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin 4g / Tazobactam 500mg powder and solvent for solution for injection vials,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin 4g / tazobactam 500mg powder and solvent for solution for injection vials,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin 4g / Tazobactam 500mg powder for solution for infusion vials,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin 4g / tazobactam 500mg powder for solution for injection vials,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin 8g / Tazobactam 1g powder and solvent for solution for injection vials,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin 8g / tazobactam 1g powder and solvent for solution for injection vials,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,vial,w,w,1,
+Piperacillin with tazobactam 12g/1.5g in 24 hours pre-filled infusion,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,ml,w,w,1,
+Piperacillin with tazobactam 8g/1g in 24 hours pre-filled infusion,Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,ml,w,w,1,
+Pipericillin 12g / tazobactam 1.5g in sodium chloride 0.9%  elastometric pump (24hr),Piperacillin/tazobactam,Beta-lactam/beta-lactamase-inhibitors,J01CR05,P,ml,w,w,1,
+Pivmecillinam 200mg tablets,Pivmecillinam,Penicillins,J01CA08,O,tablet,a,a,1,
+Pivmecillinam 200mg/5ml oral suspension,Pivmecillinam,Penicillins,J01CA08,O,ml,a,a,1,
+Pristinamycin 250mg tablets,Pristinamycin,Streptogramins,J01FG01,O,tablet,w,o,1,
+Pristinamycin 500mg tablets,Pristinamycin,Streptogramins,J01FG01,O,tablet,w,o,1,
+Procaine benzylpenicillin 1.2million unit powder and solvent for suspension for injection vials,Procaine-benzylpenicillin,Penicillins,J01CE09,P,vial,a,a,1,
+Procaine benzylpenicillin 1.2mu injection,Procaine-benzylpenicillin,Penicillins,J01CE09,P,vial,a,a,1,
+"Procaine benzylpenicillin 600,000unit powder and solvent for suspension for injection vials",Procaine-benzylpenicillin,Penicillins,J01CE09,P,vial,a,a,1,
+Procaine benzylpenicillin 600000unit powder and solvent for suspension for injection vials,Procaine-benzylpenicillin,Penicillins,J01CE09,P,vial,a,a,1,
+Pyrazinamide 1.25g/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 1.25g/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 1.4g/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 1.4g/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 1.5g/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 1.5g/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 100mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 100mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 105mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 105mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 125mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 125mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 150mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 150mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 175mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 175mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 1g/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 1g/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 200mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 200mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 250mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 250mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 275mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 275mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 300mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 300mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 312.5mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 312.5mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 350mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 350mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 375mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 375mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 400mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 400mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 420mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 420mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 425mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 425mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 430mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 430mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 450mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 450mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 490mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 490mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 500mg tablets,Pyrazinamide,Antimycobacterials,J04AK01,O,tablet,o,o,0,anti-TB
+Pyrazinamide 500mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 500mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 50mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 50mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 600mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 600mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 625mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 625mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 650mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 650mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 675mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 675mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 700mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 700mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 750mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 750mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 75mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 75mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 850mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 850mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 91mg/5ml oral solution,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Pyrazinamide 91mg/5ml oral suspension,Pyrazinamide,Antimycobacterials,J04AK01,O,ml,o,o,0,anti-TB
+Quinupristin 150mg / Dalfopristin 350mg powder for solution for infusion vials,Dalfopristin/quinupristin,Streptogramins,J01FG02,P,vial,r,r,1,
+Quinupristin 150mg / dalfopristin 350mg powder for solution for infusion vials,Dalfopristin/quinupristin,Streptogramins,J01FG02,P,vial,r,r,1,
+Rifampicin 100mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 120mg/ isoniazid 50mg/ pyrazinamide 300mg (rifater tablets),Rifampicin/isoniazid/pyrazinamide,Antimycobacterials,J04AB02,O,tablet,w,o,0,anti-TB
+Rifampicin 120mg/5ml oral solution,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 120mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 150mg / isoniazid 100mg tablets,Rifampicin/isoniazid,Antimycobacterials,J04AB02,O,tablet,w,o,0,anti-TB
+Rifampicin 150mg capsules,Rifampicin,Antimycobacterials,J04AB02,O,capsule,w,o,0,anti-TB
+Rifampicin 150mg/5ml oral solution,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 150mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 200mg/5ml oral solution,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 200mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 210mg/5ml oral solution,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 210mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 225mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 240mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 30.5mg/5ml oral solution,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 30.5mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 300mg / isoniazid 150mg tablets,Rifampicin/isoniazid,Antimycobacterials,J04AB02,O,tablet,w,o,0,anti-TB
+Rifampicin 300mg capsules,Rifampicin,Antimycobacterials,J04AB02,O,capsule,w,o,0,anti-TB
+Rifampicin 300mg powder and solvent for solution for injection vials,Rifampicin,Antimycobacterials,J04AB02,P,vial,w,o,0,anti-TB
+Rifampicin 300mg/5ml oral solution,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 300mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 375mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 480mg/5ml oral solution,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 480mg/5ml oral suspension,Rifampicin,Antimycobacterials,J04AB02,O,ml,w,o,0,anti-TB
+Rifampicin 600mg powder and solvent for solution for infusion vials,Rifampicin,Antimycobacterials,J04AB02,P,vial,w,o,0,anti-TB
+Roxithromycin 150mg tablets,Roxithromycin,Macrolides,J01FA06,O,tablet,w,o,1,no DDDs on RxInfo
+Sodium fusidate 250mg tablets,Fusidic-acid,Steroid antibacterials,J01XC01,O,tablet,w,w,1,
+Sodium fusidate 500mg powder and solvent for solution for infusion vials,Fusidic-acid,Steroid antibacterials,J01XC01,P,vial,w,w,1,
+Spectinomycin 2g powder and solvent for suspension for injection vials,Spectinomycin,Aminocyclitols,J01XX04,P,vial,a,o,0,largely for anti-gonorrheal usage
+"Spiramycin 1,500,000 units tablets",Spiramycin,Macrolides,J01FA02,O,tablet,w,o,0,anti-parasitic
+Spiramycin 1.5million unit tablets,Spiramycin,Macrolides,J01FA02,O,tablet,w,o,0,anti-parasitic
+Spiramycin 375000units/5ml oral solution,Spiramycin,Macrolides,J01FA02,O,tablet,w,o,0,anti-parasitic
+Spiramycin 3million unit tablets,Spiramycin,Macrolides,J01FA02,O,tablet,w,o,0,anti-parasitic
+Streptomycin 1g powder for solution for injection vials,Streptomycin_IV,Aminoglycosides,J01GA01,P,vial,w,o,1,
+Sulfadiazine 150mg/5ml oral suspension,Sulfadiazine,Sulfonamides,J01EC02,O,ml,a,o,1,
+Sulfadiazine 1g/4ml solution for injection ampoules,Sulfadiazine,Sulfonamides,J01EC02,P,ml,a,o,1,
+Sulfadiazine 250mg/5ml oral suspension,Sulfadiazine,Sulfonamides,J01EC02,O,ml,a,o,1,
+Sulfadiazine 500mg tablets,Sulfadiazine,Sulfonamides,J01EC02,O,tablet,a,o,1,
+Sulfadiazine 500mg/5ml oral suspension,Sulfadiazine,Sulfonamides,J01EC02,O,ml,a,o,1,
+Sulfamethoxypyridazine 500mg tablets,Sulfamethoxypyridazine,Sulfonamides,J01ED05,O,tablet,a,o,1,
+Sulfapyridine 250mg capsules,Sulfapyridine,Sulfonamides,J01EB04,O,capsule,a,o,1,
+Tedizolid 200mg powder for solution for infusion vials,Tedizolid,Oxazolidinones,J01XX11,P,vial,r,r,1,
+Tedizolid 200mg tablets,Tedizolid,Oxazolidinones,J01XX11,O,tablet,r,r,1,
+Teicoplanin 1g/120ml infusion bags,Teicoplanin,Glycopeptides,J01XA02,P,ml,w,w,1,
+Teicoplanin 200mg powder and solvent for solution for injection vials,Teicoplanin,Glycopeptides,J01XA02,P,vial,w,w,1,
+Teicoplanin 200mg powder for solution for injection vials,Teicoplanin,Glycopeptides,J01XA02,P,vial,w,w,1,
+Teicoplanin 200mg/10ml solution for injection pre-filled injection devices,Teicoplanin,Glycopeptides,J01XA02,P,ml,w,w,1,
+Teicoplanin 200mg/10ml solution for injection pre-filled syringes,Teicoplanin,Glycopeptides,J01XA02,P,ml,w,w,1,
+Teicoplanin 400mg powder and solvent for solution for injection vials,Teicoplanin,Glycopeptides,J01XA02,P,vial,w,w,1,
+Teicoplanin 400mg powder for solution for injection vials,Teicoplanin,Glycopeptides,J01XA02,P,vial,w,w,1,
+Teicoplanin 400mg/108ml infusion bags,Teicoplanin,Glycopeptides,J01XA02,P,ml,w,w,1,
+Teicoplanin 600mg/112ml infusion bags,Teicoplanin,Glycopeptides,J01XA02,P,ml,w,w,1,
+Teicoplanin 800mg/116ml infusion bags,Teicoplanin,Glycopeptides,J01XA02,P,ml,w,w,1,
+Telavancin 250mg powder for solution for infusion vials,Telavancin,Glycopeptides,J01XA03,P,vial,r,r,0,no WHO DDD
+Telavancin 750mg powder for solution for infusion vials,Telavancin,Glycopeptides,J01XA03,P,vial,r,r,0,no WHO DDD
+Telithromycin 400mg tablets,Telithromycin,Macrolides,J01FA15,O,tablet,w,o,0,Discontinued
+Temocillin 1g powder for solution for injection vials,Temocillin,Penicillins,J01CA17,P,vial,w,w,1,
+Tetracycline 125mg/5ml oral solution,Tetracycline,Tetracyclines,J01AA07,O,capsule,a,a,1,
+Tetracycline 250mg capsules,Tetracycline,Tetracyclines,J01AA07,O,capsule,a,a,1,
+Tetracycline 250mg tablets,Tetracycline,Tetracyclines,J01AA07,O,tablet,a,a,1,
+Ticarcillin 3g / clavulanic acid 100mg powder for solution for infusion vials,Ticarcillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR03,P,vial,o,o,1,
+Ticarcillin 3g / Clavulanic acid 200mg powder for solution for infusion vials,Ticarcillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR03,P,vial,o,o,1,
+Ticarcillin 3g / clavulanic acid 200mg powder for solution for infusion vials,Ticarcillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR03,P,vial,o,o,1,
+Tigecycline 50mg injection,Tigecycline,Glycylcyclines,J01AA12,P,vial,r,r,1,
+Tigecycline 50mg powder for solution for infusion vials,Tigecycline,Glycylcyclines,J01AA12,P,vial,r,r,1,
+Timentin 3.1g injection,Ticarcillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR03,P,vial,o,o,1,
+Timentin 3.2g injection,Ticarcillin/clavulanic-acid,Beta-lactam/beta-lactamase-inhibitors,J01CR03,P,vial,o,o,1,
+Tinidazole 500mg film coated tablet,Tinidazole,Antiprotozoals,P01AB02 ,O,tablet,a,a,0,anti-protozoal
+Tinidazole 500mg tablets,Tinidazole,Antiprotozoals,P01AB02 ,O,tablet,a,a,0,anti-protozoal
+Tobramycin 1.2 g injection,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 135mg/5ml oral solution,Tobramycin,Aminoglycosides,J01GB01,O,ml,w,w,0,no WHO DDD
+Tobramycin 145mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 160mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 170mg/1.7ml nebuliser liquid ampoules,Tobramycin,Aminoglycosides,J01GB01,INH,ml,w,w,1,
+Tobramycin 190mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 200mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 200mg/5ml oral solution,Tobramycin,Aminoglycosides,J01GB01,O,ml,w,w,0,no WHO DDD
+Tobramycin 20mg/2ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 20mg/5ml oral solution,Tobramycin,Aminoglycosides,J01GB01,O,ml,w,w,0,no WHO DDD
+Tobramycin 210mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 220mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 227mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 230mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 240mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 240mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 240mg/6ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 250mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 256mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 260mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 272mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 280mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 28mg inhalation powder capsules with device,Tobramycin,Aminoglycosides,J01GB01,INH,capsule,w,w,1,
+Tobramycin 290mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 300mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 300mg/4ml nebuliser liquid ampoules,Tobramycin,Aminoglycosides,J01GB01,INH,ml,w,w,1,
+Tobramycin 300mg/5ml nebuliser liquid ampoules,Tobramycin,Aminoglycosides,J01GB01,INH,ml,w,w,1,
+Tobramycin 310mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 318mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 332mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 350mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 360mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 370mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 375mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 380mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 400mg/5ml oral solution,Tobramycin,Aminoglycosides,J01GB01,O,ml,w,w,0,no WHO DDD
+Tobramycin 40mg/1ml solution for injection ampoules,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 40mg/1ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 40mg/5ml oral solution,Tobramycin,Aminoglycosides,J01GB01,O,ml,w,w,0,no WHO DDD
+Tobramycin 420mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 440mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 444mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 450mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 470mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 480mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 490mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 500mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 510mg/100ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 520mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 530mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 536mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Tobramycin 80mg/2ml solution for infusion ampoules,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 80mg/2ml solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,ml,w,w,1,
+Tobramycin 84mg solution for injection vials,Tobramycin,Aminoglycosides,J01GB01,P,vial,w,w,1,
+Trimethoprim 100mg tablets,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,tablet,a,a,1,
+Trimethoprim 100mg/5ml solution for injection ampoules,Trimethoprim,Trimethoprim-derivatives,J01EA01,P,ml,a,a,1,
+Trimethoprim 200mg tablets,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,tablet,a,a,1,
+Trimethoprim 200mg/5ml oral solution,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,ml,a,a,1,
+Trimethoprim 200mg/5ml oral suspension,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,ml,a,a,1,
+Trimethoprim 20mg/5ml oral solution,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,ml,a,a,1,
+Trimethoprim 20mg/5ml oral suspension,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,ml,a,a,1,
+Trimethoprim 240mg/5ml oral solution,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,ml,a,a,1,
+Trimethoprim 240mg/5ml oral suspension,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,ml,a,a,1,
+Trimethoprim 50mg/5ml oral suspension,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,ml,a,a,1,
+Trimethoprim 50mg/5ml oral suspension sugar free,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,ml,a,a,1,
+Trimethoprim 7mg/5ml oral solution,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,ml,a,a,1,
+Trimethoprim 7mg/5ml oral suspension,Trimethoprim,Trimethoprim-derivatives,J01EA01,O,ml,a,a,1,
+Vancomycin 1.25g/250ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 1.5g/30ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 1.5g/500ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 1.5g/530ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 1.5mg powder for solution for infusion vials,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 1000mg/250ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 10mg/1ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 10mg/2ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 1250mg/250ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 125mg capsules,Vancomycin_oral,Glycopeptides,A07AA09,O,capsule,w,w,1,
+Vancomycin 125mg in glucose 5% 30ml (syringe),Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 125mg/5ml oral solution,Vancomycin_oral,Glycopeptides,A07AA09,O,ml,w,w,1,
+Vancomycin 125mg/5ml oral suspension,Vancomycin_oral,Glycopeptides,A07AA09,O,ml,w,w,1,
+Vancomycin 1500mg/500ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 1g powder for solution for infusion vials,Vancomycin_IV,Glycopeptides,J01XA01,P,vial,w,w,1,
+Vancomycin 1g/250ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 1mg/0.1ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 2.5mg/0.5ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 20mg pastilles,Vancomycin_oral,Glycopeptides,A07AA09,O,pastilles,w,w,1,
+Vancomycin 20mg/4ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 250mg capsules,Vancomycin_oral,Glycopeptides,A07AA09,O,capsule,w,w,1,
+Vancomycin 250mg/5ml oral solution,Vancomycin_oral,Glycopeptides,A07AA09,O,ml,w,w,1,
+Vancomycin 250mg/5ml oral suspension,Vancomycin_oral,Glycopeptides,A07AA09,O,ml,w,w,1,
+Vancomycin 2g powder for solution for infusion vials,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 2g/40ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 2g/500ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 2g/540ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 30mg/3ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 3mg/0.3ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 4mg/2ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 500mg injection ( for oral use only),Vancomycin_oral,Glycopeptides,A07AA09,O,ml,w,w,1,
+Vancomycin 500mg injection (for oral use only),Vancomycin_oral,Glycopeptides,A07AA09,O,ml,w,w,1,
+Vancomycin 500mg powder for solution for infusion vials,Vancomycin_IV,Glycopeptides,J01XA01,P,vial,w,w,1,
+Vancomycin 500mg/100ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 500mg/250ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 50mg/10ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 50mg/1ml oral solution,Vancomycin_oral,Glycopeptides,A07AA09,O,ml,w,w,1,
+Vancomycin 50mg/5ml oral solution,Vancomycin_oral,Glycopeptides,A07AA09,O,ml,w,w,1,
+Vancomycin 5mg/0.5ml solution for injection pre-filled syringes,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 62.5mg/5ml oral solution,Vancomycin_oral,Glycopeptides,A07AA09,O,ml,w,w,1,
+Vancomycin 750mg/250ml infusion bags,Vancomycin_IV,Glycopeptides,J01XA01,P,ml,w,w,1,
+Vancomycin 850mg powder for solution for infusion vials,Vancomycin_IV,Glycopeptides,J01XA01,P,vial,w,w,1,
