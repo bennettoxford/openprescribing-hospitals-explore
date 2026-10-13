@@ -1,0 +1,38 @@
+antibiotic,vtm_name,vtm_id
+Amikacin,Amikacin liposomal,782421008
+Ampicillin,Ampicillin + Sulbactam,774593008
+Aztreonam,Aztreonam + Avibactam,43796711000001109
+Ciprofloxacin,Ciprofloxacin + Dexamethasone,775262002
+Ciprofloxacin,Ciprofloxacin + Fluocinolone acetonide,35873111000001100
+Clindamycin,Benzoyl peroxide + Clindamycin,774812007
+Clindamycin,Clindamycin + Hydrocortisone,22207511000001102
+Clindamycin,Clindamycin + Tretinoin,775289007
+Doxycycline,Betamethasone + Doxycycline + Nystatin,40588811000001101
+Erythromycin,Benzoyl peroxide + Erythromycin,774813002
+Erythromycin,Erythromycin + Zinc acetate,775827003
+Erythromycin,Erythromycin ethyl succinate,36408511000001102
+Erythromycin,Erythromycin lactobionate,36409511000001108
+Erythromycin,Erythromycin stearate,36408611000001103
+Erythromycin,Isotretinoin + Erythromycin,775823004
+Erythromycin,Tretinoin + Erythromycin,775825006
+Fusidic acid,Betamethasone + Fusidic acid,774843000
+Fusidic acid,Hydrocortisone + Fusidic acid,776059003
+Gentamicin,Gentamicin + Hydrocortisone,776095006
+Levofloxacin,Dexamethasone + Levofloxacin,1286887000
+Neomycin,Betamethasone + Neomycin,774844006
+Neomycin,Clobetasol + Neomycin + Nystatin,775296009
+Neomycin,Dexamethasone + Neomycin + Acetic acid,45012511000001108
+Neomycin,Fluocinolone acetonide + Neomycin,22636911000001100
+Neomycin,Hydrocortisone + Neomycin,776254002
+Neomycin,Neomycin + Chlorhexidine,775170000
+Neomycin,Neomycin + Gramicidin,776145007
+Neomycin,Neomycin + Prednisolone,776889009
+Neomycin,Neomycin + Triamcinolone,776890000
+Netilmicin,Netilmicin + Dexamethasone,40637211000001101
+Oxytetracycline,Clobetasone + Oxytetracycline + Nystatin,775299002
+Oxytetracycline,Oxytetracycline + Hydrocortisone,776257009
+Sodium fusidate,Hydrocortisone + Sodium fusidate,13298401000001108
+Sulfadiazine,Cerium nitrate + Sulfadiazine silver,42779111000001100
+Sulfadiazine,Sulfadiazine silver,864008004
+Tobramycin,Dexamethasone + Tobramycin,775502001
+Trimethoprim,Polymyxin B + Trimethoprim,777247003

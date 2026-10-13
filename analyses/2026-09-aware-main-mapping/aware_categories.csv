@@ -1,0 +1,102 @@
+antibiotic,route,atc_route,aware_2019,aware_2024,source
+Amikacin,,,Watch,Watch,UKHSA website list
+Amoxicillin,,,Access,Access,UKHSA website list
+Ampicillin,,,Access,Access,UKHSA website list
+Ampicillin + Flucloxacillin,,,Other,Other,Added after comparison with the UKHSA Excel list
+Azithromycin,,,Watch,Watch,UKHSA website list
+Aztreonam,,,Reserve,Reserve,UKHSA website list
+Benzathine benzylpenicillin,,,Access,Access,UKHSA website list
+Benzylpenicillin,,,Access,Access,UKHSA website list
+Cefaclor,,,Watch,Watch,UKHSA website list
+Cefadroxil,,,Watch,Access,UKHSA website list
+Cefalexin,,,Watch,Access,UKHSA website list
+Cefalotin,,,Watch,Access,UKHSA website list
+Cefamandole,,,Watch,Watch,UKHSA website list
+Cefazolin,,,Watch,Access,UKHSA website list
+Cefepime,,,Watch,Watch,UKHSA website list
+Cefepime + Enmetazobactam,,,NR,NR,Added after comparison with the UKHSA Excel list
+Cefiderocol,,,Reserve,Reserve,UKHSA website list
+Cefixime,,,Watch,Watch,UKHSA website list
+Cefotaxime,,,Watch,Watch,UKHSA website list
+Cefoxitin,,,Watch,Watch,UKHSA website list
+Cefpirome,,,Watch,Reserve,Added after comparison with the UKHSA Excel list
+Cefpodoxime,,,Watch,Watch,Added after comparison with the UKHSA Excel list
+Cefprozil,,,Watch,Watch,Added after comparison with the UKHSA Excel list
+Cefradine,,,Watch,Access,UKHSA website list
+Ceftaroline fosamil,,,Reserve,Reserve,UKHSA website list
+Ceftazidime,,,Watch,Watch,UKHSA website list
+Ceftazidime + Avibactam,,,Reserve,Reserve,UKHSA website list
+Ceftobiprole,,,Reserve,Reserve,UKHSA website list
+Ceftolozane + Tazobactam,,,Reserve,Reserve,UKHSA website list
+Ceftriaxone,,,Watch,Watch,UKHSA website list
+Cefuroxime,,,Watch,Watch,UKHSA website list
+Chloramphenicol,,,Watch,Watch,UKHSA website list
+Cilastatin + Imipenem + Relebactam,,,Reserve,Reserve,UKHSA website list
+Ciprofloxacin,,,Watch,Watch,UKHSA website list
+Clarithromycin,,,Watch,Watch,UKHSA website list
+Clindamycin,,,Watch,Watch,UKHSA website list
+Co-amoxiclav,,,Watch,Watch,UKHSA website list
+Co-fluampicil,,,Other,Other,Added after comparison with the UKHSA Excel list
+Co-trimoxazole,,,Access,Access,UKHSA website list
+Colistin,intravenous,P,Reserve,Reserve,UKHSA website list
+Colistin,oral,O,Reserve,Reserve,UKHSA website list
+Dalbavancin,,,Reserve,Reserve,UKHSA website list
+Daptomycin,,,Reserve,Reserve,UKHSA website list
+Delafloxacin,,,Watch,Watch,UKHSA website list
+Demeclocycline,,,Watch,Other,UKHSA website list
+Doripenem,,,Reserve,Reserve,UKHSA website list
+Doxycycline,,,Access,Access,UKHSA website list
+Eravacycline,,,Reserve,Reserve,UKHSA website list
+Ertapenem,,,Reserve,Reserve,UKHSA website list
+Erythromycin,,,Watch,Watch,UKHSA website list
+Fidaxomicin,,,Watch,Watch,UKHSA website list
+Flucloxacillin,,,Access,Access,UKHSA website list
+Fosfomycin,intravenous,P,Reserve,Reserve,UKHSA website list
+Fosfomycin,oral,O,Access,Access,UKHSA website list
+Fusidic acid,,,Access,Watch,UKHSA website list
+Gentamicin,,,Access,Access,UKHSA website list
+Imipenem + Cilastatin,,,Reserve,Reserve,UKHSA website list
+Levofloxacin,,,Watch,Watch,UKHSA website list
+Linezolid,,,Reserve,Reserve,UKHSA website list
+Lymecycline,,,Watch,Watch,UKHSA website list
+Meropenem,,,Reserve,Reserve,UKHSA website list
+Meropenem + Vaborbactam,,,Reserve,Reserve,UKHSA website list
+Methenamine,,,Other,Other,UKHSA website list
+Metronidazole,,,Access,Access,UKHSA website list
+Minocycline,oral,O,Watch,Watch,UKHSA website list
+Moxifloxacin,,,Watch,Watch,UKHSA website list
+Nalidixic Acid,,,Other,Other,UKHSA website list
+Nalidixic acid,,,Other,Other,Added after comparison with the UKHSA Excel list
+Neomycin,,,Watch,Watch,UKHSA website list
+Netilmicin,,,Watch,Other,Added after comparison with the UKHSA Excel list
+Nitrofurantoin,,,Access,Access,UKHSA website list
+Norfloxacin,,,Watch,Watch,UKHSA website list
+Ofloxacin,,,Watch,Watch,UKHSA website list
+Oritavancin,,,Reserve,Reserve,UKHSA website list
+Oxytetracycline,,,Watch,Watch,UKHSA website list
+Phenoxymethylpenicillin,,,Access,Access,UKHSA website list
+Piperacillin,,,Watch,Watch,UKHSA website list
+Piperacillin + Tazobactam,,,Watch,Watch,UKHSA website list
+Pivmecillinam,,,Access,Access,UKHSA website list
+Pristinamycin,,,Watch,Other,UKHSA website list
+Procaine benzylpenicillin,,,Access,Access,UKHSA website list
+Quinupristin + Dalfopristin,,,Reserve,Reserve,UKHSA website list
+Roxithromycin,,,Watch,Other,Added after comparison with the UKHSA Excel list
+Sodium fusidate,,,Watch,Watch,Added after comparison with the UKHSA Excel list
+Spectinomycin,,,Other,Other,UKHSA website list
+Spiramycin,,,Other,Other,UKHSA website list
+Streptomycin,intravenous,P,Other,Other,UKHSA website list
+Sulfadiazine,,,Other,Other,UKHSA website list
+Sulfamethoxypyridazine,,,Other,Other,UKHSA website list
+Sulfapyridine,,,Other,Other,UKHSA website list
+Tedizolid,,,Reserve,Reserve,UKHSA website list
+Teicoplanin,,,Watch,Watch,UKHSA website list
+Telavancin,,,Reserve,Reserve,UKHSA website list
+Temocillin,,,Watch,Watch,UKHSA website list
+Tetracycline,,,Access,Access,UKHSA website list
+Ticarcillin + Clavulanic acid,,,Other,Other,Added after comparison with the UKHSA Excel list
+Tigecycline,,,Reserve,Reserve,UKHSA website list
+Tinidazole,,,Other,Access,UKHSA website list
+Tobramycin,,,Watch,Watch,UKHSA website list
+Trimethoprim,,,Access,Access,UKHSA website list
+Vancomycin,,,Watch,Watch,UKHSA website list
