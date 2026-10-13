@@ -1,0 +1,60 @@
+name: PR preview
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy-preview:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install uv
+        if: github.event.action != 'closed'
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          enable-cache: true
+          version: latest-known
+          python-version: "3.13"
+
+      - name: Install dependencies
+        if: github.event.action != 'closed'
+        run: uv sync --frozen
+
+      - name: Install Quarto
+        if: github.event.action != 'closed'
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render preview
+        if: github.event.action != 'closed'
+        env:
+          PREVIEW_URL: https://bennettoxford.github.io/openprescribing-hospitals-explore/pr-preview/pr-${{ github.event.number }}
+        run: |
+          uv run quarto render --site-url "$PREVIEW_URL"
+          touch _site/.nojekyll
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: _site
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          pages-base-url: bennettoxford.github.io/openprescribing-hospitals-explore
+          qr-code: "false"
+          wait-for-pages-deployment: true
