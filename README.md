@@ -62,3 +62,11 @@ uv run ruff check .
 uv run ruff format --check .
 uv run pytest
 ```
+
+## Pull request preview
+
+A pull request in this repository publishes a preview. The preview address is:
+
+`https://bennettoxford.github.io/openprescribing-hospitals-explore/pr-preview/pr-<number>/`
+
+CI writes the address on the pull request. A merge or a close removes the preview.
