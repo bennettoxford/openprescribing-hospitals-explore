@@ -3,7 +3,7 @@ title: "Comparing the unit dose reported in the SCMD to the unit dose calculated
 date: 2026-09-01
 author:
   - Louis Fisher
-categories: [draft]
+categories: [published]
 description: "A comparison of the unit dose quantity newly reported in the BSA provisional SCMD with the unit dose calculated from the dm+d in  the OpenPrescribing Hospitals data."
 jupyter: python3
 execute:
