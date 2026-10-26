@@ -1,0 +1,922 @@
+---
+title: Mapping AWaRe antibiotics classification to the dm+d
+date: '2026-09-23'
+author:
+  - Chris Wood
+  - Louis Fisher
+categories:
+  - draft
+description: How we generate a dm+d-compatible AWaRe list for OpenPrescribing Hospitals.
+jupyter: python3
+---
+
+AWaRe is a classification published by the [World Health Organisation (WHO)](https://www.who.int/publications/i/item/WHO-MHP-HPS-EML-2023.04) to categorise antibiotics into *Access*, *Watch*, *Reserve* and *Other* groups. The grouping take into account the impact of different antibiotics and antibiotic classes on antimicrobial resistance, to emphasize the importance of their appropriate use. The ["UK Access, Watch, Reserve, and Other classification for antibiotics"](https://www.gov.uk/government/publications/uk-aware-antibiotic-classification/uk-access-watch-reserve-and-other-classification-for-antibiotics-uk-aware-antibiotic-classification) is a UK adapted version of this.
+
+We want to use this classification for OpenPrescrbing Hospitals, but there is no openly available, machine-readable data source mapping products in the [dm+d](https://www.nhsbsa.nhs.uk/pharmacies-gp-practices-and-appliance-contractors/dictionary-medicines-and-devices-dmd) to the classification.
+
+The UKHSA translation table is a static file. Each row is one product. The columns are the structure we want for our own product table. Here, we attempt to create a set of rules that can be used to maintain an up-to-date mapping file as the dm+d data changes.
+
+We do the following:
+
+1. Load the UKHSA translation table and show the product-level structure we need.
+2. Produce our dm+d VMP list from the UKHSA website list.
+3. Compare our list with the UKHSA translation table.
+4. Refine the list where the comparison shows a gap.
+
+The work is divided into five steps:
+
+1.  [**The UKHSA translation table**](#s1)
+2.  [**Our dm+d list**](#s2)
+3.  [**Comparison**](#s3)
+4.  [**Refine the dm+d list**](#s4)
+5.  [**Summary**](#s5)
+
+```{python}
+#| echo: false
+import os
+import requests
+
+import itables
+import polars as pl
+from bs4 import BeautifulSoup
+
+from aware_vmp_list import (
+    VMP_CACHE_PATH,
+    VMP_FORM_SCHEMA,
+    VMP_SQL_PATH,
+    VTM_CACHE_PATH,
+    VTM_SCHEMA,
+    VTM_SQL_PATH,
+    load_cached_query,
+)
+
+itables.options.maxBytes = 0
+itables.options.pageLength = 10
+itables.options.paging = True
+itables.init_notebook_mode(all_interactive=True)
+
+pl.Config.set_tbl_rows(-1)
+pl.Config.set_tbl_cols(-1)
+pl.Config.set_fmt_str_lengths(100)
+pl.Config.set_tbl_width_chars(1000);
+```
+
+<a id='s1'></a>
+
+## Step 1: The UKHSA translation table
+
+The UKHSA translation table is in `AWaRe_UK_2024_translation_table.csv`. Each row is one product (VMP). 
+
+```{python}
+df_ukhsa = pl.read_csv("AWaRe_UK_2024_translation_table.csv")
+display(df_ukhsa)
+```
+
+The columns are:
+
+| Column | Contents |
+| --- | --- |
+| `dmd` | Product name. |
+| `Antibiotic` | Antibiotic name. One name covers many product rows. |
+| `Class` | Antibiotic class. |
+| `atccode` | WHO ATC code. |
+| `route` | Route code. `O` is oral, `P` is parenteral, `INH` is inhaled, `R` is rectal, and `TOP` is topical. |
+| `VmpUnit` | Quantity unit for the product. |
+| `WHO_AWaRe_2023` | WHO 2023 category. `a` Access, `w` Watch, `r` Reserve, `o` Other, `NR` not recommended. |
+| `UK_AWaRe_2024` | UK 2024 category. `a` Access, `w` Watch, `r` Reserve, `o` Other. |
+| `Include` | `1` means the product is in the classification. `0` means leave the product out. |
+| `Notes` | Reason for some excluded rows. Examples are no WHO DDD, anti-protozoal use, and discontinued products. |
+
+The counts below show how the rows split by `Include` and by the UK 2024 category.
+
+```{python}
+category_name = {
+    "a": "Access",
+    "w": "Watch",
+    "r": "Reserve",
+    "o": "Other",
+    "NR": "Not recommended",
+}
+ukhsa_summary = (
+    df_ukhsa.group_by("Include", "UK_AWaRe_2024")
+    .len()
+    .rename({"len": "rows"})
+    .with_columns(
+        pl.col("UK_AWaRe_2024").replace(category_name).alias("uk_2024_category")
+    )
+    .select("Include", "uk_2024_category", "rows")
+    .sort("Include", "uk_2024_category")
+)
+print(f"Rows: {df_ukhsa.height}")
+print(f"Antibiotic names: {df_ukhsa.get_column('Antibiotic').n_unique()}")
+display(ukhsa_summary)
+display(
+    df_ukhsa.group_by("route")
+    .len()
+    .rename({"len": "rows"})
+    .sort("rows", descending=True)
+)
+```
+
+### The structure we need
+
+The UKHSA translation table is a snapshot. The `dmd` values are product names, not dm+d VMP ids. Product names change, and dm+d gains and loses products. We need a table with these columns for current dm+d products, and we should be able to rebuild it when dm+d changes.
+
+<a id='s2'></a>
+
+## Step 2: Our dm+d list
+
+This step builds our VMP list. It starts from the UKHSA website list, matches those names to dm+d, and keeps one row for each VMP.
+
+### The UKHSA website list
+
+The UKHSA website list is on the [UKHSA website](https://www.gov.uk/government/publications/uk-aware-antibiotic-classification/uk-access-watch-reserve-and-other-classification-for-antibiotics-uk-aware-antibiotic-classification). We can't download it directly, so we have to scrape it. This is a list of antibiotic names and categories. It is not the UKHSA translation table from step 1.
+
+```{python}
+url = "https://www.gov.uk/government/publications/uk-aware-antibiotic-classification/uk-access-watch-reserve-and-other-classification-for-antibiotics-uk-aware-antibiotic-classification"
+
+try:
+    response = requests.get(url)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, "html.parser")
+    table = soup.find("table")
+    
+    data = {
+        "Antibiotic": [],
+        "England-adapted 2019 AWaRe category": [],
+        "UK-adapted 2024 AWaRe category": [],
+    }
+    
+    for table_row in table.tbody.find_all("tr"):
+        
+        for i,cell in enumerate(table_row.find_all("td")):
+            data[list(data.keys())[i]].append(cell.text.strip())
+
+    df = pl.DataFrame(data)
+    display(df)
+except requests.exceptions.RequestException as e:
+    print(f"An error occurred: {e}")
+```
+
+### Cleaning up the list
+
+The list contains some characters or identifiers that could break matching, we need to clean these up.
+
+The \# symbol is used to denote where a category has changed. We need to remove this.
+
+```{python}
+df = df.with_columns(pl.col("Antibiotic").str.strip_suffix(" #"))
+```
+
+We can review remaining rows that contain non-alphabetical characters
+
+```{python}
+display(df.filter(pl.col("Antibiotic").str.contains(r"[^A-Za-z ]")))
+```
+
+Some rows specify a route. Sometimes there is a comma between antibiotic and route, sometimes there isn't.
+
+We can pull any specified route into a seperate column 'Route_specific' and also map this to ATC route in a new column 'ATC_Route_specific'.
+
+```{python}
+# Routes to check, and the ATC code for each route.
+route_map = {"oral": "O", "intravenous": "P"}
+
+# A route at the end of the name, after ", " or " ".
+route_pattern = rf"(?:, | )({'|'.join(route_map)})$"
+
+# The route word, or an empty string when the name has no route.
+route = pl.col("Antibiotic").str.extract(route_pattern, 1).fill_null("")
+
+df = df.with_columns(
+    # Put the route in its own column.
+    route.alias("Route_specific"),
+    # Remove the route from the antibiotic name.
+    pl.col("Antibiotic").str.replace(route_pattern, ""),
+    # Map the route word to the ATC route code.
+    route.replace(route_map).alias("ATC_Route_specific"),
+)
+
+display(df.filter(pl.col("Route_specific") != ""))
+```
+
+The table below shows the rows that still contain a character that is not a letter or a space.
+
+```{python}
+display(df.filter(pl.col("Antibiotic").str.contains(r"[^A-Za-z ]")))
+```
+
+Some items contain a dash between words where as in dm+d there is a space. Replace the dash with a space to follow the common format.
+
+```{python}
+df = df.with_columns(pl.col("Antibiotic").str.replace_all("-", " ", literal=True))
+```
+
+Some items contain a forward slash between words to indicate a combination where as in dm+d there is a + symbol.
+
+Replace the dash with a + ensuring appropriately spaced to follow the common dm+d format.
+
+```{python}
+# Replace each slash with " + ", with one space on each side.
+# Capitalise the first letter of each drug name after a plus.
+drug_name = (
+    pl.col("Antibiotic")
+    .str.replace_all(r"\s*/\s*", " + ")
+    .str.split(" + ")
+    .list.eval(
+        pl.when(pl.element().cum_count() == 1)
+        .then(pl.element())
+        .otherwise(
+            pl.element().str.slice(0, 1).str.to_uppercase()
+            + pl.element().str.slice(1)
+        )
+    )
+    .list.join(" + ")
+)
+
+df = df.with_columns(drug_name.alias("Antibiotic")).with_columns(
+    # True when the name has a plus between two words.
+    pl.col("Antibiotic").str.contains(r"\b\w+\s*\+\s*\w+\b").alias("Combo")
+)
+```
+
+```{python}
+display(df.filter(pl.col("Antibiotic").str.contains(r"[^A-Za-z ]")))
+```
+
+Some antibiotic combinations are referred to as different names or in a different order in dm+d. These can be identified via dm+d manual search. We need to convert the strings to match those used in dm+d.
+
+```{python}
+df = df.with_columns(
+    pl.col("Antibiotic").str.replace_many(
+        {
+            "Amoxicillin + Clavulanic acid": "Co-amoxiclav",
+            "Sulfamethoxazole + Trimethoprim": "Co-trimoxazole",
+            "Dalfopristin + Quinupristin": "Quinupristin + Dalfopristin",
+            "Imipenem + Cilastatin + Relebactam": "Cilastatin + Imipenem + Relebactam",
+            "Ceftobiprole medocaril": "Ceftobiprole",
+        }
+    )
+)
+```
+
+Reorder the columns and rename to simplify
+
+```{python}
+# Put the route columns first, rename the category columns, and drop Combo.
+df = df.select(
+    "Antibiotic",
+    pl.col("Route_specific").alias("route"),
+    pl.col("ATC_Route_specific").alias("atc_route"),
+    pl.col("England-adapted 2019 AWaRe category").alias("aware_2019"),
+    pl.col("UK-adapted 2024 AWaRe category").alias("aware_2024"),
+)
+```
+
+This gives us a cleaned UKHSA website list, ready to map to dm+d.
+
+```{python}
+display(df)
+```
+
+### Matching to VTMs
+
+We can attempt to match antibiotic names in the UKHSA website list to VTMs in dm+d.
+
+The VTM data looks like this:
+
+```{python}
+vtms = load_cached_query(VTM_SQL_PATH, VTM_CACHE_PATH, VTM_SCHEMA)
+display(vtms.head())
+```
+
+Firstly we will try directly matching.
+
+```{python}
+# A direct match is a VTM whose name is the same as the antibiotic name.
+vtm_match = (
+    df.join(vtms, left_on="Antibiotic", right_on="nm", how="inner")
+    .with_columns(pl.col("Antibiotic").alias("nm"))
+    .select("Antibiotic", "atc_route", "aware_2019", "aware_2024", "nm")
+    .sort("Antibiotic")
+)
+display(vtm_match)
+```
+
+This works to match VTMs to many of the listing. But doesn't capture where there are multiple VTM matches - for example Amikacin and Amikacin liposomal for Amikacin.
+
+We can use more fuzzy matching to get greater sensitivity in the matches.
+
+We include a column 'match_type' to let us know if the match is a direct match 'DIRECT' or a fuzzy match 'ASSUMED'.
+
+```{python}
+# Keep a VTM when its name contains the antibiotic name.
+# The match is DIRECT when the names are equal, and ASSUMED when the VTM name is longer.
+vtm_fuzzy_match = (
+    df.join(vtms, how="cross")
+    .filter(pl.col("nm").str.contains(pl.col("Antibiotic"), literal=True))
+    .with_columns(
+        pl.when(pl.col("nm") == pl.col("Antibiotic"))
+        .then(pl.lit("DIRECT"))
+        .otherwise(pl.lit("ASSUMED"))
+        .alias("match_type")
+    )
+    .select("Antibiotic", "atc_route", "aware_2019", "aware_2024", "nm", "match_type")
+    .sort("Antibiotic", "nm")
+)
+display(vtm_fuzzy_match)
+```
+
+The greater sensitivity increases the number of VTMs matched from 87 to 128.
+
+However some of these are duplicates - for example Meropenem + Vaborbactam matches to both Meropenem and Meropenem + Vaborbactam
+
+We can look for all the duplicates:
+
+```{python}
+# A duplicate VTM name matches more than one antibiotic that has no ATC route.
+duplicate_names = (
+    vtm_fuzzy_match.filter(pl.col("atc_route").fill_null("") == "")
+    .group_by("nm")
+    .len()
+    .filter(pl.col("len") > 1)
+    .get_column("nm")
+)
+vtm_duplicates = vtm_fuzzy_match.filter(pl.col("nm").is_in(duplicate_names)).sort(
+    "Antibiotic", "nm"
+)
+display(vtm_duplicates)
+```
+
+From this we can create a list of the unwanted duplicates to remove from our full list.
+
+This will be where count of matches is \> 1 and where match_type is 'ASSUMED'. We also add an exception to keep one of the matches for 'Ampicillin + Flucloxacillin' as both of these are assumed matches.
+
+```{python}
+# Unwanted rows are ASSUMED matches for a VTM name that matched more than once.
+# Keep the Ampicillin match to the VTM Ampicillin + Flucloxacillin.
+kept_assumed_match = pl.DataFrame(
+    {
+        "Antibiotic": ["Ampicillin"],
+        "nm": ["Ampicillin + Flucloxacillin"],
+    }
+)
+vtm_duplicates_direct = (
+    vtm_duplicates.filter(pl.col("match_type") == "ASSUMED")
+    .join(kept_assumed_match, on=["Antibiotic", "nm"], how="anti")
+    .sort("Antibiotic", "nm")
+)
+display(vtm_duplicates_direct)
+```
+
+We can then create a full list of potential VTMs with duplicates removed.
+
+```{python}
+# Remove the unwanted assumed duplicates, then add the VTM id.
+vtm_match_cleaned = (
+    vtm_fuzzy_match.join(
+        vtm_duplicates_direct.select("Antibiotic", "nm"),
+        on=["Antibiotic", "nm"],
+        how="anti",
+    )
+    .join(vtms, on="nm", how="left")
+    .select("Antibiotic", "nm", "id", "atc_route", "aware_2019", "aware_2024")
+    .sort("Antibiotic", "nm")
+)
+display(vtm_match_cleaned)
+```
+
+### Bringing in VMPs
+
+Now that we have a list of dm+d compatible VTMs, we can bring in matching VMPs. The VMP data looks like this:
+```{python}
+vmp_forms = load_cached_query(VMP_SQL_PATH, VMP_CACHE_PATH, VMP_FORM_SCHEMA)
+display(vmp_forms.head())
+```
+
+Inspecting this list we can see a number of non-systemic antibiotics which are not considered as part of the AWaRe classification - e.g. eye drops, ointments, vaginal gel, and vaginal cream. We exclude these products in one step, using the form rules below. The comparison in step 4 shows the AWaRe VMPs that these rules remove.
+
+```{python}
+# Form patterns to leave out. suffix means the form ends with the pattern.
+# exact means the form text is equal to the pattern.
+excluded_forms = pl.DataFrame(
+    {
+        "pattern": [
+            ".auricular",
+            ".cutaneous",
+            ".ophthalmic",
+            ".oromucosal",
+            ".intralesional",
+            ".nasal",
+            ".gingival",
+            "gel.vaginal",
+            "cream.vaginal",
+        ],
+        "match_type": [
+            "suffix",
+            "suffix",
+            "suffix",
+            "suffix",
+            "suffix",
+            "suffix",
+            "suffix",
+            "exact",
+            "exact",
+        ],
+    }
+)
+excluded_forms.write_csv("excluded_forms.csv")
+display(excluded_forms)
+```
+
+```{python}
+# Drop every non-systemic form. Keep the dropped rows for the comparison.
+# Then keep one row per VMP and WHO route. An empty route list stays one row with a null route.
+suffixes = excluded_forms.filter(pl.col("match_type") == "suffix").get_column("pattern").to_list()
+exact_forms = excluded_forms.filter(pl.col("match_type") == "exact").get_column("pattern").to_list()
+
+form = pl.col("form")
+drop_suffix = pl.any_horizontal([form.str.ends_with(pattern) for pattern in suffixes])
+drop_exact = form.is_in(exact_forms) if exact_forms else pl.lit(False)
+drop_form = drop_suffix | drop_exact
+vmp_forms_excluded = vmp_forms.filter(form.is_not_null() & drop_form)
+vmp_forms = vmp_forms.filter(form.is_not_null() & ~drop_form)
+
+route_list = pl.col("who_route_codes_for_ddd")
+vmp_vtms = (
+    vmp_forms.with_columns(
+        pl.when(route_list.fill_null("") == "")
+        .then(pl.lit(None, dtype=pl.String))
+        .otherwise(route_list)
+        .str.split("|")
+        .alias("atc_route")
+    )
+    .explode("atc_route", empty_as_null=True)
+    .select("vmp_id", "vmp_nm", "invalid_vmp", "vtm_id", "vtm_nm", "atc_route", "atc")
+    .unique()
+)
+display(vmp_vtms)
+```
+
+<a id='s3'></a>
+
+## Step 3: Comparison
+
+In step 2 we generated a list of VMPs by matching VTMs to the UKHSA website list. This step compares that list with the UKHSA translation table from step 1.
+
+### Match the UKHSA translation table names to dm+d
+
+The `dmd` column in the UKHSA translation table looks like a VMP name, but it has no VMP id. The match below joins that name to the dm+d VMPs from step 2.
+
+```{python}
+# Match on the lower-case product name. A UKHSA row with no VMP keeps null ids.
+ukhsa_original_matched = (
+    df_ukhsa.with_columns(pl.col("dmd").str.to_lowercase().alias("dmd_lower"))
+    .join(
+        vmp_vtms.with_columns(pl.col("vmp_nm").str.to_lowercase().alias("vmp_nm_lower")),
+        left_on="dmd_lower",
+        right_on="vmp_nm_lower",
+        how="left",
+    )
+    .drop("dmd_lower")
+)
+display(ukhsa_original_matched)
+ukhsa_original_matched_analysis = ukhsa_original_matched
+```
+
+```{python}
+unmatched = ukhsa_original_matched.filter(
+    pl.col("vmp_id").is_null() | (pl.col("vmp_id") == 0)
+)
+print(f"Rows without a matched vmp_id: {unmatched.height}")
+display(unmatched.select("dmd", "Antibiotic", "Include"))
+```
+
+There are 188 rows where we cannot match the dmd name given to an actual VMP in dmd.
+
+From a manual review it seems that for many there is no obvious match within dmd - the names have potentially been derived from another source.
+
+There are some which have potential matches - but may not have matched above due to variations in wording used:
+
+```{python}
+# These names did not match because the wording differs from the dm+d VMP name.
+wording_variants = [
+    "Benzathine benzylpenicillin 600000unit powder and solvent for suspension for injection vials",
+    "Benzathine benzylpenicllin 900mg injection",
+    "Benzylpenicillin 1.2g powder for solution for injection vials",
+    "Benzylpenicillin 1.2g/50ml infusion bags",
+    "Benzylpenicillin 600mg powder for solution for injection vials",
+    "Benzylpenicillin 600mg/50ml infusion bags",
+    "Cefuroxime 1.5g powder for injection vials",
+    "Cefuroxime 250mg powder for injection vials",
+    "Cefuroxime 3mg in 0.3ml  solution for injection pre-filled syringes",
+    "Cefuroxime 750mg powder for injection vials",
+    "Clindamycin 100mg/5ml suspension",
+    "Clindamycin 50mg in 5ml sugar-free suspension",
+    "Colistimethate (colomycin)  (nebulisation only) vial  1million units inj",
+    "Colistin 2million unit powder vials",
+    "Co-trimoxazole 40mg/200mg/5ml oral suspension",
+    "Demeclocycline 300mg capsule",
+    "Demeclocycline 50mg/5ml suspension",
+    "Doxycycline 100mg dispersible tablets",
+    "Doxycycline 100mg injection",
+    "Erythromycin lactobionate 1g injection",
+    "Flucloxacillin 125mg/5ml oral elixir",
+    "Flucloxacillin 125mg/5ml oral elixir/suspension",
+    "Flucloxacillin 250mg/5ml oral elixir/suspension",
+    "Flucloxacillin 2g in 100ml",
+    "Flucloxacillin 2g in sodium chloride 0.9% infusion 100ml",
+    "Fosfomycin 3g granules sachets",
+    "Isoniazid 300mg/5ml Injection",
+    "Isoniazid 300mg/5ml injection",
+    "Levofloxacin 5mg in 1ml intravenous infusion",
+    "Linezolid 2mg in 1ml intravenous infusion",
+    "Linezolid 600mg/300ml infusion",
+    "Metronidazole 500mg/100ml infusion 100ml",
+    "Piperacillin 2g / tazobactam 250mg powder for solution for injection vials",
+    "Piperacillin 4g / tazobactam 500mg powder and solvent for solution for infusion vials",
+    "Piperacillin 4g / tazobactam 500mg powder and solvent for solution for injection",
+    "Piperacillin 4g / tazobactam 500mg powder for solution for injection vials",
+    "Procaine benzylpenicillin 1.2mu injection",
+    "Procaine benzylpenicillin 600000unit powder and solvent for suspension for injection vials",
+    "Rifampicin 120mg/ isoniazid 50mg/ pyrazinamide 300mg (rifater tablets)",
+    "Spiramycin 1,500,000 units tablets",
+    "Tigecycline 50mg injection",
+    "Tinidazole 500mg film coated tablet",
+    "Tobramycin 240mg solution for injection vials",
+    "Trimethoprim 50mg/5ml oral suspension",
+    "Vancomycin 1000mg/250ml infusion bags",
+    "Vancomycin 1250mg/250ml infusion bags",
+    "Vancomycin 1500mg/500ml infusion bags",
+    "Vancomycin 500mg injection ( for oral use only)",
+    "Vancomycin 500mg injection (for oral use only)",
+]
+display(unmatched.filter(pl.col("dmd").is_in(wording_variants)).select("dmd", "Antibiotic", "Include"))
+```
+
+Matching all products under a specific VTM (as we did in step 2) may give a more systematic approach to creating/updating this list in dm+d.
+
+We can check for how many match to a VMP but miss a VTM ID to ensure we capture VTMs correctly.
+
+```{python}
+missing_vtm = ukhsa_original_matched.filter(
+    pl.col("vmp_id").is_not_null()
+    & (pl.col("vmp_id") != 0)
+    & pl.col("vtm_id").is_null()
+)
+print(f"Rows with a vmp_id but missing vtm_id: {missing_vtm.height}")
+display(missing_vtm)
+```
+
+Of these results, "Flucloxacillin 125mg / 5ml oral solution sugar free" is an invalid VMP in dm+d so can be disregareded. The other 2 products are combination treatments for TB and are excluded from the AWaRe list.
+
+We can get a breakdown of the VTM in the UKHSA translation table, with a count of VMPs against each and an indicator of if there are included or exclused from AWaRe classification.
+
+```{python}
+grouped_vtm_include = (
+    ukhsa_original_matched.group_by("vtm_nm", "Include")
+    .len()
+    .sort("vtm_nm", "Include")
+)
+display(grouped_vtm_include)
+```
+
+This gives us a slightly shorter list of VTMs than we obtained in step 2.
+
+In the UKHSA translation table, 1 VTM has rows considered both included and excluded.
+
+```{python}
+tobramycin_rows = ukhsa_original_matched.filter(pl.col("vtm_nm") == "Tobramycin")
+display(tobramycin_rows)
+```
+
+Looking at the rows we can see oral tobramycin has been excluded as there is no WHO DDD. We will keep in for now but in later code can exclude any VMPs without a DDD if needed.
+
+### Compare VTMs
+
+The match in step 2 builds a VMP list from the UKHSA website list. Compare the VTMs in that list with the included VTMs in the UKHSA translation table.
+
+```{python}
+# VMPs for the UKHSA website list VTM matches. Keep a VMP when the category has no route,
+# or when the VMP route equals that route.
+vtm_method = (
+    vtm_match_cleaned.rename({"id": "vtm_id", "nm": "vtm_nm", "atc_route": "category_route"})
+    .join(
+        vmp_vtms.rename({"atc_route": "vmp_atc_route", "vtm_nm": "vmp_vtm_nm"}),
+        on="vtm_id",
+        how="inner",
+    )
+    .filter(
+        (pl.col("category_route").fill_null("") == "")
+        | (pl.col("category_route") == pl.col("vmp_atc_route"))
+    )
+    .select(
+        "Antibiotic",
+        "vtm_nm",
+        "vtm_id",
+        "vmp_nm",
+        "vmp_id",
+        "vmp_atc_route",
+        "category_route",
+        "aware_2019",
+        "aware_2024",
+    )
+    .sort("Antibiotic", "vtm_nm", "vmp_id")
+)
+display(vtm_method)
+```
+
+The VTM/VMP methodology should allow us to accurately identify all appropriate VMPs assuming we have a matching list of VTMs.
+
+We can compare the list of VTMs in our methodology against the list of VTMs in the UKHSA translation table to ensure we have identified the list correctly.
+
+```{python}
+ukhsa_unique_vtm_aware_included = (
+    ukhsa_original_matched.filter(pl.col("Include") == 1)
+    .filter(pl.col("vtm_nm").is_not_null())
+    .select("vtm_nm", "route", "WHO_AWaRe_2023", "UK_AWaRe_2024")
+    .unique()
+    .sort("vtm_nm")
+)
+ukhsa_unique_vtm_included = ukhsa_unique_vtm_aware_included.select("vtm_nm").unique().sort("vtm_nm")
+display(ukhsa_unique_vtm_included)
+```
+
+Get a list of unique VTMs from the VTM method list.
+
+```{python}
+vtm_method_unique_vtm = vtm_method.select("vtm_nm").drop_nulls().unique().sort("vtm_nm")
+display(vtm_method_unique_vtm)
+```
+
+The UKHSA translation table has 93 unique VTMs. Our generated VTM list contains 92.
+
+We can find the discrepancies:
+
+```{python}
+vtm_differences = (
+    ukhsa_unique_vtm_aware_included.select("vtm_nm", "WHO_AWaRe_2023", "UK_AWaRe_2024")
+    .unique()
+    .join(vtm_method_unique_vtm, on="vtm_nm", how="full")
+    .with_columns(
+        pl.coalesce("vtm_nm", "vtm_nm_right").alias("vtm_nm"),
+        pl.when(pl.col("vtm_nm").is_not_null() & pl.col("vtm_nm_right").is_not_null())
+        .then(pl.lit("both"))
+        .when(pl.col("vtm_nm").is_not_null())
+        .then(pl.lit("ukhsa_provided_only"))
+        .otherwise(pl.lit("vtm_method_only"))
+        .alias("source"),
+    )
+    .filter(pl.col("source") != "both")
+    .select("vtm_nm", "WHO_AWaRe_2023", "UK_AWaRe_2024", "source")
+    .unique()
+    .sort("source", "vtm_nm")
+)
+display(vtm_differences)
+```
+
+Reviewing the results above.\
+**ukhsa_provided_only**
+
+- Cefpirome, cefpodoxime, cefprozil, nalidixic acid, ticarcillin + clavulanic acid, netilmicin, roxithromycin - not listed in the UKHSA website list. All appear either not in use or rarely used.
+- Co-fluampicil - we have this in the VTM method list under ampicillin + flucloxacillin. It is unclear why there are 2 separate VTMs for the same product. Neither VTM has an active VMP. We can classify both with the category Other.
+- Sodium fusidate is covered by fusidic acid in the UKHSA website list. We need to add the specific VTM sodium fusidate.
+
+**vtm_method_only**
+
+- Cefepime + Enmetazobactam - has been identified due to cefepime component. The UKHSA translation table does not include it. The Cefepime row gives it Watch.
+- Ampicillin + Sulbactam - the VTM name contains Ampicillin, so the assumed match keeps it. It is not an included UKHSA VTM.
+- Telavancin, tinidazole, neomycin - all listed in the UKHSA website list
+- Spiramycin, demeclocycline, spectinomycin - listed in the UKHSA website list under 'Other'
+
+<a id='s4'></a>
+
+## Step 4: Extend and refine the VTM method
+
+This step repeats the VTM match from step 2. It starts from the cleaned UKHSA website list and adds the VTM names from step 3.
+
+### The category list
+
+The cleaned UKHSA website list is the start of the category list. The rows below are the VTM names that the UKHSA website list match does not cover. Step 3 shows those names. Co-fluampicil is Other for both years. The UKHSA translation table has no WHO category for it. Cefepime + Enmetazobactam is NR because it is not in the UKHSA translation table.
+
+```{python}
+# Add the VTM names found in step 3.
+added_categories = pl.DataFrame(
+    {
+        "Antibiotic": [
+            "Ampicillin + Flucloxacillin",
+            "Cefepime + Enmetazobactam",
+            "Cefpirome",
+            "Cefpodoxime",
+            "Cefprozil",
+            "Co-fluampicil",
+            "Nalidixic acid",
+            "Netilmicin",
+            "Roxithromycin",
+            "Sodium fusidate",
+            "Ticarcillin + Clavulanic acid",
+        ],
+        "route": [""] * 11,
+        "atc_route": [""] * 11,
+        "aware_2019": [
+            "Other",
+            "NR",
+            "Watch",
+            "Watch",
+            "Watch",
+            "Other",
+            "Other",
+            "Watch",
+            "Watch",
+            "Watch",
+            "Other",
+        ],
+        "aware_2024": [
+            "Other",
+            "NR",
+            "Reserve",
+            "Watch",
+            "Watch",
+            "Other",
+            "Other",
+            "Other",
+            "Other",
+            "Watch",
+            "Other",
+        ],
+    }
+)
+aware_cleaned_extended = pl.concat(
+    [
+        df.with_columns(pl.lit("UKHSA website list").alias("source")),
+        added_categories.with_columns(
+            pl.lit("Added after comparison with the UKHSA translation table").alias("source")
+        ),
+    ]
+).sort("Antibiotic")
+display(aware_cleaned_extended)
+```
+
+The matches below use this extended list. This step drops every assumed duplicate. It does not keep the Ampicillin match from the UKHSA website list match in step 2. The added rows include Ampicillin + Flucloxacillin with category Other.
+
+```{python}
+# Match the extended names to VTMs, drop every assumed duplicate, then keep matching VMPs.
+extended_fuzzy = (
+    aware_cleaned_extended.join(vtms, how="cross")
+    .filter(pl.col("nm").str.contains(pl.col("Antibiotic"), literal=True))
+    .with_columns(
+        pl.when(pl.col("nm") == pl.col("Antibiotic"))
+        .then(pl.lit("DIRECT"))
+        .otherwise(pl.lit("ASSUMED"))
+        .alias("match_type")
+    )
+)
+extended_duplicate_names = (
+    extended_fuzzy.filter(pl.col("atc_route").fill_null("") == "")
+    .group_by("nm")
+    .len()
+    .filter(pl.col("len") > 1)
+    .get_column("nm")
+)
+extended_unwanted = extended_fuzzy.filter(
+    pl.col("nm").is_in(extended_duplicate_names) & (pl.col("match_type") == "ASSUMED")
+)
+extended_cleaned = extended_fuzzy.join(
+    extended_unwanted.select("Antibiotic", "nm"),
+    on=["Antibiotic", "nm"],
+    how="anti",
+)
+vmps_matched_extended = (
+    extended_cleaned.rename({"id": "vtm_id", "nm": "vtm_nm", "atc_route": "category_route"})
+    .join(
+        vmp_vtms.rename({"atc_route": "vmp_atc_route", "vtm_nm": "vmp_vtm_nm"}),
+        on="vtm_id",
+        how="inner",
+    )
+    .filter(
+        (pl.col("category_route").fill_null("") == "")
+        | (pl.col("category_route") == pl.col("vmp_atc_route"))
+    )
+    .select(
+        "Antibiotic",
+        "vtm_nm",
+        "vtm_id",
+        "vmp_nm",
+        "vmp_id",
+        "vmp_atc_route",
+        "category_route",
+        "aware_2019",
+        "aware_2024",
+    )
+    .unique()
+    .sort("Antibiotic", "vtm_nm", "vmp_id")
+)
+display(vmps_matched_extended)
+```
+
+### Comparing VMPs
+
+We now have a list of VMPs from the extended VTM method. We can compare these against the UKHSA translation table.
+
+```{python}
+display(vmps_matched_extended.select("vmp_id", "vmp_nm", "aware_2024"))
+```
+
+```{python}
+ukhsa_filtered = (
+    ukhsa_original_matched.filter(
+        pl.col("vmp_id").is_not_null()
+        & (pl.col("vmp_id") != 0)
+        & (pl.col("Include") == 1)
+    )
+    .select("vmp_id", "vmp_nm", pl.col("UK_AWaRe_2024").alias("ukhsa_aware_2024"))
+    .unique()
+)
+display(ukhsa_filtered)
+```
+
+```{python}
+merged_vmps = (
+    ukhsa_filtered.join(
+        vmps_matched_extended.select(
+            "vmp_id",
+            pl.col("vmp_nm").alias("method_vmp_nm"),
+            pl.col("aware_2024").alias("vmps_aware_2024"),
+        ).unique(),
+        on="vmp_id",
+        how="full",
+    )
+    .with_columns(
+        pl.coalesce("vmp_id", "vmp_id_right").alias("vmp_id"),
+        pl.when(pl.col("vmp_id").is_not_null() & pl.col("vmp_id_right").is_not_null())
+        .then(pl.lit("both"))
+        .when(pl.col("vmp_id").is_not_null())
+        .then(pl.lit("ukhsa_list_only"))
+        .otherwise(pl.lit("vtm_method_ext_only"))
+        .alias("source"),
+    )
+    .select("vmp_id", "vmp_nm", "ukhsa_aware_2024", "method_vmp_nm", "vmps_aware_2024", "source")
+)
+merged_vmps_differences = merged_vmps.filter(pl.col("source") != "both").sort("source", "vmp_nm")
+display(merged_vmps_differences)
+```
+
+Of the remaining discrepancies:\
+**ukhsa_list_only**
+
+- Colistimethate nebuliser solution/inhalation capsules - the UKHSA website list specifies only Colistin IV and Colistin oral.
+
+**vtm_method_ext_only**
+
+- The VMPs that are only in our list are mostly uncommonly used products.
+- Reviewing the UKHSA translation table, some have been excluded due to no DDDs being defined for these products (tobramycin oral, telavancin, colistin oral). But we keep them here as they can be excluded at a later stage if needed and are included in the UKHSA website list.
+- Some have been excluded due to largly being used as anti-parasitic/anti-gonorrheal/SIADH treatment (spiramycin, spectinomycin, demeclocycline). They are all listed under 'Other' - we can keep in the list as in the UKHSA website list and filter later on category.
+- Tinidazole is listed in the UKHSA website list as an 'Access' product so we keep this (however the UKHSA translation table excludes it as largely anti-protozoal use.
+
+Step 2 has already removed the non-systemic forms, so those products are not in the difference table. The table below shows the removed gingival, vaginal, and oromucosal VMPs for VTMs in our list. Metronidazole 0.75% vaginal gel and clindamycin 2% vaginal cream are in this table. The UKHSA translation table excludes them as localised infection. Vancomycin 20mg pastilles are also in this table. The UKHSA translation table sets Include to 1 for the pastilles.
+
+```{python}
+# Show the local forms removed in step 2 for VTMs that remain in our list.
+aware_vtm_ids = vmps_matched_extended.get_column("vtm_id").unique()
+local_form = (
+    pl.col("form").str.ends_with(".gingival")
+    | pl.col("form").str.ends_with(".oromucosal")
+    | pl.col("form").is_in(["gel.vaginal", "cream.vaginal"])
+)
+removed_local_forms = (
+    vmp_forms_excluded.filter(pl.col("vtm_id").is_in(aware_vtm_ids) & local_form)
+    .select("vmp_id", "vmp_nm", "vtm_nm", "form")
+    .unique()
+    .sort("form", "vmp_nm")
+)
+display(removed_local_forms)
+```
+
+
+<a id='s5'></a>
+
+## Step 5: Summary
+
+We have created a method to produce a list of VMPs categorised with UK AWaRe categorisation. VTM names, VMP rows, forms, and WHO routes come from BigQuery. The WHO routes are `who_route_codes_for_ddd` on `scmd_pipeline.vmp_data`. Step 1 describes the UKHSA translation table and the columns we need for each product. Step 2 builds a VMP list from the UKHSA website list. Step 3 compares that list with the UKHSA translation table. Step 4 adds the VTM names from the comparison and refines the VMP list. The form rules are defined in this report and written to `excluded_forms.csv`.
+
+We have validated the method through comparison against the UKHSA translation table and extended / refined where needed.
+
+`aware_vmp_list.py` writes the final list to `data/aware_vmp_list.csv`. This report does not write that file. The list in this report is `vmps_matched_extended`. We can filter that list in code to drive development of OpenPrescribing and OpenPrescribing Hospital measures.
+
+For example, the Reserve products are:
+
+```{python}
+display(
+    vmps_matched_extended.filter(pl.col("aware_2024") == "Reserve").select("vmp_id", "vmp_nm")
+)
+```
+
+### Outstanding questions
+
+The UKHSA website list specifies only Colistin IV and Colistin oral. The current VMP extract still contains Colistimethate nebuliser solution and inhalation powder. Should Colistin inhalation be included?
+
+The UKHSA website list includes tinidazole under the Access category. The UKHSA translation table sets Include to 0 and notes anti-protozoal use. Should it be included or excluded?
+
+Cefepime + Enmetazobactam is not in the UKHSA translation table. The Cefepime name match labels its VMP as Watch. The added category row labels the combination NR. How are new products assessed? Should it be included, and with which category?
+
+Vancomycin 20mg pastilles are in the UKHSA translation table with Include 1. They are absent from our list because the oromucosal form was removed. Should they be included?

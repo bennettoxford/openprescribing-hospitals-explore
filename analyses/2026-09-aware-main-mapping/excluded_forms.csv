@@ -1,0 +1,10 @@
+pattern,match_type
+.auricular,suffix
+.cutaneous,suffix
+.ophthalmic,suffix
+.oromucosal,suffix
+.intralesional,suffix
+.nasal,suffix
+.gingival,suffix
+gel.vaginal,exact
+cream.vaginal,exact
