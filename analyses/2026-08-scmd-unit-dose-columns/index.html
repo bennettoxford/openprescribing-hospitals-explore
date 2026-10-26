@@ -153,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title">
 <h1 class="title">Comparing the unit dose reported in the SCMD to the unit dose calculated using the dm+d</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">draft</div>
+    <div class="quarto-category">published</div>
   </div>
   </div>
 
@@ -188,21 +188,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Draft report
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This report is a work in progress. It may be incomplete or contain errors.</p>
-</div>
-</div>
 <p><a href="https://github.com/bennettoxford/openprescribing-hospitals-explore/tree/main/analyses/2026-08-scmd-unit-dose-columns">View source code on GitHub</a></p>
-<div id="e03ca7e4" class="cell" data-execution_count="1">
+<div id="7009fbd9" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="module">
     const { set_or_remove_dark_class } = await window._itables_2_9_1;
@@ -303,7 +290,7 @@ This is the <code>init_notebook_mode</code> cell from ITables v2.9.1<br>
 </div>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<div id="180d291e" class="cell" data-execution_count="2">
+<div id="70d9da69" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>The BSA provisional SCMD reports unit dose information for more products than OpenPrescribing Hospitals. This is because the BSA reports unit dose information for products with a <code>Continuous</code> or <code>Not applicable</code> dose form indicator, for which unit doses are not applicable (<a href="#dose-form-indicators">dose form indicators</a>).</p>
 <p>Where both datasets report the unit dose, a small number of products (228) are not reported consistently. This is because the BSA data deviates from the unit dose information in the dm+d (<a href="#udfs-value-disagreements">products with different UDFS values</a>). For example, <a href="https://dmd-browser.nhsbsa.nhs.uk/vmp/view/1667?ref=YW1wTmFtZT1BY2ljbG92aXIrMjAwbWclMkY1bWwrb3JhbCtzdXNwZW5zaW9uK3N1Z2FyK2ZyZWUmc2VhcmNoVHlwZT1WTVAmc2hvd0ludmFsaWRJdGVtcz1mYWxzZSZoaWRlUGFyYWxsZWxJbXBvcnQ9ZmFsc2UmaGlkZVNwZWNpYWxPcmRlcj1mYWxzZSZoaWRlRGlzY29udGludWVkSXRlbXM9ZmFsc2U%3D">Aciclovir 200mg/5ml oral suspension sugar free</a> has a UDFS of <code>5 ml</code> and a unit dose unit of <code>spoonful</code> in the dm+d.&nbsp;OpenPrescribing Hospitals holds the same values. The BSA provisional SCMD reports an implied UDFS of <code>1 ml</code>.</p>
@@ -369,12 +356,12 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </section>
 <section id="findings" class="level2">
 <h2 class="anchored" data-anchor-id="findings">Findings</h2>
-<div id="e5a178c4" class="cell" data-execution_count="3">
+<div id="411f24b4" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>The BSA provisional SCMD has <strong>8,366</strong> unique VMP codes. Of these, the UDFS units of measure agree for <strong>5,891 (70.4%)</strong>. <strong>2,453 (29.3%)</strong> do not agree. <strong>22 (0.3%)</strong> are in the BSA provisional SCMD, but not in the data used by OpenPrescribing Hospitals (there will be newly introduced VMPs only reported in the June 2026 BSA provisional SCMD).</p>
 </div>
 </div>
-<div id="5086615a" class="cell" data-execution_count="4">
+<div id="f3ca9ce1" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -414,24 +401,24 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </table>
 </div>
 </div>
-<div id="3820eca4" class="cell" data-execution_count="5">
+<div id="36275745" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>Where both sources have a UDFS unit of measure (5,891 VMPs), <strong>5,891 agree (100.0%)</strong> and <strong>0 have differing UDFS units of measure (0.0%)</strong>.</p>
 </div>
 </div>
 <section id="products-with-differing-udfs-units-of-measure" class="level3">
 <h3 class="anchored" data-anchor-id="products-with-differing-udfs-units-of-measure">Products with differing UDFS units of measure</h3>
-<div id="97fdc91e" class="cell" data-execution_count="6">
+<div id="5b63ee93" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>No VMPs have different UDFS units of measure in both sources.</p>
 </div>
 </div>
-<div id="b20f64a6" class="cell" data-execution_count="7">
+<div id="c673c538" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>No rows.</p>
 </div>
 </div>
-<div id="544a59ef" class="cell" data-execution_count="8">
+<div id="e3119799" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>No VMPs have different UDFS units of measure in both sources, so there are no UDFS value differences to report for this group.</p>
 </div>
@@ -439,13 +426,13 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </section>
 <section id="products-with-udfs-unit-missing-in-openprescribing-hospitals" class="level3">
 <h3 class="anchored" data-anchor-id="products-with-udfs-unit-missing-in-openprescribing-hospitals">Products with UDFS unit missing in OpenPrescribing Hospitals</h3>
-<div id="bae15e3c" class="cell" data-execution_count="9">
+<div id="0c0eb117" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><strong>2,453</strong> VMPs have a UDFS unit of measure in the BSA provisional SCMD, but not in OpenPrescribing Hospitals.</p>
 </div>
 </div>
 <p>The UDFS units of measure for these products are shown below.</p>
-<div id="2bc97c9b" class="cell" data-execution_count="10">
+<div id="990dbc2b" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -500,7 +487,7 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </div>
 </div>
 <p>The dose form indicators for these VMPs is shown below.</p>
-<div id="677a514f" class="cell" data-execution_count="11">
+<div id="f283699a" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown">
 <div id="dose-form-indicators">
 <table class="caption-top table table-sm table-striped small">
@@ -533,13 +520,13 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </div>
 </div>
 <p>All of the products with a UDFS unit reported in the BSA provisional SCMD but not in OpenPrescribing Hospitals have a <code>Continuous</code> or <code>Not applicable</code> dose form indicator. In the processing pipeline for OpenPrescribing Hospitals, these products are excluded from the unit dose quantity calculations as unit doses are not applicable to these products.</p>
-<div id="e954ec81" class="cell" data-execution_count="12">
+<div id="916ae017" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>For <strong>2,453 of 2,453</strong> of these VMPs, the BSA provisional SCMD UDFS unit of measure is the same as the BSA provisional SCMD unit dose unit of measure. The implied UDFS is 1 on every organisation row for <strong>2,453 of 2,453</strong> VMPs. This is consistent with treating the UDFS units as unit dose units for these products.</p>
 </div>
 </div>
 <p>The UDFS units of measure for these cases are shown below.</p>
-<div id="d9803f66" class="cell" data-execution_count="13">
+<div id="93e016ce" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -607,12 +594,12 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </section>
 <section id="products-with-udfs-unit-missing-in-the-bsa-provisional-scmd" class="level3">
 <h3 class="anchored" data-anchor-id="products-with-udfs-unit-missing-in-the-bsa-provisional-scmd">Products with UDFS unit missing in the BSA provisional SCMD</h3>
-<div id="dd67c5c2" class="cell" data-execution_count="14">
+<div id="092a110e" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><strong>0</strong> VMPs have a UDFS unit of measure in OpenPrescribing Hospitals, but not in the BSA provisional SCMD.</p>
 </div>
 </div>
-<div id="20c4fd1c" class="cell" data-execution_count="15">
+<div id="8d418fc8" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>No rows.</p>
 </div>
@@ -620,12 +607,12 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </section>
 <section id="vmps-not-in-openprescribing-hospitals" class="level3">
 <h3 class="anchored" data-anchor-id="vmps-not-in-openprescribing-hospitals">VMPs not in OpenPrescribing Hospitals</h3>
-<div id="9a028dd1" class="cell" data-execution_count="16">
+<div id="0a6a8504" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><strong>22</strong> VMPs are in the BSA provisional SCMD, but not in the OpenPrescribing Hospitals data.</p>
 </div>
 </div>
-<div id="b3ee3b08" class="cell" data-execution_count="17">
+<div id="273dd57f" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -734,22 +721,22 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </section>
 <section id="unit-dose-form-size-udfs" class="level3">
 <h3 class="anchored" data-anchor-id="unit-dose-form-size-udfs">Unit dose form size (UDFS)</h3>
-<div id="589ec400" class="cell" data-execution_count="18">
+<div id="c0c6099a" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>For <strong>8,366 of 8,366</strong> VMPs (100.0%), the implied UDFS is the same on every organisation row.</p>
 </div>
 </div>
-<div id="f11b04eb" class="cell" data-execution_count="19">
+<div id="64f7ed94" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>No VMPs have a different implied UDFS across organisation rows.</p>
 </div>
 </div>
-<div id="330efea7" class="cell" data-execution_count="20">
+<div id="8c26d0c6" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>Among the <strong>5,891</strong> VMPs where the UDFS unit of measure agrees, UDFS agrees for <strong>5,663</strong>. <strong>228</strong> have different UDFS values.</p>
 </div>
 </div>
-<div id="8a29342e" class="cell" data-execution_count="21">
+<div id="20965e05" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>The VMPs with the same UDFS unit of measure and a different UDFS are shown below.</p>
 </div>
@@ -872,7 +859,7 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </script>
 </div>
 </div>
-<div id="b482dde0" class="cell" data-execution_count="22">
+<div id="edaee02f" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><a href="https://dmd-browser.nhsbsa.nhs.uk/vmp/view/1667?ref=YW1wTmFtZT1BY2ljbG92aXIrMjAwbWclMkY1bWwrb3JhbCtzdXNwZW5zaW9uK3N1Z2FyK2ZyZWUmc2VhcmNoVHlwZT1WTVAmc2hvd0ludmFsaWRJdGVtcz1mYWxzZSZoaWRlUGFyYWxsZWxJbXBvcnQ9ZmFsc2UmaGlkZVNwZWNpYWxPcmRlcj1mYWxzZSZoaWRlRGlzY29udGludWVkSXRlbXM9ZmFsc2U%3D">Aciclovir 200mg/5ml oral suspension sugar free</a> is one of these products. The dm+d and OpenPrescribing Hospitals both record a UDFS of <code>5 ml</code> and a unit dose unit of <code>spoonful</code>.</p>
 </div>
@@ -892,12 +879,12 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </section>
 <section id="unit-dose-unit-of-measure" class="level3">
 <h3 class="anchored" data-anchor-id="unit-dose-unit-of-measure">Unit dose unit of measure</h3>
-<div id="12844608" class="cell" data-execution_count="23">
+<div id="21f207e3" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>The unit dose units of measure agree for <strong>5,663 (67.7%)</strong>. <strong>2,681 (32.0%)</strong> do not agree. <strong>22 (0.3%)</strong> are in the BSA provisional SCMD, but not in the data used by OpenPrescribing Hospitals.</p>
 </div>
 </div>
-<div id="be083d65" class="cell" data-execution_count="24">
+<div id="e1e6a585" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -937,17 +924,17 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </table>
 </div>
 </div>
-<div id="6ae903b0" class="cell" data-execution_count="25">
+<div id="5f3bc742" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>Where both sources have a unit dose unit of measure (5,891 VMPs), <strong>5,663 agree (96.1%)</strong> and <strong>228 have differing unit dose units of measure (3.9%)</strong>.</p>
 </div>
 </div>
-<div id="8237fc02" class="cell" data-execution_count="26">
+<div id="c80e697e" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><strong>228</strong> VMPs have a unit dose unit of measure in both sources, and the values are different. The most common pair is ML in the BSA provisional SCMD and spoonful in OpenPrescribing Hospitals (220 VMPs).</p>
 </div>
 </div>
-<div id="7d494545" class="cell" data-execution_count="27">
+<div id="9e6967d8" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -975,24 +962,24 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </tr>
 <tr class="odd">
 <td>ML</td>
-<td>ampoule</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>ML</td>
 <td>vial</td>
 <td>1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>GRAM</td>
 <td>bottle</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>ML</td>
+<td>ampoule</td>
 <td>1</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="adf7a9ba" class="cell" data-execution_count="28">
+<div id="76fd6b2e" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><strong>2,453</strong> VMPs have a unit dose unit of measure in the BSA provisional SCMD, but not in OpenPrescribing Hospitals. <strong>0</strong> VMPs have a unit dose unit of measure in OpenPrescribing Hospitals, but not in the BSA provisional SCMD.</p>
 </div>
@@ -1001,7 +988,7 @@ covering data for April 2026 to March 2027. The changes introduced to the Provis
 </section>
 <section id="conclusions" class="level2">
 <h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
-<div id="6f64996c" class="cell" data-execution_count="30">
+<div id="b85fdb21" class="cell" data-execution_count="30">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p>For all <strong>5,891</strong> VMPs where both sources have a UDFS unit of measure, the units agree for <strong>5,891</strong>. OpenPrescribing Hospitals has no UDFS unit for <strong>2,453</strong> VMPs. All of these products have a <code>Continuous</code> or <code>Not applicable</code> dose form indicator, for which unit doses are not applicable. For all of these products, the BSA provisional SCMD UDFS unit is the same as the BSA provisional SCMD unit dose unit and the implied UDFS is 1 on every organisation row. This is consistent with treating the UDFS units as unit dose units for these products.</p>
 </div>
