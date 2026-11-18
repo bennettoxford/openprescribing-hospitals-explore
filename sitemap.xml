@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bennettoxford.github.io/openprescribing-hospitals-explore/index.html</loc>
-    <lastmod>2026-10-26T13:58:27.733Z</lastmod>
+    <lastmod>2026-11-18T18:03:40.488Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bennettoxford.github.io/openprescribing-hospitals-explore/analyses/2026-11-organisation-completeness-consistency/index.html</loc>
+    <lastmod>2026-11-18T18:03:40.486Z</lastmod>
   </url>
   <url>
     <loc>https://bennettoxford.github.io/openprescribing-hospitals-explore/analyses/2026-08-scmd-unit-dose-columns/index.html</loc>
-    <lastmod>2026-10-26T13:58:27.732Z</lastmod>
+    <lastmod>2026-11-18T18:03:40.486Z</lastmod>
   </url>
 </urlset>
