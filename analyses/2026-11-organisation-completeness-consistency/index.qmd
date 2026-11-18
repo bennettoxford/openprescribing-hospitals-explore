@@ -1,0 +1,206 @@
+---
+title: "Revisiting trust data completeness and consistency"
+date: 2026-11-18
+author:
+  - Louis Fisher
+categories: [published]
+description: "An updated look at gaps in monthly SCMD submissions and consistency in the number of products issued by NHS trusts, revisiting our February 2025 Organising Organisations blog posts."
+jupyter: python3
+execute:
+  echo: false
+---
+
+```{python}
+from pathlib import Path
+
+import polars as pl
+from IPython.display import Markdown, display
+
+import charts
+import summarise
+
+organisations, monthly_products, data_status = summarise.load_extracts(Path("data"))
+aggregated_products = summarise.load_aggregated(Path("data"))
+period_start, period_end, provisional_start = summarise.period_bounds(data_status)
+with_data = summarise.submitted_trusts(organisations, monthly_products)
+incomplete = summarise.incomplete_submissions(
+    with_data,
+    monthly_products,
+    period_start,
+    period_end,
+)
+inconsistent = summarise.inconsistent_product_counts(
+    organisations,
+    aggregated_products,
+    period_start,
+    period_end,
+)
+change_groups = summarise.organisation_change_groups(
+    organisations,
+    monthly_products,
+)
+
+n_with_data = with_data.height
+n_incomplete = incomplete.height
+n_inconsistent = inconsistent.height
+n_change_groups = len(change_groups)
+
+period_label = summarise.format_span(period_start, period_end)
+provisional_label = summarise.format_span(
+    provisional_start,
+    period_end,
+)
+final_end = data_status.filter(pl.col("file_type") == "final").get_column("max_month").min()
+final_label = summarise.format_month(final_end)
+```
+
+In February 2025, we published two blog posts looking at how NHS trusts report data to the [Secondary Care Medicines Data (SCMD)](https://www.nhsbsa.nhs.uk/prescription-data/secondary-care-medicines-data-scmd):
+
+- [Organising Organisations: Data completeness](https://www.bennett.ox.ac.uk/blog/2025/02/organising-organisations-data-completeness/)
+- [Organising Organisations: Data consistency](https://www.bennett.ox.ac.uk/blog/2025/02/organising-organisations-data-consistency/)
+
+Those posts examined how complete and consistent trust submissions to the SCMD were, up to February 2024, using a selection of illustrative trusts. Here, we update the analysis to use the latest SCMD dataset — running from `{python} period_label`, with `{python} provisional_label` — and highlight any trusts where there is still incomplete or inconsistent data.
+
+## Question
+
+Where NHS trusts appear in the SCMD, have they submitted data for every month we would expect, and when they do submit data, is the number of unique products they report consistent over time?
+
+## Method
+
+Following our earlier blog posts, we start from NHS organisations in England without a recorded legal or operational closure date before January 2019 (the start of the SCMD). Organisations that have never submitted any positive-quantity rows to the SCMD — such as most ambulance service trusts — are excluded from the completeness and consistency analyses below, leaving `{python} f"{n_with_data:,}"` trusts with SCMD data. Organisation information, including the relationships between trusts, is taken from the [Organisation Data Service (ORD) API](https://directory.spineservices.nhs.uk/ORD/2-0-0).
+
+To assess **completeness**, we treat a trust as having submitted data in a month if it reports at least one product with a positive quantity. We expect submissions in every month a trust was open from `{python} period_label`: starting in `{python} summarise.format_month(period_start)` (or the trust's open month if later, taking the later of the legal and operational open dates where both exist) and ending in `{python} summarise.format_month(period_end)` (or the trust's closure month if earlier, taking the earlier of the legal and operational close dates where both exist). Every included trust missing at least one expected month is plotted on the submission timeline. Where a trust with missing months is linked to a predecessor or successor, we group the related trusts together in a shaded band — placing the successor first in blue (even if its own submission history is complete) and indenting predecessors beneath it in grey — so organisational changes are easier to see.
+
+To assess **consistency**, we first aggregate predecessor submissions into their ultimate successor (following the chain of listed `successors` in ORD) and count the distinct VMP codes issued across the combined organisation each month, so a product reported by both a predecessor and its successor in the same month is only counted once. For trusts with at least six submitted months, we flag a submitted month as unusually low when this combined count drops below 25% of that trust's own median across submitted months. Months with zero products represent missing submissions rather than partial ones and are covered under completeness instead.
+
+Finally, to look directly at **organisational change**, we plot the unaggregated monthly product counts for every current trust that has at least one predecessor with SCMD data, keeping the ultimate successor (in blue) and each predecessor (in grey) as separate labelled lines, with unsubmitted months drawn as zero. Across all charts, the amber shaded band highlights the provisional window (`{python} provisional_label`).
+
+## Findings
+
+### Does every organisation have data for each month?
+
+The majority of the `{python} f"{n_with_data:,}"` trusts have data for every month they were open from `{python} period_label`, but there are `{python} f"{n_incomplete}"` exceptions. These are shown in the chart and table below, where solid bars mark months in which data was submitted.
+
+Some trusts, such as Kent Community Health NHS Foundation Trust, Lincolnshire Community Health Services NHS Trust, and Lincolnshire Partnership NHS Foundation Trust, are only missing a single month (often within the recent provisional window), whilst others, such as Humber Teaching NHS Foundation Trust and Kent And Medway Mental Health NHS Trust, are missing substantial periods of data. Two ambulance trusts — East Of England Ambulance Service NHS Trust and South Central Ambulance Service NHS Foundation Trust — also appear here because, unlike most ambulance trusts, they submitted data for a limited part of the period rather than none at all.
+
+Several of the apparent gaps sit alongside mergers or acquisitions, shown in the shaded groups at the top of the chart. For instance, Central Manchester University Hospitals NHS Foundation Trust and University Hospital Of South Manchester NHS Foundation Trust show submissions prior to being merged into Manchester University NHS Foundation Trust.Conversely, Dudley Integrated Health And Care NHS Trust and Hounslow And Richmond Community Healthcare NHS Trust both show fragmented submissions ahead of their 2024 mergers (into Black Country Healthcare NHS Foundation Trust and Kingston And Richmond NHS Foundation Trust respectively). There are also occasional submissions under their legacy codes after their recorded closure dates.
+
+```{python}
+charts.plot_submission_timeline(
+    organisations,
+    monthly_products,
+    period_start,
+    period_end,
+    codes=incomplete.get_column("ods_code").to_list(),
+    pool=with_data,
+    provisional_start=provisional_start,
+)
+```
+
+```{python}
+gap_rows = [
+    {
+        "ODS code": row["ods_code"],
+        "Organisation": row["ods_name"],
+        "Missing months": row["missing_months"],
+    }
+    for row in incomplete.iter_rows(named=True)
+]
+headers = list(gap_rows[0])
+lines = [
+    "| " + " | ".join(headers) + " |",
+    "| " + " | ".join("---" for _ in headers) + " |",
+]
+lines.extend(
+    "| " + " | ".join(str(row[header]) for header in headers) + " |" for row in gap_rows
+)
+display(Markdown("\n".join(lines)))
+```
+
+### What does this mean for data completeness?
+
+This makes two things clear:
+
+1. **There are some trusts with missing data that cannot be explained by organisational change.** When trusts such as Humber Teaching NHS Foundation Trust or Kent And Medway Mental Health NHS Trust are included in any analyses, care needs to be taken to highlight that there could be undercounting of medicines issued during those periods.
+2. **There are varying patterns of data submission around organisational changes.** Some predecessors stop submitting cleanly on their legal closure date, whereas others continue submitting under legacy ODS codes for months or years after a merger while local systems are updated. Data for related trusts therefore needs to be carefully aggregated to avoid spurious patterns in analyses using their data.
+
+### Is the data submitted by each organisation each month consistent?
+
+When trusts do submit their data, the stock they issue is expected to be relatively consistent over time. In our earlier posts, we saw that the overall number of medicines and devices issued varies substantially across different types of NHS trusts — from smaller community and mental health trusts to large acute teaching trusts — and we can use the number of unique products issued each month to check how stable each trust's reporting is over time.
+
+Even after aggregating predecessor data into successor trusts, `{python} f"{n_inconsistent}"` trusts have at least one submitted month in which the number of unique products falls below 25% of that trust's median monthly count. These trusts are shown in the figure and table below (note the different y-axis scales across panels). The red dashed line marks the 25% threshold on each chart.
+
+For example, University College London Hospitals NHS Foundation Trust is stable at around 2,400 to 2,600 unique products per month from December 2019 onwards, whereas April to November 2019 contain data for far fewer products. Great Ormond Street Hospital For Children NHS Foundation Trust (May to December 2019) and Herefordshire And Worcestershire Health And Care NHS Trust (February 2020 to October 2021) show similar sustained dips before returning to a steady level. These patterns likely reflect incomplete submissions rather than genuine shifts in clinical activity. Several other trusts — such as Torbay And South Devon NHS Foundation Trust and Central London Community Healthcare NHS Trust — show sharp drops during the provisional window (`{python} provisional_label`), which may be revised once finalised data is published.
+
+```{python}
+charts.plot_product_counts(
+    organisations,
+    aggregated_products,
+    inconsistent.get_column("ods_code").to_list(),
+    period_start,
+    period_end,
+    provisional_start=provisional_start,
+    low_share=summarise.LOW_PRODUCT_SHARE,
+)
+```
+
+```{python}
+low_rows = [
+    {
+        "ODS code": row["ods_code"],
+        "Organisation": row["ods_name"],
+        "Median products": f"{row['median_products']:,}",
+        "Low months": row["low_months"],
+    }
+    for row in inconsistent.iter_rows(named=True)
+]
+headers = list(low_rows[0])
+lines = [
+    "| " + " | ".join(headers) + " |",
+    "| " + " | ".join("---" for _ in headers) + " |",
+]
+lines.extend(
+    "| " + " | ".join(str(row[header]) for header in headers) + " |"
+    for row in low_rows
+)
+display(Markdown("\n".join(lines)))
+```
+
+### What about when organisations change?
+
+Just as there are varying patterns in whether trusts submit data around mergers and acquisitions, there are also interesting patterns in the number of unique products these organisations submit data for during periods of restructuring.
+
+The figure below shows the monthly number of unique products issued for all `{python} f"{n_change_groups}"` current trusts in this extract whose predecessors also appear in the SCMD, plotted before predecessor data is rolled into the successor. Ultimate successors are shown in blue and their predecessors in grey.
+
+Across these groups, we can see all three of the handover patterns described in our February 2025 post:
+
+- **Merging into a larger existing trust with little change in the successor's product count:** When Weston Area Health NHS Trust merged into Bristol NHS Foundation Trust (formerly University Hospitals Bristol and Weston NHS Foundation Trust) in April 2020, the number of products issued under Weston's code dropped to zero as it stopped submitting separately, without any obvious shift in the successor's product count (by contrast, North Bristol NHS Trust has continued submitting under its own code in the provisional months following its 2026 merger with the trust).
+- **Step increases following mergers:** Somerset NHS Foundation Trust has undergone multiple organisational changes — a merger with Taunton And Somerset NHS Foundation Trust in April 2020, followed by a merger with Yeovil District Hospital NHS Foundation Trust in April 2023. Following each change, as the predecessor's separate submissions dropped to zero, the number of unique products issued each month under Somerset's code stepped up.
+- **Formation of a new trust from existing trusts:** University Hospitals Dorset NHS Foundation Trust was formed in October 2020 from the merger of Poole Hospital NHS Foundation Trust and The Royal Bournemouth And Christchurch Hospitals NHS Foundation Trust, with both predecessors dropping to zero as the new trust began submitting data. A more recent example is North London NHS Foundation Trust, formed in November 2024 from Camden And Islington NHS Foundation Trust and Barnet, Enfield And Haringey Mental Health NHS Trust — though there, Barnet, Enfield and Haringey continued submitting alongside the new trust until July 2025 before dropping to zero.
+
+```{python}
+charts.plot_merger_product_counts(
+    organisations,
+    monthly_products,
+    period_start,
+    period_end,
+    groups=change_groups,
+    provisional_start=provisional_start,
+)
+```
+
+### What does this mean for data consistency?
+
+This highlights that, as well as being aware of missing monthly submissions by individual trusts, we also need to check whether the data that is submitted each month is consistent. Sharp drops in the number of unique products issued provide a practical way to spot potential partial submissions programmatically.
+
+However, there are also legitimate changes in the number of products issued by trusts around mergers and acquisitions. Aggregating data for predecessor trusts into their ultimate successor makes it much easier to distinguish genuine organisational handovers from unexpected drops in reporting — which is how we screen for inconsistent months above, and how we surface these patterns on the [Submission History](https://hospitals.openprescribing.net/submission-history/) page of OpenPrescribing Hospitals.
+
+
+## Conclusions
+
+Comparing the current extract with our February 2025 posts shows that several of the earlier gaps and legacy-reporting anomalies have since been resolved in the published SCMD:
+
+- Trusts that were previously absent from the SCMD — such as North London NHS Foundation Trust and Hounslow And Richmond Community Healthcare NHS Trust — now appear in the data (though Hounslow and Richmond's pre-merger submissions remain incomplete).
+- Short gaps and apparent cut-offs have been backfilled for several trusts: The Royal Marsden NHS Foundation Trust now has a complete submission history across the whole period, and Northamptonshire Healthcare NHS Foundation Trust continues submitting up to `{python} summarise.format_month(period_end)` rather than stopping in November 2022.
+
+However, incomplete and inconsistent submissions have not disappeared — longstanding gaps at Humber Teaching NHS Foundation Trust and the 2019 dip in unique products at University College London Hospitals NHS Foundation Trust both remain, alongside newer gaps and provisional-window drops at other trusts. Understanding these patterns, and aggregating predecessor data carefully around mergers, therefore remains essential when using the SCMD for analysis.
