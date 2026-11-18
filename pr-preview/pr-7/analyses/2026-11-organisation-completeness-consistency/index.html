@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Louis Fisher">
+<meta name="dcterms.date" content="2026-11-18">
+<meta name="description" content="An updated look at gaps in monthly SCMD submissions and consistency in the number of products issued by NHS trusts, revisiting our February 2025 Organising Organisations blog posts.">
+
+<title>Revisiting trust data completeness and consistency – OpenPrescribing Hospitals Explore</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-0b0566fd98855e295fe9ece9f5f23860.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/op-logo-colour.svg" alt="OpenPrescribing" class="navbar-logo light-content">
+    <img src="../../assets/op-logo-colour.svg" alt="OpenPrescribing" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">OpenPrescribing Hospitals Explore</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bennettoxford/openprescribing-hospitals-explore"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#question" id="toc-question" class="nav-link active" data-scroll-target="#question">Question</a></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method">Method</a></li>
+  <li><a href="#findings" id="toc-findings" class="nav-link" data-scroll-target="#findings">Findings</a>
+  <ul class="collapse">
+  <li><a href="#does-every-organisation-have-data-for-each-month" id="toc-does-every-organisation-have-data-for-each-month" class="nav-link" data-scroll-target="#does-every-organisation-have-data-for-each-month">Does every organisation have data for each month?</a></li>
+  <li><a href="#what-does-this-mean-for-data-completeness" id="toc-what-does-this-mean-for-data-completeness" class="nav-link" data-scroll-target="#what-does-this-mean-for-data-completeness">What does this mean for data completeness?</a></li>
+  <li><a href="#is-the-data-submitted-by-each-organisation-each-month-consistent" id="toc-is-the-data-submitted-by-each-organisation-each-month-consistent" class="nav-link" data-scroll-target="#is-the-data-submitted-by-each-organisation-each-month-consistent">Is the data submitted by each organisation each month consistent?</a></li>
+  <li><a href="#what-about-when-organisations-change" id="toc-what-about-when-organisations-change" class="nav-link" data-scroll-target="#what-about-when-organisations-change">What about when organisations change?</a></li>
+  <li><a href="#what-does-this-mean-for-data-consistency" id="toc-what-does-this-mean-for-data-consistency" class="nav-link" data-scroll-target="#what-does-this-mean-for-data-consistency">What does this mean for data consistency?</a></li>
+  </ul></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Revisiting trust data completeness and consistency</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">published</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    An updated look at gaps in monthly SCMD submissions and consistency in the number of products issued by NHS trusts, revisiting our February 2025 Organising Organisations blog posts.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Louis Fisher </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 18, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><a href="https://github.com/bennettoxford/openprescribing-hospitals-explore/tree/main/analyses/2026-11-organisation-completeness-consistency">View source code on GitHub</a></p>
+<p>In February 2025, we published two blog posts looking at how NHS trusts report data to the <a href="https://www.nhsbsa.nhs.uk/prescription-data/secondary-care-medicines-data-scmd">Secondary Care Medicines Data (SCMD)</a>:</p>
+<ul>
+<li><a href="https://www.bennett.ox.ac.uk/blog/2025/02/organising-organisations-data-completeness/">Organising Organisations: Data completeness</a></li>
+<li><a href="https://www.bennett.ox.ac.uk/blog/2025/02/organising-organisations-data-consistency/">Organising Organisations: Data consistency</a></li>
+</ul>
+<p>Those posts examined how complete and consistent trust submissions to the SCMD were, up to February 2024, using a selection of illustrative trusts. Here, we update the analysis to use the latest SCMD dataset — running from January 2019 to August 2026, with April 2026 to August 2026 — and highlight any trusts where there is still incomplete or inconsistent data.</p>
+<section id="question" class="level2">
+<h2 class="anchored" data-anchor-id="question">Question</h2>
+<p>Where NHS trusts appear in the SCMD, have they submitted data for every month we would expect, and when they do submit data, is the number of unique products they report consistent over time?</p>
+</section>
+<section id="method" class="level2">
+<h2 class="anchored" data-anchor-id="method">Method</h2>
+<p>Following our earlier blog posts, we start from NHS organisations in England without a recorded legal or operational closure date before January 2019 (the start of the SCMD). Organisations that have never submitted any positive-quantity rows to the SCMD — such as most ambulance service trusts — are excluded from the completeness and consistency analyses below, leaving 227 trusts with SCMD data. Organisation information, including the relationships between trusts, is taken from the <a href="https://directory.spineservices.nhs.uk/ORD/2-0-0">Organisation Data Service (ORD) API</a>.</p>
+<p>To assess <strong>completeness</strong>, we treat a trust as having submitted data in a month if it reports at least one product with a positive quantity. We expect submissions in every month a trust was open from January 2019 to August 2026: starting in January 2019 (or the trust’s open month if later, taking the later of the legal and operational open dates where both exist) and ending in August 2026 (or the trust’s closure month if earlier, taking the earlier of the legal and operational close dates where both exist). Every included trust missing at least one expected month is plotted on the submission timeline. Where a trust with missing months is linked to a predecessor or successor, we group the related trusts together in a shaded band — placing the successor first in blue (even if its own submission history is complete) and indenting predecessors beneath it in grey — so organisational changes are easier to see.</p>
+<p>To assess <strong>consistency</strong>, we first aggregate predecessor submissions into their ultimate successor (following the chain of listed <code>successors</code> in ORD) and count the distinct VMP codes issued across the combined organisation each month, so a product reported by both a predecessor and its successor in the same month is only counted once. For trusts with at least six submitted months, we flag a submitted month as unusually low when this combined count drops below 25% of that trust’s own median across submitted months. Months with zero products represent missing submissions rather than partial ones and are covered under completeness instead.</p>
+<p>Finally, to look directly at <strong>organisational change</strong>, we plot the unaggregated monthly product counts for every current trust that has at least one predecessor with SCMD data, keeping the ultimate successor (in blue) and each predecessor (in grey) as separate labelled lines, with unsubmitted months drawn as zero. Across all charts, the amber shaded band highlights the provisional window (April 2026 to August 2026).</p>
+</section>
+<section id="findings" class="level2">
+<h2 class="anchored" data-anchor-id="findings">Findings</h2>
+<section id="does-every-organisation-have-data-for-each-month" class="level3">
+<h3 class="anchored" data-anchor-id="does-every-organisation-have-data-for-each-month">Does every organisation have data for each month?</h3>
+<p>The majority of the 227 trusts have data for every month they were open from January 2019 to August 2026, but there are 13 exceptions. These are shown in the chart and table below, where solid bars mark months in which data was submitted.</p>
+<p>Some trusts, such as Kent Community Health NHS Foundation Trust, Lincolnshire Community Health Services NHS Trust, and Lincolnshire Partnership NHS Foundation Trust, are only missing a single month (often within the recent provisional window), whilst others, such as Humber Teaching NHS Foundation Trust and Kent And Medway Mental Health NHS Trust, are missing substantial periods of data. Two ambulance trusts — East Of England Ambulance Service NHS Trust and South Central Ambulance Service NHS Foundation Trust — also appear here because, unlike most ambulance trusts, they submitted data for a limited part of the period rather than none at all.</p>
+<p>Several of the apparent gaps sit alongside mergers or acquisitions, shown in the shaded groups at the top of the chart. For instance, Central Manchester University Hospitals NHS Foundation Trust and University Hospital Of South Manchester NHS Foundation Trust show submissions prior to being merged into Manchester University NHS Foundation Trust.Conversely, Dudley Integrated Health And Care NHS Trust and Hounslow And Richmond Community Healthcare NHS Trust both show fragmented submissions ahead of their 2024 mergers (into Black Country Healthcare NHS Foundation Trust and Kingston And Richmond NHS Foundation Trust respectively). There are also occasional submissions under their legacy codes after their recorded closure dates.</p>
+<div id="1e6c461f" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-3-output-1.png" width="1071" height="828" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="b2d058fd" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ODS code</th>
+<th>Organisation</th>
+<th>Missing months</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RYC</td>
+<td>East Of England Ambulance Service NHS Trust</td>
+<td>January 2019 to August 2020 and October 2020 to August 2026</td>
+</tr>
+<tr class="even">
+<td>RYE</td>
+<td>South Central Ambulance Service NHS Foundation Trust</td>
+<td>January 2019 to March 2019 and July 2022 to August 2026</td>
+</tr>
+<tr class="odd">
+<td>RY9</td>
+<td>Hounslow And Richmond Community Healthcare NHS Trust</td>
+<td>January 2019 to May 2019, October 2019 to November 2019, February 2020 to May 2020, July 2020, October 2020 to February 2021, June 2021 to July 2021, September 2021, December 2021 to March 2022, May 2022 to October 2022, December 2022 to February 2023, April 2023 to May 2023, July 2023 to August 2023, October 2023 to December 2023 and February 2024 to October 2024</td>
+</tr>
+<tr class="even">
+<td>RXY</td>
+<td>Kent And Medway Mental Health NHS Trust</td>
+<td>April 2022 to March 2024 and January 2025 to August 2026</td>
+</tr>
+<tr class="odd">
+<td>RYK</td>
+<td>Dudley Integrated Health And Care NHS Trust</td>
+<td>November 2020, February 2021, May 2021, August 2021 to October 2021, January 2022 to October 2022, December 2022 to January 2023, March 2023 to February 2024, April 2024, June 2024 and August 2024 to September 2024</td>
+</tr>
+<tr class="even">
+<td>RV9</td>
+<td>Humber Teaching NHS Foundation Trust</td>
+<td>October 2020 to December 2021, February 2022 to March 2022 and October 2025 to August 2026</td>
+</tr>
+<tr class="odd">
+<td>RYG</td>
+<td>Coventry And Warwickshire Partnership NHS Trust</td>
+<td>February 2025 to March 2025, April 2026 and August 2026</td>
+</tr>
+<tr class="even">
+<td>R0A</td>
+<td>Manchester University NHS Foundation Trust</td>
+<td>January 2019 to March 2019</td>
+</tr>
+<tr class="odd">
+<td>RXA</td>
+<td>Cheshire And Wirral Partnership NHS Foundation Trust</td>
+<td>March 2019 and June 2026</td>
+</tr>
+<tr class="even">
+<td>RP1</td>
+<td>Northamptonshire Healthcare NHS Foundation Trust</td>
+<td>January 2019 to February 2019</td>
+</tr>
+<tr class="odd">
+<td>RYY</td>
+<td>Kent Community Health NHS Foundation Trust</td>
+<td>March 2025</td>
+</tr>
+<tr class="even">
+<td>RY5</td>
+<td>Lincolnshire Community Health Services NHS Trust</td>
+<td>July 2026</td>
+</tr>
+<tr class="odd">
+<td>RP7</td>
+<td>Lincolnshire Partnership NHS Foundation Trust</td>
+<td>April 2026</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="what-does-this-mean-for-data-completeness" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-this-mean-for-data-completeness">What does this mean for data completeness?</h3>
+<p>This makes two things clear:</p>
+<ol type="1">
+<li><strong>There are some trusts with missing data that cannot be explained by organisational change.</strong> When trusts such as Humber Teaching NHS Foundation Trust or Kent And Medway Mental Health NHS Trust are included in any analyses, care needs to be taken to highlight that there could be undercounting of medicines issued during those periods.</li>
+<li><strong>There are varying patterns of data submission around organisational changes.</strong> Some predecessors stop submitting cleanly on their legal closure date, whereas others continue submitting under legacy ODS codes for months or years after a merger while local systems are updated. Data for related trusts therefore needs to be carefully aggregated to avoid spurious patterns in analyses using their data.</li>
+</ol>
+</section>
+<section id="is-the-data-submitted-by-each-organisation-each-month-consistent" class="level3">
+<h3 class="anchored" data-anchor-id="is-the-data-submitted-by-each-organisation-each-month-consistent">Is the data submitted by each organisation each month consistent?</h3>
+<p>When trusts do submit their data, the stock they issue is expected to be relatively consistent over time. In our earlier posts, we saw that the overall number of medicines and devices issued varies substantially across different types of NHS trusts — from smaller community and mental health trusts to large acute teaching trusts — and we can use the number of unique products issued each month to check how stable each trust’s reporting is over time.</p>
+<p>Even after aggregating predecessor data into successor trusts, 12 trusts have at least one submitted month in which the number of unique products falls below 25% of that trust’s median monthly count. These trusts are shown in the figure and table below (note the different y-axis scales across panels). The red dashed line marks the 25% threshold on each chart.</p>
+<p>For example, University College London Hospitals NHS Foundation Trust is stable at around 2,400 to 2,600 unique products per month from December 2019 onwards, whereas April to November 2019 contain data for far fewer products. Great Ormond Street Hospital For Children NHS Foundation Trust (May to December 2019) and Herefordshire And Worcestershire Health And Care NHS Trust (February 2020 to October 2021) show similar sustained dips before returning to a steady level. These patterns likely reflect incomplete submissions rather than genuine shifts in clinical activity. Several other trusts — such as Torbay And South Devon NHS Foundation Trust and Central London Community Healthcare NHS Trust — show sharp drops during the provisional window (April 2026 to August 2026), which may be revised once finalised data is published.</p>
+<div id="61081c1e" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-5-output-1.png" width="1048" height="3504" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="501336d1" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ODS code</th>
+<th>Organisation</th>
+<th>Median products</th>
+<th>Low months</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R1A</td>
+<td>Herefordshire And Worcestershire Health And Care NHS Trust</td>
+<td>909</td>
+<td>February 2020 to October 2021</td>
+</tr>
+<tr class="even">
+<td>RP4</td>
+<td>Great Ormond Street Hospital For Children NHS Foundation Trust</td>
+<td>1,354</td>
+<td>May 2019 to December 2019</td>
+</tr>
+<tr class="odd">
+<td>RRV</td>
+<td>University College London Hospitals NHS Foundation Trust</td>
+<td>2,442</td>
+<td>April 2019 to November 2019</td>
+</tr>
+<tr class="even">
+<td>RWR</td>
+<td>Hertfordshire Partnership University NHS Foundation Trust</td>
+<td>611</td>
+<td>November 2021 to February 2022</td>
+</tr>
+<tr class="odd">
+<td>RA9</td>
+<td>Torbay And South Devon NHS Foundation Trust</td>
+<td>2,206</td>
+<td>May 2026 to July 2026</td>
+</tr>
+<tr class="even">
+<td>RYG</td>
+<td>Coventry And Warwickshire Partnership NHS Trust</td>
+<td>702</td>
+<td>December 2025 and March 2026</td>
+</tr>
+<tr class="odd">
+<td>RV9</td>
+<td>Humber Teaching NHS Foundation Trust</td>
+<td>381</td>
+<td>June 2020 and January 2022</td>
+</tr>
+<tr class="even">
+<td>TAJ</td>
+<td>Black Country Healthcare NHS Foundation Trust</td>
+<td>396</td>
+<td>October 2020</td>
+</tr>
+<tr class="odd">
+<td>RYX</td>
+<td>Central London Community Healthcare NHS Trust</td>
+<td>688</td>
+<td>May 2026</td>
+</tr>
+<tr class="even">
+<td>RXA</td>
+<td>Cheshire And Wirral Partnership NHS Foundation Trust</td>
+<td>650</td>
+<td>April 2019</td>
+</tr>
+<tr class="odd">
+<td>RYY</td>
+<td>Kent Community Health NHS Foundation Trust</td>
+<td>646</td>
+<td>February 2025</td>
+</tr>
+<tr class="even">
+<td>RP1</td>
+<td>Northamptonshire Healthcare NHS Foundation Trust</td>
+<td>870</td>
+<td>March 2019</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="what-about-when-organisations-change" class="level3">
+<h3 class="anchored" data-anchor-id="what-about-when-organisations-change">What about when organisations change?</h3>
+<p>Just as there are varying patterns in whether trusts submit data around mergers and acquisitions, there are also interesting patterns in the number of unique products these organisations submit data for during periods of restructuring.</p>
+<p>The figure below shows the monthly number of unique products issued for all 27 current trusts in this extract whose predecessors also appear in the SCMD, plotted before predecessor data is rolled into the successor. Ultimate successors are shown in blue and their predecessors in grey.</p>
+<p>Across these groups, we can see all three of the handover patterns described in our February 2025 post:</p>
+<ul>
+<li><strong>Merging into a larger existing trust with little change in the successor’s product count:</strong> When Weston Area Health NHS Trust merged into Bristol NHS Foundation Trust (formerly University Hospitals Bristol and Weston NHS Foundation Trust) in April 2020, the number of products issued under Weston’s code dropped to zero as it stopped submitting separately, without any obvious shift in the successor’s product count (by contrast, North Bristol NHS Trust has continued submitting under its own code in the provisional months following its 2026 merger with the trust).</li>
+<li><strong>Step increases following mergers:</strong> Somerset NHS Foundation Trust has undergone multiple organisational changes — a merger with Taunton And Somerset NHS Foundation Trust in April 2020, followed by a merger with Yeovil District Hospital NHS Foundation Trust in April 2023. Following each change, as the predecessor’s separate submissions dropped to zero, the number of unique products issued each month under Somerset’s code stepped up.</li>
+<li><strong>Formation of a new trust from existing trusts:</strong> University Hospitals Dorset NHS Foundation Trust was formed in October 2020 from the merger of Poole Hospital NHS Foundation Trust and The Royal Bournemouth And Christchurch Hospitals NHS Foundation Trust, with both predecessors dropping to zero as the new trust began submitting data. A more recent example is North London NHS Foundation Trust, formed in November 2024 from Camden And Islington NHS Foundation Trust and Barnet, Enfield And Haringey Mental Health NHS Trust — though there, Barnet, Enfield and Haringey continued submitting alongside the new trust until July 2025 before dropping to zero.</li>
+</ul>
+<div id="a7fbdb3d" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-7-output-1.png" width="1048" height="7117" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="what-does-this-mean-for-data-consistency" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-this-mean-for-data-consistency">What does this mean for data consistency?</h3>
+<p>This highlights that, as well as being aware of missing monthly submissions by individual trusts, we also need to check whether the data that is submitted each month is consistent. Sharp drops in the number of unique products issued provide a practical way to spot potential partial submissions programmatically.</p>
+<p>However, there are also legitimate changes in the number of products issued by trusts around mergers and acquisitions. Aggregating data for predecessor trusts into their ultimate successor makes it much easier to distinguish genuine organisational handovers from unexpected drops in reporting — which is how we screen for inconsistent months above, and how we surface these patterns on the <a href="https://hospitals.openprescribing.net/submission-history/">Submission History</a> page of OpenPrescribing Hospitals.</p>
+</section>
+</section>
+<section id="conclusions" class="level2">
+<h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
+<p>Comparing the current extract with our February 2025 posts shows that several of the earlier gaps and legacy-reporting anomalies have since been resolved in the published SCMD:</p>
+<ul>
+<li>Trusts that were previously absent from the SCMD — such as North London NHS Foundation Trust and Hounslow And Richmond Community Healthcare NHS Trust — now appear in the data (though Hounslow and Richmond’s pre-merger submissions remain incomplete).</li>
+<li>Short gaps and apparent cut-offs have been backfilled for several trusts: The Royal Marsden NHS Foundation Trust now has a complete submission history across the whole period, and Northamptonshire Healthcare NHS Foundation Trust continues submitting up to August 2026 rather than stopping in November 2022.</li>
+</ul>
+<p>However, incomplete and inconsistent submissions have not disappeared — longstanding gaps at Humber Teaching NHS Foundation Trust and the 2019 dip in unique products at University College London Hospitals NHS Foundation Trust both remain, alongside newer gaps and provisional-window drops at other trusts. Understanding these patterns, and aggregating predecessor data carefully around mergers, therefore remains essential when using the SCMD for analysis.</p>
+
+
+</section>
+<section id="contact" class="level2">
+<h2 class="anchored" data-anchor-id="contact">Contact</h2>
+<p>If you have any questions or feedback about this report, please contact us at <a href="mailto:bennett@phc.ox.ac.uk">bennett@phc.ox.ac.uk</a>.</p>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bennettoxford\.github\.io\/openprescribing-hospitals-explore\/pr-preview\/pr-7");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+<footer class="oph-footer">
+  <div class="oph-footer-inner">
+    <div class="oph-footer-bottom">
+      <div class="oph-footer-logos">
+        <a href="https://www.bennett.ox.ac.uk/" target="_blank" rel="noopener noreferrer">
+          <img data-src="assets/bennett-logo.svg" alt="Bennett Institute logo">
+        </a>
+        <a href="https://www.phc.ox.ac.uk/" target="_blank" rel="noopener noreferrer">
+          <img data-src="assets/footer-nuffield.png" alt="Nuffield Department of Primary Care Health Sciences logo">
+        </a>
+        <a href="https://www.ox.ac.uk/" target="_blank" rel="noopener noreferrer">
+          <img data-src="assets/oxford_logo.png" alt="University of Oxford logo">
+        </a>
+      </div>
+      <p class="oph-footer-copyright">
+        © University of Oxford for the Bennett Institute for Applied Data
+        Science 2026.<br>
+        This work may be copied freely for non-commercial research and study.
+      </p>
+    </div>
+  </div>
+</footer>
+<script>
+  (function () {
+    var offsetMeta = document.querySelector('meta[name="quarto:offset"]');
+    var offset = offsetMeta ? offsetMeta.getAttribute("content") : "./";
+    document.querySelectorAll(".oph-footer img[data-src]").forEach(function (img) {
+      img.src = offset + img.dataset.src;
+    });
+    document.querySelectorAll(".navbar-title").forEach(function (el) {
+      if (el.querySelector(".navbar-title-hospitals")) {
+        return;
+      }
+      el.innerHTML = el.textContent.replace(
+        "Hospitals",
+        '<span class="navbar-title-hospitals">Hospitals</span>'
+      ).replace(
+        "Explore",
+        '<span class="navbar-title-explore">Explore</span>'
+      );
+    });
+  })();
+</script>
+
+
+
+
+</body></html>
