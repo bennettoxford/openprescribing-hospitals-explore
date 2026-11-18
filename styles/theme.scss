@@ -127,6 +127,16 @@ main.content > p {
   max-width: 42rem;
 }
 
+main.content .figure {
+  display: block;
+  max-width: 42rem;
+}
+
+main.content .figure-img {
+  max-width: 100%;
+  height: auto;
+}
+
 main.content a {
   font-weight: 600;
 }
